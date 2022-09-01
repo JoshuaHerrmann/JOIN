@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --bgHeader: blue;
+    --white: white;
+}
+
+body {
+    margin: 0;
+}
+
+.sidepadding {
+    padding-left: 60px;
+    padding-right: 60px;
+}

@@ -1,0 +1,33 @@
+    .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        background-color: grey;
+        border-right: 1px solid black;
+        padding: 5px;
+        height: calc(100vh - 90px);
+        .nav {
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 50px;
+            width: calc(100% - 30px);
+            display: flex;
+            flex-direction: column;
+            a {
+                cursor: pointer;
+                text-decoration: none;
+                color: black;
+                img {
+                    margin-right: 10px;
+                }
+            }
+            .link {
+                background-color: white;
+                padding: 5px;
+                margin-bottom: 5px;
+                margin-top: 5px;
+                width: calc(100% - 10px);
+            }
+        }
+    }

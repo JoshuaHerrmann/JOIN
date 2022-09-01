@@ -1,0 +1,12 @@
+.main {
+    display: flex;
+    app-sidebar {
+        width: 15%;
+    }
+    .content {
+        width: calc(90% - 200px);
+        padding-left: 100px;
+        padding-right: 100px;
+        background-color: aliceblue;
+    }
+}

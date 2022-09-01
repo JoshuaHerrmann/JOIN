@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainPageRoutingModule } from './main-page-routing.module';
 import { MainPageComponent } from './main-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { HeaderFooterModule } from '../header-footer/header-footer.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    MainPageRoutingModule
+    MainPageRoutingModule,
+    HeaderFooterModule
   ],
   exports: [
     MainPageComponent,
