@@ -5,12 +5,24 @@ import { MainPageRoutingModule } from './main-page-routing.module';
 import { MainPageComponent } from './main-page.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderFooterModule } from '../header-footer/header-footer.module';
+import { SummaryComponent } from './summary/summary.component';
+import { BoardComponent } from './board/board.component';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { HelpComponent } from './help/help.component';
 
 
 @NgModule({
   declarations: [
     MainPageComponent,
-    SidebarComponent
+    SidebarComponent,
+    SummaryComponent,
+    BoardComponent,
+    AddTaskComponent,
+    ContactsComponent,
+    LegalNoticeComponent,
+    HelpComponent
   ],
   imports: [
     CommonModule,

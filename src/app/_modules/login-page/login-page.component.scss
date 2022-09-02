@@ -1,5 +1,5 @@
 .main {
-    background-color: blue;
+    background-color: var(--bgHeader);
     position: relative;
     width: 100vw;
     height: 100vh;
@@ -12,6 +12,8 @@
         left: 100px;
     }
     .content {
+        min-width: 50%;
+        min-height: 50%;
         background-color: grey;
     }
 }

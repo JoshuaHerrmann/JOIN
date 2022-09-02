@@ -1,6 +1,19 @@
 :root {
-    --bgHeader: blue;
-    --white: white;
+    --bgMain: #4589FF;
+    --bgSecondary: #005DFF;
+    --bgWhite: #FFFFFF;
+    --bgGrey: #D1D1D1;
+    --borderGrey: #A8A8A8;
+    --buttonGrey: #647188;
+    --font: #2A3647;
+    --fontGrey: #42526E;
+    --selected: #D2E3FF;
+    //category colors
+    --design: #FF7A00;
+    --sales: #FC71FF;
+    --backoffice: #1FD7C1;
+    --marketing: #0038FF;
+    --media: #FFC701;
 }
 
 body {
