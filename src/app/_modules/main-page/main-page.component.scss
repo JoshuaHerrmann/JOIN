@@ -2,11 +2,16 @@
     display: flex;
     app-sidebar {
         width: 15%;
+        z-index: 1;
     }
     .content {
         width: calc(90% - 200px);
         padding-left: 100px;
         padding-right: 100px;
-        background-color: aliceblue;
+        background-color: var(--bgWhite);
     }
+}
+
+app-header {
+    z-index: 2;
 }

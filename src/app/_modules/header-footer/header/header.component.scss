@@ -5,7 +5,8 @@
     height: 80px;
     padding-left: 50px;
     padding-right: 50px;
-    background-color: var(--bgHeader);
+    background-color: var(--bgMain);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     .tools {
         display: flex;
         justify-content: space-evenly;

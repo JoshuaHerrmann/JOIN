@@ -11,7 +11,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { HelpComponent } from './help/help.component';
-
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,8 @@ import { HelpComponent } from './help/help.component';
   imports: [
     CommonModule,
     MainPageRoutingModule,
-    HeaderFooterModule
+    HeaderFooterModule,
+    MatIconModule
   ],
   exports: [
     MainPageComponent,

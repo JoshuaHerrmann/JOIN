@@ -1,0 +1,81 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    .greeting {
+        display: flex;
+        justify-content: center;
+        h2 {
+            font-size: 48px;
+        }
+        mark {
+            background-color: transparent;
+            color: var(--bgMain);
+        }
+    }
+    .topPart {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .taskBig {
+            display: flex;
+            background-color: var(--bgMain);
+            width: 75%;
+            color: var(--bgWhite);
+            .urgent {
+                padding-left: 40px;
+                padding-right: 40px;
+                border-right: 2px solid var(--bgWhite);
+            }
+            .date {
+                flex-direction: column;
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+            p {
+                color: var(--bgWhite);
+            }
+        }
+    }
+    .bottomPart {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+    .task {
+        width: 25%;
+        margin: 10px;
+        padding: 20px;
+        padding-left: 40px;
+        padding-right: 40px;
+        .taskTop {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h3 {
+                font-size: 28px;
+            }
+        }
+        p {
+            font-size: 24px;
+            color: var(--bgMain);
+        }
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+    //  border: 1px solid grey;
+}
+
+.lightblue {
+    background-color: var(--selected);
+}

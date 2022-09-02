@@ -7,6 +7,7 @@ import { HeaderFooterModule } from './_modules/header-footer/header-footer.modul
 import { LoginPageModule } from './_modules/login-page/login-page.module';
 import { LogoutPageModule } from './_modules/logout-page/logout-page.module';
 import { MainPageModule } from './_modules/main-page/main-page.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainPageModule } from './_modules/main-page/main-page.module';
     HeaderFooterModule,
     MainPageModule,
     LoginPageModule,
-    LogoutPageModule
+    LogoutPageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
