@@ -24,5 +24,18 @@ body {
     padding-left: 60px;
     padding-right: 60px;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.border {
+    border-radius: 10px;
+    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

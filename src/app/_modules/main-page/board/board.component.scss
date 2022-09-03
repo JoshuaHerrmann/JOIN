@@ -20,6 +20,24 @@
                 padding-left: 10px;
             }
         }
+        .addTask {
+            button {
+                display: flex;
+                align-items: center;
+                border-radius: 10px;
+                background-color: var(--bgMain);
+                color: var(--bgWhite);
+                border: none;
+                font-size: 18px;
+                padding: 10px;
+                cursor: pointer;
+            }
+        }
+        .searchBtn {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
     }
     .board {
         display: flex;
@@ -27,20 +45,22 @@
         .column {
             width: 25%;
             display: flex;
+            flex-direction: column;
             .addTask {
                 display: flex;
                 width: 80%;
                 justify-content: space-between;
+                border-bottom: 1px solid var(--bgGrey);
+                margin-bottom: 20px;
                 button {
                     background-color: transparent;
                     border: none;
+                    cursor: pointer;
                 }
+            }
+            .tasks {
+                width: 80%;
             }
         }
     }
-}
-
-.border {
-    border-radius: 10px;
-    box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
 }

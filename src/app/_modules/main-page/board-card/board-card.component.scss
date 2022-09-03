@@ -1,0 +1,35 @@
+.main {
+    padding: 20px;
+    width: 80%;
+    height: fit-content;
+    border-radius: 10%;
+    .category {
+        padding: 10px;
+        background-color: var(--design);
+        width: fit-content;
+        height: fit-content;
+        border-radius: 10px;
+        p {
+            margin: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: var(--bgWhite);
+        }
+    }
+    .userList {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .priority {
+            mat-icon {
+                color: red;
+            }
+        }
+    }
+    h4 {
+        color: var(--bgMain);
+    }
+    p {
+        color: var(--bgGrey);
+    }
+}

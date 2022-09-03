@@ -4,6 +4,7 @@
     .greeting {
         display: flex;
         justify-content: center;
+        margin-top: 80px;
         h2 {
             font-size: 48px;
         }
@@ -22,6 +23,9 @@
             background-color: var(--bgMain);
             width: 75%;
             color: var(--bgWhite);
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
             .urgent {
                 padding-left: 40px;
                 padding-right: 40px;
@@ -49,6 +53,10 @@
         padding: 20px;
         padding-left: 40px;
         padding-right: 40px;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
         .taskTop {
             display: flex;
             align-items: center;
