@@ -1,1 +1,11 @@
-<p>contacts works!</p>
+<div class="main">
+    <div class="contacts">
+
+    </div>
+    <div class="rightSide">
+        <div class="contact-detail" *ngIf="detail">
+            <app-contact-detail></app-contact-detail>
+        </div>
+        <button>New contact<img src="assets/img/icons/addContact.png" alt=""></button>
+    </div>
+</div>

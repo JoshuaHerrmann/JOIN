@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 
 
 
@@ -36,7 +37,8 @@ import { MatInputModule } from '@angular/material/input';
     LegalNoticeComponent,
     HelpComponent,
     BoardCardComponent,
-    DialogBoardCardComponent
+    DialogBoardCardComponent,
+    ContactDetailComponent
   ],
   imports: [
     CommonModule,
