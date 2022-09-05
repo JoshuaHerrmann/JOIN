@@ -22,6 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
+import { ContactSingleComponent } from './contact-single/contact-single.component';
 
 
 
@@ -38,7 +39,8 @@ import { ContactDetailComponent } from './contact-detail/contact-detail.componen
     HelpComponent,
     BoardCardComponent,
     DialogBoardCardComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    ContactSingleComponent
   ],
   imports: [
     CommonModule,

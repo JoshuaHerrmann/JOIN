@@ -30,6 +30,10 @@
                 padding-left: 40px;
                 padding-right: 40px;
                 border-right: 2px solid var(--bgWhite);
+                #urgent {
+                    border: 2px solid var(--bgWhite);
+                    border-radius: 100%;
+                }
             }
             .date {
                 flex-direction: column;
@@ -60,7 +64,7 @@
         .taskTop {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
             h3 {
                 font-size: 28px;
             }
@@ -68,6 +72,7 @@
         p {
             font-size: 24px;
             color: var(--bgMain);
+            text-align: center;
         }
     }
 }
@@ -79,7 +84,7 @@
 }
 
 .border {
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
     //  border: 1px solid grey;
 }

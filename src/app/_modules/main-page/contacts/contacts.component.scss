@@ -2,16 +2,32 @@
     width: 100%;
     display: flex;
     .contacts {
-        width: 30%;
+        width: calc(25% - 70px);
         overflow-y: scroll;
         overflow-x: hidden;
-        height: calc(100vh - 80px);
+        height: calc(100vh - 130px);
+        padding-right: 70px;
+        padding-top: 50px;
+        .contactsByLetter {
+            .contactSingle {
+                display: flex;
+                justify-content: center;
+            }
+            .letterLine {
+                border-bottom: 1px solid grey;
+                margin-bottom: 30px;
+                margin-top: 30px;
+                p {
+                    padding-left: 20px;
+                }
+            }
+        }
     }
     .rightSide {
         width: 70%;
         position: relative;
         .contact-detail {
-            width: 100%;
+            width: 70%;
             height: 85%;
         }
         button {

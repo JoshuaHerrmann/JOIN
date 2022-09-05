@@ -20,9 +20,11 @@
                 justify-content: start;
                 cursor: pointer;
                 text-decoration: none;
-                color: black;
+                color: var(--fontGrey);
+                mat-icon,
                 img {
                     margin-right: 10px;
+                    color: var(--bgMain);
                 }
             }
             .link {

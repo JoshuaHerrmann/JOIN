@@ -1,6 +1,14 @@
 <div class="main">
     <div class="contacts">
+        <div class="contactsByLetter" *ngFor="let letter of letters">
+            <div class="letterLine">
+                <p>{{ letter }}</p>
+            </div>
+            <div class="contactSingle">
+                <app-contact-single></app-contact-single>
+            </div>
 
+        </div>
     </div>
     <div class="rightSide">
         <div class="contact-detail" *ngIf="detail">
