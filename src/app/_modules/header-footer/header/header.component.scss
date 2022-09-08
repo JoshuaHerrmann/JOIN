@@ -7,6 +7,9 @@
     padding-right: 50px;
     background-color: var(--bgMain);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    .logo {
+        cursor: pointer;
+    }
     .tools {
         display: flex;
         justify-content: space-evenly;

@@ -11,9 +11,38 @@
         top: 100px;
         left: 100px;
     }
-    .content {
-        min-width: 50%;
-        min-height: 50%;
-        background-color: grey;
+    .signUp {
+        position: absolute;
+        top: 100px;
+        right: 100px;
+        display: none;
+        align-items: center;
+        font-size: 24px;
+        p {
+            margin: 0;
+            margin-right: 50px;
+        }
+        button {
+            background-color: var(--bgMain);
+            border: none;
+            border-radius: 10px;
+            color: var(--bgWhite);
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+        }
     }
+    .content {
+        min-width: 40%;
+        min-height: 50%;
+        background-color: var(--bgWhite);
+    }
+}
+
+.white {
+    background-color: var(--bgWhite) !important;
+}
+
+.signUpTrue {
+    display: flex !important;
 }

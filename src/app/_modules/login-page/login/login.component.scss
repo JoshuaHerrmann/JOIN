@@ -6,8 +6,58 @@
     padding-bottom: 30px;
     padding-left: 50px;
     padding-right: 50px;
+    font-size: 22px;
     .tools {
         display: flex;
         align-items: center;
+        width: 80%;
+        justify-content: space-between;
+        margin-bottom: 40px;
+        a {
+            color: var(--bgMain);
+            text-decoration: none;
+        }
+    }
+    .toolsButtom {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 80%;
+        button {
+            font-size: 22px;
+            padding: 10px;
+            padding-left: 40px;
+            padding-right: 40px;
+            border-radius: 10px;
+        }
+        .guest {
+            background-color: var(--bgWhite);
+            border: 1px solid var(--bgGrey);
+            color: var(--fontGrey);
+        }
+        .login {
+            border: none;
+            background-color: var(--bgMain);
+            color: var(--bgWhite);
+        }
+    }
+    h2 {
+        font-size: 40px;
+        font-weight: bold;
+    }
+    .input {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        border-bottom: 1px solid var(--bgGrey);
+        margin-bottom: 40px;
+        padding-bottom: 5px;
+        input {
+            border: none;
+            outline: none;
+            font-size: 22px;
+            width: 100%;
+        }
     }
 }
