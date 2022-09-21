@@ -1,7 +1,7 @@
 <div class="main">
     <div class="inputs">
         <div class="title">
-            <input type="text" name="" id="title" placeholder="Enter a title">
+            <input type="text" name="" id="title" [(ngModel)]="task.title" placeholder="Enter a title">
         </div>
         <mat-form-field appearance="fill">
             <mat-label>Select contacts to assign</mat-label>
@@ -52,6 +52,6 @@
         </div>
     </div>
     <div class="buttons">
-        <button>Clear <mat-icon>close</mat-icon></button><button id="task">Create Task <mat-icon>check</mat-icon></button>
+        <button>Clear <mat-icon>close</mat-icon></button><button id="task" (click)="addTaskToDB()">Create Task <mat-icon>check</mat-icon></button>
     </div>
 </div>

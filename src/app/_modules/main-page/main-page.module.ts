@@ -17,13 +17,17 @@ import { DialogBoardCardComponent } from './dialog-board-card/dialog-board-card.
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
 import { ContactSingleComponent } from './contact-single/contact-single.component';
-
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { provideFirestore } from '@angular/fire/firestore';
+import { getFirestore } from 'firebase/firestore';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -54,7 +58,9 @@ import { ContactSingleComponent } from './contact-single/contact-single.componen
     MatDatepickerModule,
     MatNativeDateModule,
     MatInputModule,
-  
+    FormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()), 
   
   ],
   exports: [

@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
+import { Task } from 'src/app/models/task.class';
+
 interface category {
   value: string;
   viewValue: string;
@@ -11,8 +16,10 @@ interface category {
 })
 export class AddTaskComponent implements OnInit {
   
-  
-  constructor() { }
+  firestore: any
+  constructor(firestore:FirebasedataService) {
+    this.firestore = firestore
+   }
 
   ngOnInit(): void {
   }
@@ -26,4 +33,17 @@ export class AddTaskComponent implements OnInit {
     {value: 'backoffice', viewValue: 'Backoffice'},
     {value: 'marketing', viewValue: 'Marketing'},
   ];
+
+
+  task = new Task();
+
+
+  addTaskToDB(){
+      console.log(this.task)
+     this.firestore.addTaskToDB(this.task.toJson())
+  }
 }
+
+
+// add entry to firebase
+

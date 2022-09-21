@@ -8,7 +8,11 @@ import { LoginPageModule } from './_modules/login-page/login-page.module';
 import { LogoutPageModule } from './_modules/logout-page/logout-page.module';
 import { MainPageModule } from './_modules/main-page/main-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,7 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MainPageModule,
     LoginPageModule,
     LogoutPageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    /* provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+     */
   ],
   providers: [],
   bootstrap: [AppComponent]
