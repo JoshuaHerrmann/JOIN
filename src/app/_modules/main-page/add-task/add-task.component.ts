@@ -15,7 +15,6 @@ interface category {
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-  
   firestore: any
   constructor(firestore:FirebasedataService) {
     this.firestore = firestore
