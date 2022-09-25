@@ -45,9 +45,8 @@ export class AddTaskComponent implements OnInit {
       alert('Please add a priority! (Urgent, Medium, Low)');
       return
     }
-     this.allSubTasks.forEach(subtask => {
-       subtask.checked === true?this.task.subtasks.push(subtask.task):null;
-      });
+    this.allSubTasks.forEach(subtask => {
+      subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
      this.firestore.addTaskToDB(this.task.toJson())
   }
 
@@ -55,7 +54,6 @@ export class AddTaskComponent implements OnInit {
     if(this.subtask === ''){ 
       alert('Please enter a text to your Subtask!');
       return}
-    
     this.allSubTasks.push({'task': this.subtask, 'checked': true})
     this.subtask = '';
   }
@@ -69,22 +67,13 @@ export class AddTaskComponent implements OnInit {
     this.task.priority = value;
   }
 
-
   selecteContacts(contacts:any){
     this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
   }
-
 
   selecteCategory(category:any){
     this.task.category = category.value;
   }
 // DEBUGG FUNCTION
-  logsub(){
-    console.warn(this.task)
-  }
-
+  logsub(){console.log(this.task)}
 }
-
-
-// add entry to firebase
-

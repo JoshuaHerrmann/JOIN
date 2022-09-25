@@ -10,7 +10,6 @@ export class Task {
 
 
         constructor(obj?: any){
-            // let finishDate = new Date;
             this.title = obj ? obj.title : '';
             this.finishDate = obj ? obj.finishDate : new Date();
             this.category = obj ? obj.category : '';

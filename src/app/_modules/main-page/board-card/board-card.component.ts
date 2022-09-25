@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogBoardCardComponent } from '../dialog-board-card/dialog-board-card.component';
 
@@ -7,8 +7,10 @@ import { DialogBoardCardComponent } from '../dialog-board-card/dialog-board-card
   templateUrl: './board-card.component.html',
   styleUrls: ['./board-card.component.scss']
 })
-export class BoardCardComponent implements OnInit {
 
+
+export class BoardCardComponent implements OnInit {
+  @Input() taskdata = [];
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
