@@ -33,14 +33,56 @@ export class AddTaskComponent implements OnInit {
     {value: 'marketing', viewValue: 'Marketing'},
   ];
 
-
+  priority: string = 'none'
+  subtask: string = ''
+  allSubTasks: Array<any> = []
   task = new Task();
-
+ //
+ assignedContacts$:Array<any>= [];
 
   addTaskToDB(){
-      console.log(this.task)
+    if(this.task.priority === ''){
+      alert('Please add a priority! (Urgent, Medium, Low)');
+      return
+    }
+     this.allSubTasks.forEach(subtask => {
+       subtask.checked === true?this.task.subtasks.push(subtask.task):null;
+      });
      this.firestore.addTaskToDB(this.task.toJson())
   }
+
+  addSubTask(){
+    if(this.subtask === ''){ 
+      alert('Please enter a text to your Subtask!');
+      return}
+    
+    this.allSubTasks.push({'task': this.subtask, 'checked': true})
+    this.subtask = '';
+  }
+
+
+  deleteSubtask(index:number){
+    this.allSubTasks.splice(index, 1);
+  }
+
+  priorityValue(value:string){
+    this.task.priority = value;
+  }
+
+
+  selecteContacts(contacts:any){
+    this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
+  }
+
+
+  selecteCategory(category:any){
+    this.task.category = category.value;
+  }
+// DEBUGG FUNCTION
+  logsub(){
+    console.warn(this.task)
+  }
+
 }
 
 

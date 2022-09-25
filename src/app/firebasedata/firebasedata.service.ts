@@ -15,6 +15,12 @@ export class FirebasedataService {
    }
 
    addTaskToDB(task:any){
-     this.firestore.collection('userdata').add(task)
+    try{this.firestore.collection('userdata').add(task).then(()=>{
+      console.log('Succesfully added Task to DB!')
+     })}catch(e){
+      console.log(e)
+     }
+     
+     
    } 
 }

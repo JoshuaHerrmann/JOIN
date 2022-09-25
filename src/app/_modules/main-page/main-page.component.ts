@@ -16,10 +16,10 @@ interface Item {
 export class MainPageComponent implements OnInit {
   constructor(firestore: FirebasedataService){
     firestore.userdata$.subscribe((data)=>{
-      console.log(data)
+      console.log('DB_USERDATA',data)
     });
     firestore.userlist$.subscribe((data)=>{
-      console.log(data)
+      console.log('DB_USERLIST',data)
     })
   }
  
