@@ -27,12 +27,20 @@ export class BoardComponent implements OnInit {
   }
 
   filterTaskState(){
+    this.resetArrays()
     this.allUsersTasks.forEach(task => {
       task.state === 'todo'? this.Tasks_todo.push(task):
       task.state === 'progress'? this.Tasks_progress.push(task):
       task.state === 'feedback'? this.Tasks_feedback.push(task):
-      task.state === 'done'? this.Tasks_done.push(task): console.log('nope');  
+      task.state === 'done'? this.Tasks_done.push(task): null;  
     });
+  }
+
+  resetArrays(){
+    this.Tasks_todo = [];
+    this.Tasks_feedback = [];
+    this.Tasks_progress = [];
+    this.Tasks_done = [];
   }
   // open dialog
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {

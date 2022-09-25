@@ -20,6 +20,7 @@ export class BoardCardComponent implements OnInit {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
+      data: this.taskdata
     })
   }
 }
