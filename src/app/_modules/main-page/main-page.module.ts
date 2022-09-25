@@ -28,6 +28,9 @@ import { initializeApp } from 'firebase/app';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
+import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-contact.component';
+import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
+import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
 
 
 
@@ -44,7 +47,10 @@ import { environment } from 'src/environments/environment';
     BoardCardComponent,
     DialogBoardCardComponent,
     ContactDetailComponent,
-    ContactSingleComponent
+    ContactSingleComponent,
+    DialogAddContactComponent,
+    DialogAddTaskComponent,
+    DialogEditContactComponent
   ],
   imports: [
     CommonModule,
