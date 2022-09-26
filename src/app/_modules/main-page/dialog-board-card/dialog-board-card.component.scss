@@ -1,6 +1,77 @@
 .main {
     background-color: var(--bgWhite);
-    button {
-        margin-right: 8px;
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: start;
+    width: 500px;
+    position: relative;
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 50px;
+        width: 100%;
+        .category {
+            background-color: orange;
+            color: var(--bgWhite);
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+            border-radius: 10px;
+            font-size: 24px;
+            p {
+                margin: 0;
+            }
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+    .mat-dialog-content {
+        width: 100%;
+        font-size: 24px;
+        height: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        h1 {
+            font-size: 56px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+        p {
+            margin: 0;
+        }
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            img {
+                margin-left: 20px;
+            }
+        }
+        .margin {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+    }
+    .editbtn {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+        }
     }
 }

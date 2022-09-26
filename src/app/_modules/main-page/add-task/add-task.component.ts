@@ -26,11 +26,11 @@ export class AddTaskComponent implements OnInit {
 
   contactsList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   categoryList: category[] = [
-    {value: 'desing', viewValue: 'Design'},
-    {value: 'media', viewValue: 'Media'},
-    {value: 'sales', viewValue: 'Sales'},
-    {value: 'backoffice', viewValue: 'Backoffice'},
-    {value: 'marketing', viewValue: 'Marketing'},
+    {value: 'Desing', viewValue: 'Design'},
+    {value: 'Media', viewValue: 'Media'},
+    {value: 'Sales', viewValue: 'Sales'},
+    {value: 'Backoffice', viewValue: 'Backoffice'},
+    {value: 'Marketing', viewValue: 'Marketing'},
   ];
 
   priority: string = 'none'
