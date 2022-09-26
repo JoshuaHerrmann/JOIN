@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { FormControl } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { Task } from 'src/app/models/task.class';
 

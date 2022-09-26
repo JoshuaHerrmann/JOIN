@@ -9,40 +9,36 @@
         </div>
     </div>
     <div class="board">
-        <div class="column">
+        <div class="taskHeader">
             <div class="addTask">
                 <p>To do</p>
                 <button (click)="openDialog('0ms', '0ms')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
             </div>
-            <div class="tasks" *ngFor="let task of Tasks_todo">
-                <app-board-card [taskdata]="task"></app-board-card>
-            </div>
-        </div>
-        <div class="column">
             <div class="addTask">
                 <p>In progress</p>
                 <button (click)="openDialog('0ms', '0ms')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
             </div>
-            <div class="tasks" *ngFor="let task of Tasks_progress">
-                <app-board-card [taskdata]="task"></app-board-card>
-            </div>
-        </div>
-        <div class="column">
             <div class="addTask">
                 <p>Await feedback</p>
                 <button (click)="openDialog('0ms', '0ms')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
             </div>
-            <div class="tasks" *ngFor="let task of Tasks_feedback">
-                <app-board-card [taskdata]="task"></app-board-card>
-            </div>
-        </div>
-        <div class="column">
             <div class="addTask">
                 <p>Done</p>
                 <button (click)="openDialog('0ms', '0ms')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
             </div>
-            <div class="tasks" *ngFor="let task of Tasks_done">
-                <app-board-card [taskdata]="task"></app-board-card>
+        </div>
+        <div class="taskColumns">
+            <div class=" column">
+                <app-board-card *ngFor="let task of Tasks_todo" [taskdata]="task"></app-board-card>
+            </div>
+            <div class=" column">
+                <app-board-card *ngFor="let task of Tasks_progress" [taskdata]="task"></app-board-card>
+            </div>
+            <div class=" column">
+                <app-board-card *ngFor="let task of Tasks_feedback" [taskdata]="task"></app-board-card>
+            </div>
+            <div class=" column">
+                <app-board-card *ngFor="let task of Tasks_done" [taskdata]="task"></app-board-card>
             </div>
         </div>
     </div>

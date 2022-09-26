@@ -3,9 +3,9 @@
     width: 80%;
     height: fit-content;
     border-radius: 20px;
+    margin: 10px;
     .category {
         padding: 10px;
-        background-color: var(--design);
         width: fit-content;
         height: fit-content;
         border-radius: 10px;
@@ -34,4 +34,24 @@
     p {
         color: var(--bgGrey);
     }
+}
+
+.Design {
+    background-color: var(--design);
+}
+
+.Sales {
+    background-color: var(--sales);
+}
+
+.Backoffice {
+    background-color: var(--backoffice);
+}
+
+.Marketing {
+    background-color: var(--marketing);
+}
+
+.Media {
+    background-color: var(--media);
 }
