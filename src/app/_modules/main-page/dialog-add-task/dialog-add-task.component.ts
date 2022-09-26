@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';;
+import { Component, Inject, OnInit } from '@angular/core';;
 import { FormControl } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { Task } from 'src/app/models/task.class';
 
@@ -14,9 +15,9 @@ interface category {
 })
 export class DialogAddTaskComponent implements OnInit {
 
-    firestore: any
-    constructor(firestore:FirebasedataService) {
-      this.firestore = firestore
+    constructor(public firestore:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any) {
+      this.task.state = data;
+      console.warn(this.task.state)
      }
   
     ngOnInit(): void {

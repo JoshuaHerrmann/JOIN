@@ -43,11 +43,12 @@ export class BoardComponent implements OnInit {
     this.Tasks_done = [];
   }
   // open dialog
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, state: string): void {
     this.dialog.open(DialogAddTaskComponent, {
       width: '250px',
       enterAnimationDuration,
       exitAnimationDuration,
+      data: state,
     })
   }
 
