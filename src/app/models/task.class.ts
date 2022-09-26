@@ -1,6 +1,6 @@
 export class Task {
         title: string;
-        finishDate: Date;
+        finishDate: number;
         category: string;
         priority: string;
         state:string;
@@ -11,10 +11,10 @@ export class Task {
 
         constructor(obj?: any){
             this.title = obj ? obj.title : '';
-            this.finishDate = obj ? obj.finishDate : new Date();
+            this.finishDate = obj ? obj.finishDate : new Date().getTime();
             this.category = obj ? obj.category : '';
             this.priority = obj ? obj.priority : '';
-            this.state = 'todo'; // todo, progress, feedback, done
+            this.state = 'todo'; // by default todo, when created in board state can change
             this.description = obj ? obj.description : '';
             this.subtasks = obj ? obj.subtasks : [];
             this.assignedTo = obj ? obj.assignedTo : [];

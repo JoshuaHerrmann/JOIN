@@ -31,10 +31,12 @@ export class AddTaskComponent implements OnInit {
     {value: 'Marketing', viewValue: 'Marketing'},
   ];
 
-  priority: string = 'none'
-  subtask: string = ''
+  priority: string = 'none';
+  subtask: string = '';
+  date: Date;
   allSubTasks: Array<any> = []
   task = new Task();
+  
  //
  assignedContacts$:Array<any>= [];
 
@@ -45,7 +47,8 @@ export class AddTaskComponent implements OnInit {
     }
     this.allSubTasks.forEach(subtask => {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
-     this.firestore.addTaskToDB(this.task.toJson())
+    this.task.finishDate = this.date.getTime()
+    this.firestore.addTaskToDB(this.task.toJson())
   }
 
   addSubTask(){
