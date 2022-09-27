@@ -15,7 +15,7 @@ export class SummaryComponent implements OnInit {
     this.firebase.userdata$.subscribe((data)=>{
       this.userData = data
       this.filterData()
-      console.log(this.userData)
+      console.log(this.userData) // remove when finished
     })
   }
 
@@ -36,8 +36,6 @@ export class SummaryComponent implements OnInit {
       return a - b
     })
     this.upcomingDate = this.formatDate(new Date(dates[0]))
-    console.log(dates)
-    console.log(this.upcomingDate)
   }
   filterForAmount(){
     this.userData.forEach( task=> {
