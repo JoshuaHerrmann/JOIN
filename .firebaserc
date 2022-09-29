@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "join-new-d10e8"
+  },
+  "targets": {
+    "join-new-d10e8": {
+      "hosting": {
+        "JOIN": [
+          "join-new-d10e8"
+        ]
+      }
+    }
   }
 }

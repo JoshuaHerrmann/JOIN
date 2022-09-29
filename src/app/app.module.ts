@@ -13,6 +13,8 @@ import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
     /* provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
      */
