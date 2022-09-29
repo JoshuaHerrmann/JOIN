@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/authentication/authentication.service';
 
 @Component({
   selector: 'app-login-page',
@@ -7,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPageComponent implements OnInit {
   loginPage: boolean = false;
-  constructor() { }
+  constructor(public auth: AuthenticationService) { }
 
   ngOnInit(): void {
   }
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+/////////////////////////// TEST
   userlist:any={
     'users':[
       {'userName': 'Max Mustermann',
@@ -19,49 +34,6 @@ export class LoginPageComponent implements OnInit {
       'userId': 'userId1'}
     ]
   }
-
-
-
-  userData:any ={
-    'contacts': [
-      {
-        'userName': 'Max Mustermann',
-        'email': 'testmail@web.de',
-        'shortHandName': 'MM',
-        'userId': 'userId1'
-      },
-      {'userName': 'Max Musterfrau',
-      'email': 'testmail2@web.de',
-      'shortHandName': 'MF',
-      'userId': 'userId2'}
-    ],
-    'tasks': [
-      {'title': 'Titel',
-       'finishDate': '1234567',  //timestamp 
-        'category': 'desgin',
-        'priority': 'urgent',
-        'state': 'inProgress',
-        'description': 'description',
-        'subtasks': [
-                    {'subtask1': 'subtask1'},
-        ],
-        'assignedTo': [
-                {'userId': 'userId'},
-        ]
-      },
-      {'title': 'Titel2',
-      'finishDate': '7654321',  //timestamp 
-       'category': 'desgin2',
-       'priority': 'urgent2',
-       'state': 'inProgress2',
-       'description': 'description2',
-       'subtasks': [
-                   {'subtask2': 'subtask2'},
-       ],
-       'assignedTo': [
-               {'userId': 'userId'},
-       ]
-     }
-    ]
-  }
 }
+
+

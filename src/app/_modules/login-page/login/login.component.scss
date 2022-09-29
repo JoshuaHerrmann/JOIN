@@ -13,9 +13,10 @@
         width: 80%;
         justify-content: space-between;
         margin-bottom: 40px;
-        a {
+        .forgot {
             color: var(--bgMain);
             text-decoration: none;
+            cursor: pointer;
         }
     }
     .toolsButtom {

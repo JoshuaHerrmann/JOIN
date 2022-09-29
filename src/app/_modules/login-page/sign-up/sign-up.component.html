@@ -1,8 +1,8 @@
 <div class="main">
     <h2>Sign up</h2>
-    <div class="input"><input type="text" placeholder="Name"><img src="assets/img/icons/iconuser.png" alt=""></div>
-    <div class="input"><input type="text" placeholder="Email"><img src="assets/img/icons/iconemail.png" alt=""></div>
-    <div class="input"><input type="text" placeholder="Password"><img src="assets/img/icons/iconpassword.png" alt=""></div>
-    <button class="signUp">Sign up</button>
-    <div class="back"><img src="assets/img/icons/arrow-left-line.png" alt=""></div>
+    <div class="input"><input type="text" placeholder="Name" [(ngModel)]="username"><img src="assets/img/icons/iconuser.png" alt=""></div>
+    <div class="input"><input type="text" placeholder="Email" [(ngModel)]="email"><img src="assets/img/icons/iconemail.png" alt=""></div>
+    <div class="input"><input type="text" placeholder="Password" [(ngModel)]="password"><img src="assets/img/icons/iconpassword.png" alt=""></div>
+    <button class="signUp" (click)="auth.signUpWithEmailAndPassword(email, password)">Sign up</button>
+    <div class="back" routerLink="/login"><img src="assets/img/icons/arrow-left-line.png" alt=""></div>
 </div>

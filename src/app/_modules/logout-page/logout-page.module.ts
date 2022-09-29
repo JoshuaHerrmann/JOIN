@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LogoutPageRoutingModule } from './logout-page-routing.module';
 import { LogoutPageComponent } from './logout-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { LogoutPageComponent } from './logout-page.component';
   ],
   imports: [
     CommonModule,
-    LogoutPageRoutingModule
+    LogoutPageRoutingModule,
+    FormsModule
   ],
   exports: [
     LogoutPageComponent

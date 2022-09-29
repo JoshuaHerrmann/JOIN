@@ -9,6 +9,7 @@ import { Router, RouterLink } from '@angular/router';
 export class AuthenticationService {
 
   constructor(public auth: AngularFireAuth, public router: Router) {
+    
    }
 
    loginWithEmailAndPassword(email:string, password:string){
