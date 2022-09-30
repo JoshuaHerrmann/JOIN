@@ -3,17 +3,31 @@ import { collectionData, Firestore } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
 import { Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AuthenticationService } from '../authentication/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
 export class FirebasedataService {
   userdata$: Observable<any>;
   userlist$: Observable<any>;
-  userid: string = 'wzJDopKHiIaMYoDDa7Sjs5e7F602'; //wird gegen actual userid ausgetausche als variable
+  userid: string; 
   constructor(public firestore: AngularFirestore) {
-    this.userdata$ = firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
-    this.userlist$ = firestore.collection('userlist').valueChanges()
+    console.log(localStorage.getItem('JOIN_uid'))
+    this.updateData()
    }
+
+
+   updateUid(){
+    this.userid = localStorage.getItem('JOIN_uid')
+   }
+
+
+   updateData(){
+    this.updateUid()
+    this.userdata$ =this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
+    this.userlist$ = this.firestore.collection('userlist').valueChanges()
+   }
+
 
    addTaskToDB(task:any){
     try{this.firestore.collection('userdata').doc(this.userid).collection('tasks').add(task).then(()=>{
