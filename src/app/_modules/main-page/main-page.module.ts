@@ -31,6 +31,7 @@ import { environment } from 'src/environments/environment';
 import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-contact.component';
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
 import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
+import { LogoutButtonModule } from '../logout-button/logout-button.module';
 
 
 
@@ -65,6 +66,7 @@ import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-co
     MatNativeDateModule,
     MatInputModule,
     FormsModule,
+    LogoutButtonModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()), 
   

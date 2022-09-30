@@ -1,0 +1,21 @@
+.main {
+    background-color: var(--bgWhite);
+    border-radius: 10px;
+    border-top-right-radius: 0px !important;
+    box-shadow: 1px 3px 3px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    &:hover {
+        background-color: var(--bgMain);
+    }
+    p {
+        font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: var(--bgMain);
+        &:hover {
+            color: var(--bgWhite);
+        }
+    }
+}

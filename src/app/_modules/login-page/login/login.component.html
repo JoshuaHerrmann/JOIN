@@ -7,6 +7,6 @@
         <div class="forgot" routerLink="forgot-password">Forgot my password</div>
     </div>
     <div class="toolsButtom">
-        <button class="login" (click)="auth.loginWithEmailAndPassword(email, password)">Log In</button><button class="guest">Guest log in</button>
+        <button class="login" (click)="auth.loginWithEmailAndPassword(email, password)">Log In</button><button class="guest" (click)="auth.logInAsGuest('testmail@test.de', 'passwort12345')">Guest log in</button>
     </div>
 </div>

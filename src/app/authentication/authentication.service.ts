@@ -42,4 +42,14 @@ export class AuthenticationService {
       console.log('error creating new account', e);
     });
    }
+
+
+   logInAsGuest(email: string, password: string){
+    this.auth.signInWithEmailAndPassword(email, password).then(()=>{
+      console.log('Logged in as guest');
+      this.router.navigateByUrl('/main');
+      }).catch(e=>{
+        console.log('Error', e)
+    })
+   }
 }

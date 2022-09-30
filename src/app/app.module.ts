@@ -15,6 +15,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { LogoutButtonComponent } from './_modules/logout-button/logout-button.component';
+import { LogoutButtonModule } from './_modules/logout-button/logout-button.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,6 +30,7 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     LogoutPageModule,
     BrowserAnimationsModule,
     FormsModule,
+    LogoutButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

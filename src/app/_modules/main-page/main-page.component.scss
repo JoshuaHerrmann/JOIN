@@ -1,5 +1,6 @@
 .main {
     display: flex;
+    position: relative;
     app-sidebar {
         width: 10%;
         z-index: 1;
@@ -9,6 +10,11 @@
         padding-left: 100px;
         padding-right: 100px;
         background-color: var(--bgWhite);
+    }
+    app-logout-button {
+        position: absolute;
+        bottom: 50px;
+        right: 50px;
     }
 }
 

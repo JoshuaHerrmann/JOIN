@@ -8,6 +8,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
+import { DialogResetPasswordComponent } from './dialog-reset-password/dialog-reset-password.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule } from '@angular/forms';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    DialogResetPasswordComponent
   ],
   imports: [
     CommonModule,
