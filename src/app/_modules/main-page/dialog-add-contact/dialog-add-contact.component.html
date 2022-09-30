@@ -1,1 +1,2 @@
-<p>dialog-add-contact works!</p>
+<input type="text" [(ngModel)]="contact.name"><input type="text" [(ngModel)]="contact.email"><input type="number" [(ngModel)]="contact.phone">
+<button (click)="firebase.addContactToDB(contact.returnToJson())">Add contact</button>

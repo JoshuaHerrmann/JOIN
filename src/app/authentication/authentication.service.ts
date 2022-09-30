@@ -10,15 +10,22 @@ import { FirebasedataService } from '../firebasedata/firebasedata.service';
 })
 export class AuthenticationService {
   
-  constructor(public auth: AngularFireAuth, public router: Router, private firestore: AngularFirestore, private firebaserservice: FirebasedataService) {
+  constructor(
+    public auth: AngularFireAuth, 
+    public router: Router, 
+    private firestore: AngularFirestore,
+    private firebaserservice: FirebasedataService) {
       auth.onAuthStateChanged((user)=>{
         if(user){
           console.log('Logged in', user);
           localStorage.setItem('currentUser', 'true')
+          if(localStorage.getItem('JOIN_uid') == ''){
+            localStorage.setItem('JOIN_uid', user['uid'])
+            location.reload()
+          }
         }else{
           console.log('Logged out')
           localStorage.setItem('currentUser', 'false')
-          //router.navigateByUrl('/login')
         }
       })
       

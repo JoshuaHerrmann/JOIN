@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
+import { Contact } from 'src/app/models/contact.class';
 
 @Component({
   selector: 'app-dialog-add-contact',
@@ -6,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog-add-contact.component.scss']
 })
 export class DialogAddContactComponent implements OnInit {
-
-  constructor() { }
+  contact= new Contact()
+  constructor(public firebase: FirebasedataService) { }
 
   ngOnInit(): void {
   }

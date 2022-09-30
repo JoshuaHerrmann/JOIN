@@ -12,6 +12,7 @@ export class SummaryComponent implements OnInit {
   states= new States();
   upcomingDate: string;
   constructor(public firebase: FirebasedataService) { 
+   
     this.firebase.userdata$.subscribe((data)=>{
       this.userData = data
       this.filterData()

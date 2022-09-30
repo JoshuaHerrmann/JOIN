@@ -8,7 +8,9 @@
     </div>
     <div class="nav">
 
-        <a href="#" class="link" routerLink="/main/legal-notice">
-            <mat-icon material-symbols-outlined>info</mat-icon> Legal notice</a>
+        <a href="#" class="link" routerLink="/main/legal-notice" [ngClass]="{'bgBlue':legalNoticeActice}" class="legalNotice">
+            <img src="assets/img/icons/Group 4legalnoticeicongrey.png" alt="" *ngIf="!legalNoticeActice"><img src="assets/img/icons/Group 4legalnoticeiconwhite.png" alt="" *ngIf="legalNoticeActice">
+            <p>Legal notice</p>
+        </a>
 
     </div>

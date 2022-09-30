@@ -14,8 +14,8 @@ export class BoardComponent implements OnInit {
   Tasks_progress: Array<any> = [];
   Tasks_feedback: Array<any> = [];
   Tasks_done: Array<any> = [];
-  constructor(public dialog: MatDialog, public tasksDB: FirebasedataService) {
-    tasksDB.userdata$.subscribe((data)=>{
+  constructor(public dialog: MatDialog, public firebase: FirebasedataService) {
+    firebase.userdata$.subscribe((data)=>{
       this.allUsersTasks = data;
       this.filterTaskState()
       console.log('allUserTasks in board',this.allUsersTasks)

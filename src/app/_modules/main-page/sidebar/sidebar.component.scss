@@ -8,16 +8,16 @@
         box-shadow: 5px -3px 2px -3px rgba(0, 0, 0, 0.2);
         height: calc(100vh - 90px);
         .nav {
-            padding-left: 15px;
-            padding-right: 15px;
+            padding-left: 25px;
+            padding-right: 25px;
             padding-top: 50px;
-            width: calc(100% - 30px);
+            width: calc(100% - 50px);
             display: flex;
             flex-direction: column;
             a {
                 display: flex;
                 align-items: center;
-                justify-content: start;
+                justify-content: space-between;
                 cursor: pointer;
                 text-decoration: none;
                 color: var(--fontGrey);
@@ -34,5 +34,17 @@
                 margin-top: 5px;
                 width: calc(100% - 10px);
             }
+            .legalNotice {
+                p {
+                    padding: 5px;
+                    margin: 0;
+                }
+            }
         }
+    }
+    
+    .bgBlue {
+        background-color: var(--bgMain) !important;
+        color: var(--bgWhite) !important;
+        border-radius: 10px;
     }

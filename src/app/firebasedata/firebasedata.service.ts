@@ -24,19 +24,31 @@ export class FirebasedataService {
 
    updateData(){
     this.updateUid()
-    this.userdata$ =this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
+   if(this.userid == ''){
+    console.log('nichts')
+    this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
+    this.userlist$ = this.firestore.collection('userlist').doc('noid').valueChanges()
+    return
+   }
+    this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
     this.userlist$ = this.firestore.collection('userlist').valueChanges()
    }
 
 
    addTaskToDB(task:any){
     try{this.firestore.collection('userdata').doc(this.userid).collection('tasks').add(task).then(()=>{
-     // this.userid das dokuement muss mit dem für die userid ausgetauscht werden
       console.log('Succesfully added Task to DB!')
      })}catch(e){
       console.log(e)
      }
-     
-     
    } 
+
+
+   addContactToDB(contact:any){
+    this.firestore.collection('usercontacts').doc(this.userid).set(contact).then(()=>{
+      console.log('Succesfully created new Contact to DB!')
+    }).catch((e)=>{
+      console.warn('Error', e)
+    })
+   }
 }
