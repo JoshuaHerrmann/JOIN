@@ -14,4 +14,8 @@ export class DialogAddContactComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tetsts(){
+    console.log(this.contact.returnToJson())
+  }
+
 }

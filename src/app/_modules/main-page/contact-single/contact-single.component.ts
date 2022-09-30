@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 
 @Component({
   selector: 'app-contact-single',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact-single.component.scss']
 })
 export class ContactSingleComponent implements OnInit {
-
-  constructor() { }
+  @Input() data:any;
+  constructor(public firebase:FirebasedataService) {
+   
+   }
 
   ngOnInit(): void {
   }
 
+  getShorthand(){
+    return 'JH'
+  }
 }

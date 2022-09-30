@@ -1,0 +1,93 @@
+.main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    .header {
+        border-radius: 20px 20px 0 0;
+        color: var(--bgWhite);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 30%;
+        background-color: var(--bgMain);
+        h2 {
+            font-size: 32px;
+            margin: 10px;
+        }
+        p {
+            margin: 10px;
+        }
+    }
+    .content {
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        .profilPic {
+            margin-top: 30px;
+        }
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .input {
+                margin: 20px;
+                width: 100%;
+                border-bottom: 1px solid var(--bgGrey);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                input {
+                    font-size: 24px;
+                    border: none;
+                    outline: none;
+                    font-size: 22px;
+                    width: 100%;
+                    margin-bottom: 5px;
+                    margin-left: 20px;
+                    color: var(--bgGrey);
+                    &::placeholder {
+                        color: var(--bgGrey);
+                    }
+                }
+                img {
+                    margin-right: 20px;
+                }
+            }
+        }
+        .buttons {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            button {
+                border: none;
+                outline: none;
+                border-radius: 10px;
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    margin: 10px 10px;
+                    font-size: 24px;
+                }
+            }
+            .cancel {
+                background-color: var(--bgWhite);
+                color: var(--bgGrey);
+                border: 1px solid var(--bgGrey);
+            }
+            .create {
+                background-color: var(--bgMain);
+                color: var(--bgWhite);
+            }
+        }
+    }
+    .backBtn {
+        position: absolute;
+    }
+}

@@ -5,18 +5,18 @@ export class Contact{
         phone:number;
 
         constructor(obj?:any){
-            this.uid = obj ? obj : 'ot2eEvfgnnM6cTsIUoWwRuLIPPk2';
-            this.name = obj ? obj : 'guest account';
-            this.email = obj ? obj : 'testmail@test.de';
-            this.phone = obj ? obj : '0123456789';
+            this.uid = obj ? obj : '';
+            this.name = obj ? obj : '';
+            this.email = obj ? obj : '';
+            this.phone = obj ? obj : null;
         }
 
         public returnToJson(){
             return{
-                uid : this.uid,
-                name: this.name,
-                email: this.email,
-                phone: this.phone
+                uid : this.uid !== '' ? this.uid : 'noid',
+                name: this.name !== '' ? this.name : 'Invalid Name',
+                email: this.email !== '' ? this.email : 'Invalid Email',
+                phone: this.phone !==  null ? this.phone : 1919191919,
             }
         }
 }

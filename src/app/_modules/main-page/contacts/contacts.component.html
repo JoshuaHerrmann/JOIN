@@ -5,15 +5,15 @@
                 <p>{{ letter }}</p>
             </div>
             <div class="contactSingle">
-                <app-contact-single></app-contact-single>
+                <app-contact-single *ngFor="let user of userList, let i = index" [data]="userList[i]"></app-contact-single>
             </div>
 
         </div>
     </div>
     <div class="rightSide">
         <div class="contact-detail" *ngIf="detail">
-            <app-contact-detail></app-contact-detail>
+            <app-contact-detail [data]=""></app-contact-detail>
         </div>
-        <button>New contact<img src="assets/img/icons/addContact.png" alt=""></button>
+        <button (click)="openDialog()">New contact<img src="assets/img/icons/addContact.png" alt=""></button>
     </div>
 </div>

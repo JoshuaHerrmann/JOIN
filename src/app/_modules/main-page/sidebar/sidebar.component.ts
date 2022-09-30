@@ -12,13 +12,11 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) { 
     router.events.subscribe((url)=>{
       if(url instanceof NavigationEnd){
-        console.log(url)
         if(url['url'] == '/main/legal-notice'){
           this.legalNoticeActice = true;
         }else{
           this.legalNoticeActice = false;
         }
-        console.log(this.legalNoticeActice)
       }
       
     })

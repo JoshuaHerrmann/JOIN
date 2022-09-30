@@ -19,10 +19,10 @@ export class MainPageComponent implements OnInit {
   helpPage: boolean = false;
   constructor(firestore: FirebasedataService){
     firestore.userdata$.subscribe((data)=>{
-      console.log('DB_USERDATA',data)
+      //console.log('DB_USERDATA',data)
     });
-    firestore.userlist$.subscribe((data)=>{
-      console.log('DB_USERLIST',data)
+    firestore.usercontacts$.subscribe((data)=>{
+     // console.log('DB_USERLIST',data)
     })
 
   }

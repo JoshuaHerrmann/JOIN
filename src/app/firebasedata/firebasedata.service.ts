@@ -9,6 +9,7 @@ import { AuthenticationService } from '../authentication/authentication.service'
 })
 export class FirebasedataService {
   userdata$: Observable<any>;
+  usercontacts$: Observable<any>;
   userlist$: Observable<any>;
   userid: string; 
   constructor(public firestore: AngularFirestore) {
@@ -27,11 +28,11 @@ export class FirebasedataService {
    if(this.userid == ''){
     console.log('nichts')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
-    this.userlist$ = this.firestore.collection('userlist').doc('noid').valueChanges()
+    this.usercontacts$ = this.firestore.collection('usercontacts').doc('noid').valueChanges()
     return
    }
     this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
-    this.userlist$ = this.firestore.collection('userlist').valueChanges()
+    this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').valueChanges()
    }
 
 
@@ -43,12 +44,13 @@ export class FirebasedataService {
      }
    } 
 
-
+//contacts
    addContactToDB(contact:any){
-    this.firestore.collection('usercontacts').doc(this.userid).set(contact).then(()=>{
+    this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc().set(contact).then(()=>{
       console.log('Succesfully created new Contact to DB!')
     }).catch((e)=>{
       console.warn('Error', e)
     })
    }
+
 }

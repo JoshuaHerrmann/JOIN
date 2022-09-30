@@ -1,9 +1,9 @@
 <div class="main">
     <div class="profil">
-        JH
+        {{ getShorthand() }}
     </div>
     <div class="inofs">
-        <h3>Contact Name</h3>
-        <a href="#">testmail@web.de</a>
+        <h3>{{ data['name'] }}</h3>
+        <a href="#">{{ data['email'] }}</a>
     </div>
 </div>
