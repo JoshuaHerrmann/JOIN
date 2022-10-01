@@ -11,11 +11,15 @@ export class ContactSingleComponent implements OnInit {
   constructor(public firebase:FirebasedataService) {
    
    }
-
+  
   ngOnInit(): void {
   }
 
   getShorthand(){
     return 'JH'
+  }
+
+  updateUserData(){
+    this.firebase.nextUserData(this.data)
   }
 }

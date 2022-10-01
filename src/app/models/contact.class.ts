@@ -13,10 +13,10 @@ export class Contact{
 
         public returnToJson(){
             return{
-                uid : this.uid !== '' ? this.uid : 'noid',
-                name: this.name !== '' ? this.name : 'Invalid Name',
-                email: this.email !== '' ? this.email : 'Invalid Email',
-                phone: this.phone !==  null ? this.phone : 1919191919,
+                uid : this.uid != '' ? this.uid : 'noid',
+                name: this.name != '' ? this.name : 'Invalid Name',
+                email: this.email != '' ? this.email : 'Invalid Email',
+                phone: this.phone !=  null ? this.phone : 1919191919,
             }
         }
 }

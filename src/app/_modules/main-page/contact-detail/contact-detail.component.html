@@ -1,6 +1,6 @@
 <div class="main">
     <div class="headInfo">
-        <div class="profil">JH</div>
+        <div class="profil">{{ getShorthand() }}</div>
         <div class="name">
             <h2>{{ data['name']}}</h2>
             <div class="addTask">
@@ -17,12 +17,12 @@
         <div class="email">
             <h4>Email</h4>
             <a href="#">
-                <p>anton@gmail.com</p>
+                <p>{{ data['email'] }}</p>
             </a>
         </div>
         <div class="mobil">
             <h4>Mobil</h4>
-            <p>+49 1111 111 11 1</p>
+            <p>{{ data['phone'] }}</p>
         </div>
     </div>
 </div>

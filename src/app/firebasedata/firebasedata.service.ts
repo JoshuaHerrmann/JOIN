@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { collectionData, Firestore } from '@angular/fire/firestore';
 import { collection } from 'firebase/firestore';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthenticationService } from '../authentication/authentication.service';
 @Injectable({
@@ -12,6 +12,14 @@ export class FirebasedataService {
   usercontacts$: Observable<any>;
   userlist$: Observable<any>;
   userid: string; 
+
+
+  // observable für detail contacts
+  private userData = new BehaviorSubject<any>({})
+  currentUserData$ = this.userData.asObservable()
+  
+
+
   constructor(public firestore: AngularFirestore) {
     console.log(localStorage.getItem('JOIN_uid'))
     this.updateData()
@@ -53,4 +61,9 @@ export class FirebasedataService {
     })
    }
 
+   // observable
+  nextUserData(data){
+    this.userData.next(data)
+  }
+  
 }

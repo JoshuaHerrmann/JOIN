@@ -12,7 +12,7 @@
     </div>
     <div class="rightSide">
         <div class="contact-detail" *ngIf="detail">
-            <app-contact-detail [data]=""></app-contact-detail>
+            <app-contact-detail [data]="userDetail"></app-contact-detail>
         </div>
         <button (click)="openDialog()">New contact<img src="assets/img/icons/addContact.png" alt=""></button>
     </div>

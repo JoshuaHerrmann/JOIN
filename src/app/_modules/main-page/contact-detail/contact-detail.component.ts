@@ -12,5 +12,7 @@ export class ContactDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getShorthand(){
+    return 'JH'
+  }
 }

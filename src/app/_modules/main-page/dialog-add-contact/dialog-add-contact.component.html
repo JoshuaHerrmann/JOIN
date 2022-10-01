@@ -9,12 +9,12 @@
             <img src="assets/img/icons/userprofilpic.png" alt="">
         </div>
         <div class="inputs">
-            <div class="input"><input type="text" placeholder="Name"><img src="assets/img/icons/iconuser.png" alt=""></div>
-            <div class="input"><input type="text" placeholder="Email"><img src="assets/img/icons/iconemail.png" alt=""></div>
-            <div class="input"><input type="number" placeholder="Phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Name" [(ngModel)]="contact.name"><img src="assets/img/icons/iconuser.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Email" [(ngModel)]="contact.email"><img src="assets/img/icons/iconemail.png" alt=""></div>
+            <div class="input"><input type="number" placeholder="Phone" [(ngModel)]="contact.phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
-            <button class="cancel"><p>Cancel</p> <img src="" alt=""></button>
+            <button class="cancel" matDialogClose=""><p>Cancel</p> <img src="" alt=""></button>
             <button class="create" (click)="firebase.addContactToDB(contact.returnToJson())"><p>Create contact </p><img src="" alt=""></button>
         </div>
     </div>

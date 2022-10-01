@@ -12,6 +12,7 @@
             .contactSingle {
                 display: flex;
                 justify-content: center;
+                flex-direction: column;
             }
             .letterLine {
                 border-bottom: 1px solid grey;
