@@ -13,16 +13,21 @@ interface category {
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-  firestore: any
-  constructor(firestore:FirebasedataService) {
-    this.firestore = firestore
+  constructor(public firebase:FirebasedataService) {
+    let contactList = []
+    firebase.usercontacts$.subscribe(data=>{
+      data.forEach(contact=>{
+        contactList.push({'firstname':contact['firstname'],'lastname':contact['lastname'],'uid':contact['uid']})
+      })
+      this.contactsList = contactList
+    })
    }
 
   ngOnInit(): void {
   }
   contacts = new FormControl('');
 
-  contactsList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  contactsList: string[] = [];
   categoryList: category[] = [
     {value: 'Desing', viewValue: 'Design'},
     {value: 'Media', viewValue: 'Media'},
@@ -48,7 +53,7 @@ export class AddTaskComponent implements OnInit {
     this.allSubTasks.forEach(subtask => {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
     this.task.finishDate = this.date.getTime()
-    this.firestore.addTaskToDB(this.task.toJson())
+    this.firebase.addTaskToDB(this.task.toJson())
   }
 
   addSubTask(){

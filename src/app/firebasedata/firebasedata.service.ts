@@ -60,7 +60,6 @@ export class FirebasedataService {
       console.warn('Error', e)
     })
    }
-
    // observable
   nextUserData(data){
     this.userData.next(data)

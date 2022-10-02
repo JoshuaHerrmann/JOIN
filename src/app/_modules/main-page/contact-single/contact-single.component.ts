@@ -16,7 +16,9 @@ export class ContactSingleComponent implements OnInit {
   }
 
   getShorthand(){
-    return 'JH'
+   let first = this.data['firstname'].split("", 1)
+   let last = this.data['lastname'].split("", 1)
+   return last + first
   }
 
   updateUserData(){

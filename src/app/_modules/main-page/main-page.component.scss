@@ -2,19 +2,19 @@
     display: flex;
     position: relative;
     app-sidebar {
-        width: 10%;
+        width: 12%;
         z-index: 1;
     }
     .content {
-        width: calc(90% - 200px);
+        width: calc(88% - 200px);
         padding-left: 100px;
         padding-right: 100px;
         background-color: var(--bgWhite);
     }
     app-logout-button {
         position: absolute;
-        bottom: 50px;
-        right: 50px;
+        bottom: 20px;
+        right: 15px;
     }
 }
 

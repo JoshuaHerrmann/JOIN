@@ -1,12 +1,14 @@
 export class Contact{
         uid: string;
-        name: string;
+        firstname: string;
+        lastname: string;
         email:string;
         phone:number;
 
         constructor(obj?:any){
             this.uid = obj ? obj : '';
-            this.name = obj ? obj : '';
+            this.firstname = obj ? obj : '';
+            this.lastname = obj ? obj : '';
             this.email = obj ? obj : '';
             this.phone = obj ? obj : null;
         }
@@ -14,7 +16,8 @@ export class Contact{
         public returnToJson(){
             return{
                 uid : this.uid != '' ? this.uid : 'noid',
-                name: this.name != '' ? this.name : 'Invalid Name',
+                firstname: this.firstname != '' ? this.firstname : 'Firstname',
+                lastname: this.lastname != '' ? this.lastname : 'Lastname',
                 email: this.email != '' ? this.email : 'Invalid Email',
                 phone: this.phone !=  null ? this.phone : 1919191919,
             }

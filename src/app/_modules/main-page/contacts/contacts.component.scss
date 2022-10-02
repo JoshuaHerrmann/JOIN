@@ -8,6 +8,10 @@
         height: calc(100vh - 130px);
         padding-right: 70px;
         padding-top: 50px;
+        border-right: 1px solid grey;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .contactsByLetter {
             .contactSingle {
                 display: flex;

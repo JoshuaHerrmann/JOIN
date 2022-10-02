@@ -15,16 +15,22 @@ interface category {
 })
 export class DialogAddTaskComponent implements OnInit {
 
-    constructor(public firestore:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any) {
       this.task.state = data;
-      console.warn(this.task.state)
+      let contactList = []
+    firebase.usercontacts$.subscribe(data=>{
+      data.forEach(contact=>{
+        contactList.push({'firstname':contact['firstname'],'lastname':contact['lastname'],'uid':contact['uid']})
+      })
+      this.contactsList = contactList
+    })
      }
   
     ngOnInit(): void {
     }
     contacts = new FormControl('');
   
-    contactsList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+    contactsList: string[] = [];
     categoryList: category[] = [
       {value: 'Desing', viewValue: 'Design'},
       {value: 'Media', viewValue: 'Media'},
@@ -35,20 +41,22 @@ export class DialogAddTaskComponent implements OnInit {
   
     priority: string = 'none'
     subtask: string = ''
+    date: Date;
     allSubTasks: Array<any> = []
     task = new Task();
    //
    assignedContacts$:Array<any>= [];
   
-    addTaskToDB(){
-      if(this.task.priority === ''){
-        alert('Please add a priority! (Urgent, Medium, Low)');
-        return
-      }
-      this.allSubTasks.forEach(subtask => {
-        subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
-       this.firestore.addTaskToDB(this.task.toJson())
+   addTaskToDB(){
+    if(this.task.priority === ''){
+      alert('Please add a priority! (Urgent, Medium, Low)');
+      return
     }
+    this.allSubTasks.forEach(subtask => {
+      subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
+    this.task.finishDate = this.date.getTime()
+    this.firebase.addTaskToDB(this.task.toJson())
+  }
   
     addSubTask(){
       if(this.subtask === ''){ 

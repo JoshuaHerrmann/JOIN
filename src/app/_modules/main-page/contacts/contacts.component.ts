@@ -25,8 +25,6 @@ export class ContactsComponent implements OnInit {
     firebase.currentUserData$.subscribe(data=>{
       this.userDetail = data;
       Object.keys(data).length === 0 ? this.detail = false : this.detail = true;
-      console.log(data)
-      console.log(this.userDetail)
     })
    }
 

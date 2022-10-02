@@ -21,7 +21,6 @@ export class AuthenticationService {
           localStorage.setItem('currentUser', 'true')
           if(localStorage.getItem('JOIN_uid') == ''){
             localStorage.setItem('JOIN_uid', user['uid'])
-            location.reload()
           }
         }else{
           console.log('Logged out')
@@ -37,6 +36,7 @@ export class AuthenticationService {
    loginWithEmailAndPassword(email:string, password:string){
     this.auth.signInWithEmailAndPassword(email, password).then((data)=>{
       console.log('Logged in', data);
+      localStorage.setItem('currentUser', 'true')
       localStorage.setItem('JOIN_uid', data['user']['uid'])
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
@@ -61,6 +61,7 @@ export class AuthenticationService {
    signUpWithEmailAndPassword(email:string, password:string){
     this.auth.createUserWithEmailAndPassword(email, password).then(data=>{
       console.log('created new account', data);
+      localStorage.setItem('currentUser', 'true')
       this.firestore.collection('userdata').doc(data['user']['uid']).set({})
       this.firestore.collection('usercontacts').doc(data['user']['uid']).set({})
       this.firestore.collection('userlist').doc(data['user']['uid']).set({})
@@ -75,6 +76,7 @@ export class AuthenticationService {
    logInAsGuest(email: string, password: string){
     this.auth.signInWithEmailAndPassword(email, password).then((data)=>{
       console.log('Logged in as guest');
+      localStorage.setItem('currentUser', 'true')
       localStorage.setItem('JOIN_uid', data['user']['uid'])
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
