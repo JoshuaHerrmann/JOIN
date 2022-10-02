@@ -14,18 +14,21 @@ import { DialogAddContactComponent } from '../dialog-add-contact/dialog-add-cont
 export class ContactsComponent implements OnInit {
 
   detail: boolean = false;
-  letters: string[] = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L','M', 'N' ,'O', 'P' ,'Q', 'R', 'S', 'T' ,'U', 'V', 'W', 'X', 'Y', 'Z'];
+  filteredUserList: Array<object> = [];
+  
   userList: Array<any> = [];
   userDetail:any;
   constructor(public dialog: MatDialog, public firebase:FirebasedataService) {
     firebase.usercontacts$.subscribe((data)=>{
       this.userList = data
       console.log(this.userList)
+      this.filterUserlist()
     })
     firebase.currentUserData$.subscribe(data=>{
       this.userDetail = data;
       Object.keys(data).length === 0 ? this.detail = false : this.detail = true;
     })
+    
    }
 
   ngOnInit(): void {
@@ -37,7 +40,28 @@ export class ContactsComponent implements OnInit {
     });
   }
 
+
   
+  filterUserlist(){
+    let set = new Set();
+  this.userList.forEach(contact =>{
+    set.add(contact['lastname'].slice("",1));
+   })
+   set.forEach(entry=>{
+    this.filteredUserList.push({letter: entry, contacts:[]})
+   })
+   console.warn(this.filteredUserList)
+   this.userList.forEach((contact)=>{
+    this.filteredUserList.forEach((letter, indexLetter) => {
+      if(contact['lastname'].slice("",1) === letter['letter']){
+        this.filteredUserList[indexLetter]['contacts'].push(contact)
+      }
+    });
+    
+   })
+   console.warn(set)
+   
+  }  
 }
 
 

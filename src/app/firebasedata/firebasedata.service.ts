@@ -34,7 +34,7 @@ export class FirebasedataService {
    updateData(){
     this.updateUid()
    if(this.userid == ''){
-    console.log('nichts')
+    console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc('noid').valueChanges()
     return

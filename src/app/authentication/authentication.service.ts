@@ -58,13 +58,14 @@ export class AuthenticationService {
    }
 
 
-   signUpWithEmailAndPassword(email:string, password:string){
+   signUpWithEmailAndPassword(email:string, password:string, userdata:object){
     this.auth.createUserWithEmailAndPassword(email, password).then(data=>{
       console.log('created new account', data);
       localStorage.setItem('currentUser', 'true')
+      userdata['uid'] = data['user']['uid']
       this.firestore.collection('userdata').doc(data['user']['uid']).set({})
       this.firestore.collection('usercontacts').doc(data['user']['uid']).set({})
-      this.firestore.collection('userlist').doc(data['user']['uid']).set({})
+      this.firestore.collection('userlist').doc(data['user']['uid']).set(userdata)
       this.router.navigateByUrl('/main');
     })
     .catch((e)=>{

@@ -1,11 +1,11 @@
 <div class="main">
     <div class="contacts">
-        <div class="contactsByLetter" *ngFor="let letter of letters">
+        <div class="contactsByLetter" *ngFor="let letter of filteredUserList">
             <div class="letterLine">
-                <p>{{ letter }}</p>
+                <p>{{ letter['letter'] }}</p>
             </div>
             <div class="contactSingle">
-                <app-contact-single *ngFor="let user of userList, let i = index" [data]="userList[i]"></app-contact-single>
+                <app-contact-single *ngFor="let user of letter['contacts'], let i = index" [data]="user"></app-contact-single>
             </div>
 
         </div>

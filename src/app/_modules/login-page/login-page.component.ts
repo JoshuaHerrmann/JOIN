@@ -12,6 +12,7 @@ export class LoginPageComponent implements OnInit {
   constructor(public auth: AuthenticationService, public router: Router) {
     router.events.subscribe(() =>{
       let url = router.getCurrentNavigation();
+      //console.log(url)
       url['finalUrl']['root']['children']['primary']['segments'][1]? this.loginPage = false : this.loginPage = true;
     })
    }
