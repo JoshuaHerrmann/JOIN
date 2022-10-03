@@ -21,7 +21,7 @@ export class FirebasedataService {
 
 
   constructor(public firestore: AngularFirestore) {
-    console.log(localStorage.getItem('JOIN_uid'))
+    //console.log(localStorage.getItem('JOIN_uid'))
     this.updateData()
    }
 

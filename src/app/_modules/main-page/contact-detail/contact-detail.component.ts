@@ -13,8 +13,8 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
   }
   getShorthand(){
-    let firstname = this.data['firstname'].slice("",1)
-    let lastname = this.data['lastname'].slice("",1)
-    return lastname + firstname
+    let firstnameLetter = this.data['firstname'].slice("",1)
+    let lastnameLetter = this.data['lastname'].slice("",1)
+    return lastnameLetter + firstnameLetter
   }
 }

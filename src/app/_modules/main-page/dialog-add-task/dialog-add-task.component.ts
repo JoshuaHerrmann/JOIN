@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';;
 import { FormControl } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { Task } from 'src/app/models/task.class';
 
@@ -15,7 +15,7 @@ interface category {
 })
 export class DialogAddTaskComponent implements OnInit {
 
-    constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any) {
+    constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef : MatDialogRef<DialogAddTaskComponent>) {
       this.task.state = data;
       let contactList = []
     firebase.usercontacts$.subscribe(data=>{
@@ -56,6 +56,7 @@ export class DialogAddTaskComponent implements OnInit {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
     this.task.finishDate = this.date.getTime()
     this.firebase.addTaskToDB(this.task.toJson())
+    this.dialogRef.close()
   }
   
     addSubTask(){

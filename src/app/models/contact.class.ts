@@ -6,11 +6,11 @@ export class Contact{
         phone:number;
 
         constructor(obj?:any){
-            this.uid = obj ? obj : '';
-            this.firstname = obj ? obj : '';
-            this.lastname = obj ? obj : '';
-            this.email = obj ? obj : '';
-            this.phone = obj ? obj : null;
+            this.uid = obj ? obj.uid : '';
+            this.firstname = obj ? obj.firstname : '';
+            this.lastname = obj ? obj.lastname : '';
+            this.email = obj ? obj.email : '';
+            this.phone = obj ? obj.phone : null;
         }
 
         public returnToJson(){

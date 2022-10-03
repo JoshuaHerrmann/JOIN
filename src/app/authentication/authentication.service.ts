@@ -4,6 +4,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FirebasedataService } from '../firebasedata/firebasedata.service';
+import { Contact } from '../models/contact.class';
 
 @Injectable({
   providedIn: 'root'
@@ -31,7 +32,9 @@ export class AuthenticationService {
    }
 
 
-
+   contact = new Contact(
+    {email : 'testmail@test.de', firstname: 'Guest', lastname: 'Guest', phone: 919191919191919, uid: 'ot2eEvfgnnM6cTsIUoWwRuLIPPk2'}
+   );
 
    loginWithEmailAndPassword(email:string, password:string){
     this.auth.signInWithEmailAndPassword(email, password).then((data)=>{
@@ -50,6 +53,7 @@ export class AuthenticationService {
     this.auth.signOut().then(()=>{
       console.log('Logged out');
       localStorage.setItem('JOIN_uid', '')
+      this.firebaserservice.nextUserData({})
       this.router.navigateByUrl('/logout');
     })
     .catch((e)=>{
@@ -64,7 +68,7 @@ export class AuthenticationService {
       localStorage.setItem('currentUser', 'true')
       userdata['uid'] = data['user']['uid']
       this.firestore.collection('userdata').doc(data['user']['uid']).set({})
-      this.firestore.collection('usercontacts').doc(data['user']['uid']).set({})
+      this.firestore.collection('usercontacts').doc(data['user']['uid']).collection('contacts').add(this.contact.returnToJson())
       this.firestore.collection('userlist').doc(data['user']['uid']).set(userdata)
       this.router.navigateByUrl('/main');
     })

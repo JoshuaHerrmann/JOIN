@@ -15,13 +15,14 @@ export class ContactsComponent implements OnInit {
 
   detail: boolean = false;
   filteredUserList: Array<object> = [];
-  
   userList: Array<any> = [];
   userDetail:any;
+
+
   constructor(public dialog: MatDialog, public firebase:FirebasedataService) {
     firebase.usercontacts$.subscribe((data)=>{
       this.userList = data
-      console.log(this.userList)
+      //console.log(this.userList)
       this.filterUserlist()
     })
     firebase.currentUserData$.subscribe(data=>{
@@ -43,6 +44,7 @@ export class ContactsComponent implements OnInit {
 
   
   filterUserlist(){
+   this.filteredUserList = [];
     let set = new Set();
   this.userList.forEach(contact =>{
     set.add(contact['lastname'].slice("",1));
@@ -50,17 +52,14 @@ export class ContactsComponent implements OnInit {
    set.forEach(entry=>{
     this.filteredUserList.push({letter: entry, contacts:[]})
    })
-   console.warn(this.filteredUserList)
+   //console.warn(this.filteredUserList)
    this.userList.forEach((contact)=>{
     this.filteredUserList.forEach((letter, indexLetter) => {
       if(contact['lastname'].slice("",1) === letter['letter']){
         this.filteredUserList[indexLetter]['contacts'].push(contact)
       }
     });
-    
    })
-   console.warn(set)
-   
   }  
 }
 

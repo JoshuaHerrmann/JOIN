@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 
 @Component({
@@ -10,27 +10,14 @@ import { AuthenticationService } from 'src/app/authentication/authentication.ser
 export class LoginPageComponent implements OnInit {
   loginPage: boolean = true;
   constructor(public auth: AuthenticationService, public router: Router) {
-    router.events.subscribe(() =>{
-      let url = router.getCurrentNavigation();
-      //console.log(url)
-      url['finalUrl']['root']['children']['primary']['segments'][1]? this.loginPage = false : this.loginPage = true;
+    router.events.subscribe((events) =>{
+     if(events instanceof NavigationEnd){
+      events['url'] == '/login'? this.loginPage = true : this.loginPage = false;
+     }
     })
    }
 
   ngOnInit(): void {
-  }
- 
-
-
-
-/////////////////////////// TEST
-  userlist:any={
-    'users':[
-      {'userName': 'Max Mustermann',
-      'email': 'testmail@web.de',
-      'shortHandName': 'MM',
-      'userId': 'userId1'}
-    ]
   }
 }
 
