@@ -10,7 +10,7 @@ import { Contact } from '../models/contact.class';
   providedIn: 'root'
 })
 export class AuthenticationService {
-  
+  user:any;
   constructor(
     public auth: AngularFireAuth, 
     public router: Router, 
@@ -18,6 +18,7 @@ export class AuthenticationService {
     private firebaserservice: FirebasedataService) {
       auth.onAuthStateChanged((user)=>{
         if(user){
+          this.user = user
           console.log('Logged in', user);
           localStorage.setItem('currentUser', 'true')
           if(localStorage.getItem('JOIN_uid') == ''){

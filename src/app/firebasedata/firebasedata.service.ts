@@ -37,10 +37,12 @@ export class FirebasedataService {
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc('noid').valueChanges()
+    this.userlist$ = this.firestore.collection('userlist').doc('noid').valueChanges()
     return
    }
     this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').valueChanges()
+    this.userlist$ = this.firestore.collection('userlist').doc(this.userid).valueChanges()
    }
 
 

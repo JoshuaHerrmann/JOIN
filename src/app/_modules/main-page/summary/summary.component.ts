@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { States } from 'src/app/models/states.class';
 
@@ -11,8 +12,17 @@ export class SummaryComponent implements OnInit {
   userData: any;
   states= new States();
   upcomingDate: string;
-  constructor(public firebase: FirebasedataService) { 
-   
+  userPersonalData:any;
+  constructor(public firebase: FirebasedataService, private auth: AuthenticationService) { 
+    this.getUserData()
+    this.getUserPersonalData()
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  getUserData(){
     this.firebase.userdata$.subscribe((data)=>{
       this.userData = data
       this.filterData()
@@ -20,14 +30,21 @@ export class SummaryComponent implements OnInit {
     })
   }
 
-  ngOnInit(): void {
+
+  getUserPersonalData(){
+    this.firebase.userlist$.subscribe(data=>{
+      this.userPersonalData = data
+    })
   }
+
 
   filterData(){
     this.states.resetData();
     this.filterForAmount();
     this.filterForDate();
   }
+
+
   filterForDate(){
     let dates = [];
     this.userData.forEach(task=>{
@@ -38,6 +55,8 @@ export class SummaryComponent implements OnInit {
     })
     this.upcomingDate = this.formatDate(new Date(dates[0]))
   }
+
+  
   filterForAmount(){
     this.userData.forEach( task=> {
       task.state === 'todo'? this.states['todo']++ :
