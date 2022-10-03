@@ -1,15 +1,23 @@
 <div class="main">
     <div class="nav">
 
-        <a href="#" class="link" routerLink="/main"><img src="assets/img/icons/summary icon.png" alt="logo">Summary</a>
-        <a href="#" class="link" routerLink="/main/board"><img src="assets/img/icons/board icon.png" alt="logo">Board</a>
-        <a href="#" class="link" routerLink="/main/add-task"><img src="assets/img/icons/Write task icon.png" alt="logo">Add Task</a>
-        <a href="#" class="link" routerLink="/main/contacts"><img src="assets/img/icons/contacts icon.png" alt="logo">Contacts</a>
+        <a href="#" class="link" routerLink="/main" [ngClass]="{'selected':summary}"><img src="assets/img/icons/summary icon.png" alt="logo">
+            <p>Summary</p>
+        </a>
+        <a href="#" class="link" routerLink="/main/board" [ngClass]="{'selected':board}"><img src="assets/img/icons/board icon.png" alt="logo">
+            <p>Board</p>
+        </a>
+        <a href="#" class="link" routerLink="/main/add-task" [ngClass]="{'selected':addtask}"><img src="assets/img/icons/Write task icon.png" alt="logo">
+            <p>Add Task</p>
+        </a>
+        <a href="#" class="link" routerLink="/main/contacts" [ngClass]="{'selected':contacts}"><img src="assets/img/icons/contacts icon.png" alt="logo">
+            <p>Contacts</p>
+        </a>
     </div>
     <div class="nav">
 
-        <a href="#" class="link" routerLink="/main/legal-notice" [ngClass]="{'bgBlue':legalNoticeActice}" class="legalNotice">
-            <img src="assets/img/icons/Group 4legalnoticeicongrey.png" alt="" *ngIf="!legalNoticeActice"><img src="assets/img/icons/Group 4legalnoticeiconwhite.png" alt="" *ngIf="legalNoticeActice">
+        <a href="#" class="link" routerLink="/main/legal-notice" [ngClass]="{'bgBlue':legalnotice}" class="legalNotice">
+            <img src="assets/img/icons/Group 4legalnoticeicongrey.png" alt="" *ngIf="!legalnotice"><img src="assets/img/icons/Group 4legalnoticeiconwhite.png" alt="" *ngIf="legalnotice">
             <p>Legal notice</p>
         </a>
 

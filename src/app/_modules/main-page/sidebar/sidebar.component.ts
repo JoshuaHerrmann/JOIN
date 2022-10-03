@@ -8,15 +8,19 @@ import { filter } from 'rxjs';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  legalNoticeActice: boolean = true;
+  legalnotice: boolean = true;
+  contacts: boolean = false;
+  addtask: boolean = false;
+  board: boolean = false;
+  summary: boolean = false;
   constructor(private router: Router) { 
     router.events.subscribe((url)=>{
       if(url instanceof NavigationEnd){
-        if(url['url'] == '/main/legal-notice'){
-          this.legalNoticeActice = true;
-        }else{
-          this.legalNoticeActice = false;
-        }
+        url['url'] == '/main'? (this.summary = true, this.addtask = false, this.board = false, this.contacts = false, this.legalnotice = false) :
+        url['url'] == '/main/board'? (this.summary = false, this.addtask = false, this.board = true, this.contacts = false, this.legalnotice = false):
+        url['url'] == '/main/add-task'? (this.summary = false, this.addtask = true, this.board = false, this.contacts = false, this.legalnotice = false):
+        url['url'] == '/main/contacts'? (this.summary = false, this.addtask = false, this.board = false, this.contacts = true, this.legalnotice = false):
+        url['url'] == '/main/legal-notice'? (this.summary = false, this.addtask = false, this.board = false, this.contacts = false, this.legalnotice = true): null;
       }
       
     })

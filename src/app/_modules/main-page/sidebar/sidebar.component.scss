@@ -33,6 +33,14 @@
                 margin-bottom: 5px;
                 margin-top: 5px;
                 width: calc(100% - 10px);
+                img {
+                    padding-left: 10px;
+                }
+                p {
+                    font-size: 16px;
+                    padding-right: 10px;
+                    margin: 0;
+                }
             }
             .legalNotice {
                 padding: 5px;
@@ -51,5 +59,10 @@
     .bgBlue {
         background-color: var(--bgMain) !important;
         color: var(--bgWhite) !important;
+        border-radius: 10px;
+    }
+    
+    .selected {
+        background-color: var(--selected) !important;
         border-radius: 10px;
     }

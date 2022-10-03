@@ -12,7 +12,7 @@ export class SummaryComponent implements OnInit {
   userData: any;
   states= new States();
   upcomingDate: string;
-  userPersonalData:any;
+  userPersonalData:any;;
   constructor(public firebase: FirebasedataService, private auth: AuthenticationService) { 
     this.getUserData()
     this.getUserPersonalData()
@@ -37,6 +37,14 @@ export class SummaryComponent implements OnInit {
     })
   }
 
+  /**
+   * to avoid getting error messages because html cant find 'firstname' bevor its updated via subscribe
+   * @returns returns the users first name
+   */
+  returnFirstname(){
+   return this.userPersonalData? this.userPersonalData['firstname']: 'You'
+  }
+ 
 
   filterData(){
     this.states.resetData();
@@ -56,7 +64,7 @@ export class SummaryComponent implements OnInit {
     this.upcomingDate = this.formatDate(new Date(dates[0]))
   }
 
-  
+
   filterForAmount(){
     this.userData.forEach( task=> {
       task.state === 'todo'? this.states['todo']++ :
