@@ -14,6 +14,7 @@ export class BoardComponent implements OnInit {
   Tasks_progress: Array<any> = [];
   Tasks_feedback: Array<any> = [];
   Tasks_done: Array<any> = [];
+  searchField:string;
   constructor(public dialog: MatDialog, public firebase: FirebasedataService) {
     firebase.userdata$.subscribe((data)=>{
       this.allUsersTasks = data;
@@ -21,9 +22,14 @@ export class BoardComponent implements OnInit {
       console.log('allUserTasks in board',this.allUsersTasks)
       console.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
     })
+    
    }
 
   ngOnInit(): void {
+    
+    document.getElementById('searchField').addEventListener('keyup', (e)=>{
+      this.searchTask()
+    })
   }
 
   filterTaskState(){
@@ -35,7 +41,20 @@ export class BoardComponent implements OnInit {
       task.state === 'done'? this.Tasks_done.push(task): null;  
     });
   }
-
+  filterTaskStateSearch(mappedArray){
+    this.resetArrays()
+    mappedArray.forEach(task => {
+      if(task){
+        task.state === 'todo'? this.Tasks_todo.push(task):
+        task.state === 'progress'? this.Tasks_progress.push(task):
+        task.state === 'feedback'? this.Tasks_feedback.push(task):
+        task.state === 'done'? this.Tasks_done.push(task): null;  
+      }else{
+        return
+      }
+      
+    });
+  }
   resetArrays(){
     this.Tasks_todo = [];
     this.Tasks_feedback = [];
@@ -51,6 +70,20 @@ export class BoardComponent implements OnInit {
       data: state,
     })
   }
+
+
+  searchTask(){
+    let map =
+    this.allUsersTasks.map(task =>{
+      if(task['title'].toLocaleUpperCase().startsWith(this.searchField.toLocaleUpperCase())){
+        return task
+      }else{
+        return null
+      }
+    })
+    this.filterTaskStateSearch(map)
+  }
+
 
   logfunc(){
     console.log('filtertasks in board',this.Tasks_done, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done)

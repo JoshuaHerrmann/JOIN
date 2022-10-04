@@ -1,8 +1,8 @@
 <div class="main" (click)="updateUserData()">
-    <div class="profil">
+    <div class="profil randomColor" id="profil" [ngStyle]="{'background-color': randomColor}">
         {{ getShorthand() }}
     </div>
-    <div class="inofs">
+    <div class="infos">
         <h3> {{ data['lastname'] }} {{ data['firstname'] }}</h3>
         <a href="#">{{ data['email'] }}</a>
     </div>

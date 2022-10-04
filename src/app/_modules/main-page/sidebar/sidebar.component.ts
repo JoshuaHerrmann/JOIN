@@ -8,7 +8,7 @@ import { filter } from 'rxjs';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  legalnotice: boolean = true;
+  legalnotice: boolean = false;
   contacts: boolean = false;
   addtask: boolean = false;
   board: boolean = false;

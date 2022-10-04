@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AbstractType, Component, Input, OnInit } from '@angular/core';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 
 @Component({
@@ -8,11 +8,13 @@ import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 })
 export class ContactSingleComponent implements OnInit {
   @Input() data:any;
+  randomColor:any;
   constructor(public firebase:FirebasedataService) {
-   
+
    }
   
   ngOnInit(): void {
+    this.getRandomColor()
   }
 
   getShorthand(){
@@ -24,4 +26,11 @@ export class ContactSingleComponent implements OnInit {
   updateUserData(){
     this.firebase.nextUserData(this.data)
   }
+
+
+  getRandomColor() {
+    var color = Math.floor(0x1000000 * Math.random()).toString(16);
+    this.randomColor = '#' + ('000000' + color).slice(-6);
+  }
+
 }
