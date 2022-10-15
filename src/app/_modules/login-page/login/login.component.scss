@@ -70,3 +70,25 @@
         }
     }
 }
+
+@media (max-width:480px) {
+    .main {
+        padding: 0px;
+        .tools {
+            flex-direction: column;
+            align-items: flex-start;
+            .forgot {
+                margin-top: 20px;
+            }
+        }
+        .toolsButtom {
+            width: 90%;
+            button {
+                padding: 10px 30px;
+            }
+        }
+        h2 {
+            margin-top: 20px;
+        }
+    }
+}

@@ -40,3 +40,14 @@
         }
     }
 }
+
+@media (max-width:480px) {
+    .main {
+        .tools {
+            width: fit-content;
+            p {
+                text-align: center
+            }
+        }
+    }
+}

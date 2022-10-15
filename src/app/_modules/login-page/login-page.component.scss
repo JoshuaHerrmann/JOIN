@@ -18,6 +18,8 @@
         display: none;
         align-items: center;
         font-size: 24px;
+        height: fit-content;
+        width: 100%;
         p {
             margin: 0;
             margin-right: 50px;
@@ -45,4 +47,18 @@
 
 .signUpTrue {
     display: flex !important;
+}
+
+@media (max-width:480px) {
+    .main {
+        .logo {
+            top: 30px;
+            left: 30px
+        }
+        .signUp {
+            top: 90vh;
+            right: 0;
+            justify-content: center;
+        }
+    }
 }

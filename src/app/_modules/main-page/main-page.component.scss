@@ -21,3 +21,20 @@
 app-header {
     z-index: 2;
 }
+
+@media (max-width:480px) {
+    .main {
+        height: calc(100vh - 80px);
+        width: 100vw;
+        .content {
+            padding: 0;
+            width: 100vw;
+        }
+        app-sidebar {
+            position: absolute;
+            bottom: 0;
+            width: 100vw;
+            height: fit-content;
+        }
+    }
+}

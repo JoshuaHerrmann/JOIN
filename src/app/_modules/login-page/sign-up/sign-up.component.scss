@@ -52,3 +52,9 @@ h2 {
     padding-right: 10px;
     border-bottom: 4px solid var(--bgMain);
 }
+
+@media (max-width:480px) {
+    .main {
+        padding: 20px 0;
+    }
+}

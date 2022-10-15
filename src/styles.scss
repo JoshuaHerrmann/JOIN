@@ -50,3 +50,9 @@ button {
 .cdk-overlay-pane {
     width: auto !important;
 }
+
+@media (max-width:480px) {
+    .sidepadding {
+        padding: 0px;
+    }
+}
