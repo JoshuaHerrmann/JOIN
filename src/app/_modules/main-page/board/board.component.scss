@@ -84,26 +84,35 @@
 }
 
 @media (max-width:480px) {
-    .board {
-        align-items: center;
-        height: fit-content;
-        &::-webkit-scrollbar {
-            display: none;
+    .main {
+        .nav {
+            margin-bottom: 20px;
+            width: 90% !important;
         }
-        .taskColumns {
-            flex-direction: column;
+        .board {
             align-items: center;
-            .columns {
-                width: 90% !important;
-                align-items: center;
-                display: flex;
+            height: fit-content;
+            flex-direction: column;
+            .taskColumns {
                 flex-direction: column;
+                align-items: center;
+                justify-content: flex-start !important;
+                overflow-y: scroll;
+                height: 600px;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .columns {
+                    width: 90% !important;
+                    align-items: center;
+                    justify-content: flex-start;
+                    display: flex;
+                    flex-direction: column;
+                    .addTask {
+                        margin-top: 10px;
+                    }
+                }
             }
         }
-        flex-direction: column;
     }
-}
-
-.nav {
-    width: 90% !important;
 }

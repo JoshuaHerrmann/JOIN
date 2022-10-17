@@ -120,9 +120,9 @@ button {
 
 @media (max-width:480px) {
     .main {
-        height: calc(100vh - 200px);
+        height: calc(100vh - 161px);
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         .inputs {
             width: 90%;
@@ -133,6 +133,15 @@ button {
         .buttons {
             margin-top: 20px;
             width: 90%;
+            button {
+                width: fit-content !important;
+            }
+        }
+        mat-form-field {
+            margin: 10px 0;
+        }
+        .description {
+            margin: 10px 0;
         }
     }
 }

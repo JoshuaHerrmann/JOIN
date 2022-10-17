@@ -29,3 +29,9 @@
         overflow-wrap: break-word;
     }
 }
+
+@media (max-width:480px) {
+    .main {
+        justify-content: start;
+    }
+}

@@ -49,3 +49,14 @@
         font-size: 48px;
     }
 }
+
+@media (max-width:480px) {
+    .main {
+        margin: 20px 10px;
+        height: calc(100vh - 201px);
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}

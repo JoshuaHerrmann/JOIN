@@ -29,6 +29,7 @@ app-header {
         .content {
             padding: 0;
             width: 100vw;
+            height: calc(100vh - 161px);
         }
         app-sidebar {
             position: absolute;

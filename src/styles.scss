@@ -28,7 +28,7 @@
 
 html,
 body {
-    height: 100%;
+    height: 100vh;
 }
 
 body {
@@ -54,5 +54,11 @@ button {
 @media (max-width:480px) {
     .sidepadding {
         padding: 0px;
+    }
+    .mat-dialog-container {
+        min-width: 100% !important;
+    }
+    .cdk-overlay-pane {
+        min-width: 80vw;
     }
 }
