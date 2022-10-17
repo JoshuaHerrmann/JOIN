@@ -85,6 +85,16 @@
                 .legaldiv {
                     display: none;
                 }
+                .link {
+                    align-items: center;
+                    img {
+                        padding: 0;
+                        margin: 0 0 5px 0;
+                    }
+                    p {
+                        padding: 0;
+                    }
+                }
             }
         }
     }

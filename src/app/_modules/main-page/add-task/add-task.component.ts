@@ -13,7 +13,7 @@ interface category {
   styleUrls: ['./add-task.component.scss']
 })
 export class AddTaskComponent implements OnInit {
-  constructor(public firebase:FirebasedataService) {
+  constructor(public firebase:FirebasedataService, ) {
     let contactList = []
     firebase.usercontacts$.subscribe(data=>{
       data.forEach(contact=>{
@@ -79,6 +79,10 @@ export class AddTaskComponent implements OnInit {
 
   selecteCategory(category:any){
     this.task.category = category.value;
+  }
+
+  clearAll(){
+    
   }
 // DEBUGG FUNCTION
   logsub(){console.log(this.task)}
