@@ -28,6 +28,7 @@ export class MainPageComponent implements OnInit {
   }
  
   ngOnInit(): void {
+    localStorage.setItem('JOIN_uid','')
   }
   
   
