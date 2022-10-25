@@ -8,14 +8,11 @@ import { LoginPageModule } from './_modules/login-page/login-page.module';
 import { LogoutPageModule } from './_modules/logout-page/logout-page.module';
 import { MainPageModule } from './_modules/main-page/main-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { LogoutButtonComponent } from './_modules/logout-button/logout-button.component';
 import { LogoutButtonModule } from './_modules/logout-button/logout-button.module';
 @NgModule({
   declarations: [

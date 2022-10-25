@@ -28,7 +28,7 @@
             padding-right: 30px;
         }
     }
-    .signUp {
+    .continue {
         background-color: var(--bgMain);
         border: none;
         border-radius: 10px;
@@ -42,11 +42,6 @@
         left: 30px;
         top: 30px;
         cursor: pointer;
-    }
-    .loginFail {
-        color: red;
-        font-size: 14px;
-        height: 32px;
     }
 }
 
@@ -67,21 +62,17 @@ p {
 
 @media (max-width:480px) {
     .main {
-        padding: 30px 0px;
-        margin: 35px -10px;
-        width: calc(100vw - 20px);
+        padding: 30px 0;
     }
     h2 {
-        padding: 0px 0px;
+        padding: 0;
         max-width: calc(100% - 20px);
         border: none;
         text-align: center;
-        line-height: 50px;
+        line-height: 40px;
     }
     p {
-        max-width: calc(100% - 40px);
-        margin: 0 10px;
-        line-height: 26px;
-        margin-bottom: 20px;
+        padding: 0;
+        max-width: calc(100% - 20px);
     }
 }

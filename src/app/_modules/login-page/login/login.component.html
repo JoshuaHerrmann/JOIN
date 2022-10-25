@@ -2,6 +2,9 @@
     <h2>Log In</h2>
     <div class="input"> <input type="text" placeholder="Email" [(ngModel)]="email"><img src="assets/img/icons/iconemail.png" alt=""></div>
     <div class="input"><input type="password" placeholder="Password" [(ngModel)]="password"> <img src="assets/img/icons/iconpassword.png" alt=""></div>
+    <div class="loginFail">
+        <p *ngIf="auth.failedLogin">E-Mail or Password was wrong! Please try again!</p>
+    </div>
     <div class="tools">
         <div class="rememberMe"> <input type="checkbox" name="" id=""> Remember Me</div>
         <div class="forgot" routerLink="forgot-password">Forgot my password</div>

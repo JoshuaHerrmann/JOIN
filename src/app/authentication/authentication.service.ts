@@ -1,3 +1,4 @@
+import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
@@ -11,6 +12,8 @@ import { Contact } from '../models/contact.class';
 })
 export class AuthenticationService {
   user:any;
+  failedLogin:boolean= false;
+  noMail:boolean= false;
   constructor(
     public auth: AngularFireAuth, 
     public router: Router, 
@@ -44,7 +47,9 @@ export class AuthenticationService {
       localStorage.setItem('JOIN_uid', data['user']['uid'])
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
+      this.failedLogin = false;
     }).catch((e)=>{
+      this.failedLogin = true;
       console.log('Error Log in', e);
     });
    }
@@ -56,6 +61,7 @@ export class AuthenticationService {
       localStorage.setItem('JOIN_uid', '')
       this.firebaserservice.nextUserData({})
       this.router.navigateByUrl('/logout');
+      this.failedLogin = false;
     })
     .catch((e)=>{
       console.log('Error Logout', e);
@@ -90,4 +96,16 @@ export class AuthenticationService {
         console.log('Error', e)
     })
    }
+
+   resetPasswortWithMail(email:string){
+    if(email !== '' && email.includes('@')){
+      this.auth.sendPasswordResetEmail(email).then(()=>{
+        this.router.navigateByUrl('/reset-send/')
+        this.noMail = false
+      }).catch(e=>{
+          console.warn('ERROR cant send email', e)
+          this.noMail = true
+      })
+    }
+  }
 }
