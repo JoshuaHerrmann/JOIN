@@ -3,6 +3,10 @@
     width: calc(100% - 60px);
     height: fit-content;
     margin: 10px;
+    &:hover {
+        background-color: rgb(245, 245, 245);
+        cursor: pointer;
+    }
     .category {
         padding: 10px;
         width: fit-content;

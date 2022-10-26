@@ -98,7 +98,8 @@ export class AuthenticationService {
    }
 
    resetPasswortWithMail(email:string){
-    if(email !== '' && email.includes('@')){
+    console.log('HIER DIE MAIl',email)
+    if(email !== undefined ){
       this.auth.sendPasswordResetEmail(email).then(()=>{
         this.router.navigateByUrl('/reset-send/')
         this.noMail = false
@@ -106,6 +107,8 @@ export class AuthenticationService {
           console.warn('ERROR cant send email', e)
           this.noMail = true
       })
+    }else{
+      this.noMail = true;
     }
   }
 }

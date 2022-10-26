@@ -66,6 +66,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
+        &:hover {
+            background-color: rgb(245, 245, 245)
+        }
         .taskTop {
             display: flex;
             align-items: center;
