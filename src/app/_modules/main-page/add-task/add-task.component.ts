@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { Task } from 'src/app/models/task.class';
 
@@ -24,6 +25,9 @@ export class AddTaskComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.currentPriority$.subscribe(value=>{
+      this.selectedPriority = value;
+    })
   }
   contacts = new FormControl('');
 
@@ -35,6 +39,10 @@ export class AddTaskComponent implements OnInit {
     {value: 'Backoffice', viewValue: 'Backoffice'},
     {value: 'Marketing', viewValue: 'Marketing'},
   ];
+  private priority$ = new BehaviorSubject<string>('')
+  currentPriority$ = this.priority$.asObservable()
+  selectedPriority:string;
+  
 
   priority: string = 'none';
   subtask: string = '';
@@ -71,6 +79,7 @@ export class AddTaskComponent implements OnInit {
 
   priorityValue(value:string){
     this.task.priority = value;
+    this.priority$.next(value)
   }
 
   selecteContacts(contacts:any){

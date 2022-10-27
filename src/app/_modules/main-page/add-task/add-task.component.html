@@ -30,7 +30,8 @@
             </mat-select>
         </mat-form-field>
         <div class="priority">
-            <button (click)="priorityValue('urgent')">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button><button (click)="priorityValue('low')">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
+            <button (click)="priorityValue('urgent')" id="urgent" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')" id="medium" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
+            <button (click)="priorityValue('low')" id="low" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
         </div>
         <div class="description">
             <h4>Description</h4>

@@ -2,11 +2,12 @@
     display: flex;
     position: relative;
     app-sidebar {
-        width: 12%;
+        width: 210px;
         z-index: 1;
     }
     .content {
-        width: calc(88% - 200px);
+        max-width: calc(100% - 210px);
+        min-width: calc(100% - 410px);
         padding-left: 100px;
         padding-right: 100px;
         background-color: var(--bgWhite);
