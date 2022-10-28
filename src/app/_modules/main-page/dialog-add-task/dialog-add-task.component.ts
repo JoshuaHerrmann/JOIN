@@ -28,6 +28,9 @@ export class DialogAddTaskComponent implements OnInit {
      }
   
     ngOnInit(): void {
+      this.currentPriority$.subscribe(value=>{
+        this.selectedPriority = value;
+      })
     }
     contacts = new FormControl('');
   
@@ -80,7 +83,7 @@ export class DialogAddTaskComponent implements OnInit {
       this.allSubTasks.splice(index, 1);
     }
   
-    
+
     priorityValue(value:string){
       this.task.priority = value;
       this.priority$.next(value)
