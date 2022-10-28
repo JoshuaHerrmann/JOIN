@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';;
 import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BehaviorSubject } from 'rxjs';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { Task } from 'src/app/models/task.class';
 
@@ -38,12 +39,19 @@ export class DialogAddTaskComponent implements OnInit {
       {value: 'Backoffice', viewValue: 'Backoffice'},
       {value: 'Marketing', viewValue: 'Marketing'},
     ];
-  
+    private priority$ = new BehaviorSubject<string>('')
+    currentPriority$ = this.priority$.asObservable()
+    selectedPriority:string;
+
+    //
     priority: string = 'none'
     subtask: string = ''
     date: Date;
     allSubTasks: Array<any> = []
     task = new Task();
+    contactListValue:any;
+    categoryListValue:any;
+    emptySubtask:boolean;
    //
    assignedContacts$:Array<any>= [];
   
@@ -72,16 +80,30 @@ export class DialogAddTaskComponent implements OnInit {
       this.allSubTasks.splice(index, 1);
     }
   
+    
     priorityValue(value:string){
       this.task.priority = value;
+      this.priority$.next(value)
     }
   
+
     selecteContacts(contacts:any){
       this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
     }
   
+
     selecteCategory(category:any){
       this.task.category = category.value;
+    }
+
+
+    clearAll(){
+      this.task = new Task();
+      this.priority$.next('none');
+      this.allSubTasks = [];
+      this.date = undefined;
+      this.contactListValue = undefined;
+      this.categoryList = undefined;
     }
   // DEBUGG FUNCTION
     logsub(){console.log(this.task)}

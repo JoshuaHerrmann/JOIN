@@ -49,7 +49,9 @@ export class AddTaskComponent implements OnInit {
   date: Date;
   allSubTasks: Array<any> = []
   task = new Task();
-  
+  contactListValue:any;
+  categoryListValue:any;
+  emptySubtask:boolean;
  //
  assignedContacts$:Array<any>= [];
 
@@ -66,10 +68,11 @@ export class AddTaskComponent implements OnInit {
 
   addSubTask(){
     if(this.subtask === ''){ 
-      alert('Please enter a text to your Subtask!');
+      this.emptySubtask = true;
       return}
     this.allSubTasks.push({'task': this.subtask, 'checked': true})
     this.subtask = '';
+    this.emptySubtask = false;
   }
 
 
@@ -91,8 +94,13 @@ export class AddTaskComponent implements OnInit {
   }
 
   clearAll(){
-    
+    this.task = new Task();
+    this.priority$.next('none');
+    this.allSubTasks = [];
+    this.date = undefined;
+    this.contactListValue = undefined;
+    this.categoryList = undefined;
   }
 // DEBUGG FUNCTION
-  logsub(){console.log(this.task)}
+  logsub(){console.log(this.date)}
 }
