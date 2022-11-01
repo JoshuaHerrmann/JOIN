@@ -43,10 +43,15 @@
 
 @media (max-width:480px) {
     .main {
+        padding-left: 20px;
+        padding-right: 20px;
         .tools {
             width: fit-content;
             p {
-                text-align: center
+                display: none;
+            }
+            .profil {
+                margin-left: 20px;
             }
         }
     }

@@ -28,6 +28,7 @@ app-header {
         height: calc(100vh - 80px);
         width: 100vw;
         .content {
+            max-width: none;
             padding: 0;
             width: 100vw;
             height: calc(100vh - 161px);
@@ -37,6 +38,14 @@ app-header {
             bottom: 0;
             width: 100vw;
             height: fit-content;
+        }
+        app-logout-button {
+            height: 40px;
+            top: -60px;
+            left: 35%;
+            right: 0;
+            bottom: 0;
+            width: fit-content;
         }
     }
 }

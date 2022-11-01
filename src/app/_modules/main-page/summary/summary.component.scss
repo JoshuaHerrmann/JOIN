@@ -119,19 +119,38 @@
         }
         .topPart {
             flex-direction: column;
+            .task {
+                flex-direction: row;
+                align-items: center;
+                .taskTop {
+                    align-items: center;
+                    h3 {
+                        margin: 0;
+                    }
+                }
+            }
             .taskBig {
                 flex-direction: column;
+                width: 85%;
                 .urgent {
                     border: none;
+                    #urgent {
+                        margin-bottom: 5px;
+                    }
                 }
             }
         }
         .task {
-            width: calc(90% - 80px);
+            width: calc(45% - 40px);
             padding: 5px 20px;
+            min-height: fit-content !important;
         }
         .bottomPart {
-            flex-direction: column;
+            flex-direction: row;
+            flex-wrap: wrap;
         }
+    }
+    .lightblue {
+        width: 85% !important;
     }
 }
