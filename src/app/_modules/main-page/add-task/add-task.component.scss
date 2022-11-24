@@ -144,6 +144,20 @@ button {
     margin-right: 20px;
 }
 
+@media (max-width:1300px) {
+    .main {
+        height: 500px;
+        .description {
+            textarea {
+                height: 50px;
+            }
+        }
+        .buttons {
+            width: 50%;
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         height: calc(100vh - 161px);

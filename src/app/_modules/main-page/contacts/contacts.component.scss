@@ -51,6 +51,17 @@
     }
 }
 
+@media (max-width:1300px) {
+    .main {
+        height: 500px;
+        .contacts {
+            padding-right: 30px;
+            padding-top: 20px;
+            height: calc(100% - 20px);
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         height: calc(100vh - 161px);

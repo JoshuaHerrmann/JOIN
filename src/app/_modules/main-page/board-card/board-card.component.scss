@@ -39,6 +39,16 @@
     }
 }
 
+@media (max-width:1300px) {
+    .main {
+        .category {
+            p {
+                padding: 0;
+            }
+        }
+    }
+}
+
 .Design {
     background-color: var(--design);
 }

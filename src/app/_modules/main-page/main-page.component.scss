@@ -23,6 +23,17 @@ app-header {
     z-index: 2;
 }
 
+@media (max-width:1300px) {
+    .main {
+        height: calc(100vh - 80px) !important;
+        .content {
+            padding: 0 30px;
+            min-width: calc(100vw - 260px) !important;
+            max-width: calc(100vw - 260px) !important;
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         height: calc(100vh - 80px);

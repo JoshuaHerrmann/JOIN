@@ -82,6 +82,16 @@
     }
 }
 
+@media (max-width:1300px) {
+    .main {
+        .toolsButtom {
+            button {
+                padding: 10px 15px !important;
+            }
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         padding: 0px;

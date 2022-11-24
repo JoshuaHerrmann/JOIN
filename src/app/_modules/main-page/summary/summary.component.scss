@@ -101,6 +101,20 @@
     background-color: var(--selected);
 }
 
+@media (max-width:1300px) {
+    .main {
+        .greeting {
+            margin-top: 20px;
+        }
+        .task {
+            min-height: fit-content !important;
+            h3 {
+                margin: 0;
+            }
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         height: calc(100vh - 161px);

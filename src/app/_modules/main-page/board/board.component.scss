@@ -85,6 +85,21 @@
     }
 }
 
+@media (max-width:1300px) {
+    .main {
+        .nav {
+            margin-bottom: 20px;
+            width: 50%;
+        }
+        .board {
+            height: 400px;
+        }
+        .taskColumns {
+            height: 350px !important;
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         .nav {

@@ -68,6 +68,15 @@
         border-radius: 10px;
     }
     
+    @media(max-width:1300px) {
+        .main {
+            height: 490px;
+            .legaldiv {
+                padding-top: 40px;
+            }
+        }
+    }
+    
     @media (max-width:480px) {
         .main {
             height: fit-content;
