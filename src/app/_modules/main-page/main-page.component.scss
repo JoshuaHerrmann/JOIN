@@ -31,6 +31,12 @@ app-header {
             min-width: calc(100vw - 260px) !important;
             max-width: calc(100vw - 260px) !important;
         }
+        app-logout-button {
+            opacity: 0.3;
+            &:hover {
+                opacity: 1;
+            }
+        }
     }
 }
 

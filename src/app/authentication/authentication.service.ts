@@ -98,7 +98,7 @@ export class AuthenticationService {
    }
 
    resetPasswortWithMail(email:string){
-    console.log('HIER DIE MAIl',email)
+    //console.log('HIER DIE MAIl',email)
     if(email !== undefined ){
       this.auth.sendPasswordResetEmail(email).then(()=>{
         this.router.navigateByUrl('/reset-send/')
