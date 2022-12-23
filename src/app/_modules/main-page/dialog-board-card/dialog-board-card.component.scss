@@ -76,6 +76,15 @@
     }
 }
 
+.displayNone {
+    display: none;
+}
+
+.selected {
+    background-color: var(--bgMain) !important;
+    color: var(--bgWhite) !important;
+}
+
 @media (max-width:480px) {
     .main {
         width: 100% !important;

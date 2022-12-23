@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import { DialogAddContactComponent } from '../dialog-add-contact/dialog-add-contact.component';
 
+
 @Component({
   selector: 'app-contacts',
   templateUrl: './contacts.component.html',
@@ -35,12 +36,12 @@ export class ContactsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(): void {
+  openDialogAddContact(): void {
     this.dialog.open(DialogAddContactComponent, {
       width: '250px',
     });
   }
-
+  
 
   
   filterUserlist(){

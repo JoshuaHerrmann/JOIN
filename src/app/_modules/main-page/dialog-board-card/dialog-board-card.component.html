@@ -7,22 +7,49 @@
     </div>
 
     <div mat-dialog-content>
-        <h1 mat-dialog-title>{{ data['title'] }}</h1>
+        <h1 mat-dialog-title [class.displayNone]="editing === true">{{ data['title'] }}</h1>
+        <div [class.displayNone]="editing === false" class="editTitle">
+            <p>Change title:</p>
+            <input type="text" value="{{ data['title'] }}">
+        </div>
         <div class="description">
-            <p>{{ data['description'] }}</p>
+            <p [class.displayNone]="editing === true">{{ data['description'] }}</p>
+        </div>
+        <div class="editDescription" [class.displayNone]="editing === false">
+            <p>Change Description:</p>
+            <input type="text" value="{{ data['description'] }}">
         </div>
         <div class="row margin">
             <b>Due date :</b>
-            <p>date</p>
+            <p [class.displayNone]="editing === true">date</p>
+            <mat-form-field appearance="fill" class="example-form-field" [class.displayNone]="editing === false">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="datepicker" [(ngModel)]="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+            </mat-form-field>
         </div>
         <div class="row margin">
             <b>Priority :</b>
-            <div class="priority{{ data['priority'] }}">{{ data['priority'] }} <img src="assets/img/icons/Prio {{ data['priority'] }}.png" alt=""></div>
+            <div class="priority{{ data['priority'] }}" [class.displayNone]="editing === true">{{ data['priority'] }} <img src="assets/img/icons/Prio {{ data['priority'] }}.png" alt=""></div>
+            <div class="priority" [class.displayNone]="editing === false">
+                <button (click)="priorityValue('urgent')" id="urgent" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')" id="medium" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
+                <button (click)="priorityValue('low')" id="low" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
+            </div>
         </div>
         <div class=" margin">
             <b>Assigned To :</b>
-            <div class="assigned">{{ data['assignedTo'] }}</div>
+            <div class="assigned" [class.displayNone]="editing === true">{{ data['assignedTo'] }}</div>
+            <mat-select [formControl]="contacts" multiple (selectionChange)="selecteContacts($event.value)" [(ngModel)]="contactListValue" [class.displayNone]="editing === false">
+                <mat-option *ngFor="let contact of contactsList" [value]="contact">{{contact['firstname'] }} {{contact['lastname']}}</mat-option>
+            </mat-select>
         </div>
     </div>
-    <div class="editbtn"><button><img src="assets/img/icons/edit_button.png" alt=""></button></div>
+    <div class="editbtn"><button (click)="editMode()"><img src="assets/img/icons/edit_button.png" alt=""></button></div>
 </div>

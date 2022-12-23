@@ -54,7 +54,17 @@ export class FirebasedataService {
       console.log(e)
      }
    } 
-
+   
+   
+  updateTaskFromDb(task:any){
+    try{
+      this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc('docid').delete();
+      this.addTaskToDB(task);
+    }catch(e){
+      console.log('Update Failed! Error:')
+      console.error(e)
+    }
+   }
 //contacts
    addContactToDB(contact:any){
     this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc().set(contact).then(()=>{

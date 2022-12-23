@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 
 @Component({
   selector: 'app-dialog-edit-contact',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogEditContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(public firebase: FirebasedataService) { }
 
   ngOnInit(): void {
   }

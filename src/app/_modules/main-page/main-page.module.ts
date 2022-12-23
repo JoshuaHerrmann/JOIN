@@ -35,6 +35,7 @@ import { LogoutButtonModule } from '../logout-button/logout-button.module';
 
 
 
+
 @NgModule({
   declarations: [
     MainPageComponent,
@@ -51,7 +52,7 @@ import { LogoutButtonModule } from '../logout-button/logout-button.module';
     ContactSingleComponent,
     DialogAddContactComponent,
     DialogAddTaskComponent,
-    DialogEditContactComponent
+    DialogEditContactComponent,
   ],
   imports: [
     CommonModule,

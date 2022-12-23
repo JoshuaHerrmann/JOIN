@@ -39,6 +39,7 @@ export class AddTaskComponent implements OnInit {
     {value: 'Backoffice', viewValue: 'Backoffice'},
     {value: 'Marketing', viewValue: 'Marketing'},
   ];
+  
   private priority$ = new BehaviorSubject<string>('')
   currentPriority$ = this.priority$.asObservable()
   selectedPriority:string;
