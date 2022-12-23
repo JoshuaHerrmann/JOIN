@@ -19,8 +19,8 @@ export class BoardComponent implements OnInit {
     firebase.userdata$.subscribe((data)=>{
       this.allUsersTasks = data;
       this.filterTaskState()
-      console.log('allUserTasks in board',this.allUsersTasks)
-      console.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
+      //console.log('allUserTasks in board',this.allUsersTasks)
+      //onsole.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
     })
     
    }

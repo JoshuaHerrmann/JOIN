@@ -26,7 +26,7 @@ export class SummaryComponent implements OnInit {
     this.firebase.userdata$.subscribe((data)=>{
       this.userData = data
       this.filterData()
-      console.log(this.userData) // remove when finished
+      //console.log(this.userData) // remove when finished
     })
   }
 
