@@ -19,8 +19,12 @@ export class BoardComponent implements OnInit {
   searchField:string;
 
   constructor(public dialog: MatDialog, public firebase: FirebasedataService) {
+    if(this.allUsersTasks = []) firebase.updateData()
     firebase.userdata$.subscribe((dataDB)=>{
+      console.error('sub')
+      this.allUsersTasks = [];
       dataDB.forEach(data => {
+        this.resetArrays()
         let rawTask =  data.payload.doc.data();
         let taskId= data.payload.doc.id;
         this.allUsersTasks.push({

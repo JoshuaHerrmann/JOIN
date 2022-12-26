@@ -19,12 +19,14 @@ export class FirebasedataService {
   private userData = new BehaviorSubject<any>({})
   currentUserData$ = this.userData.asObservable()
   
+  
 
 
   constructor(public firestore: AngularFirestore) {
     //console.log(localStorage.getItem('JOIN_uid'))
     localStorage.setItem('JOIN_uid', 'noid')
     this.updateData()
+    
    }
 
 
@@ -35,6 +37,7 @@ export class FirebasedataService {
 
    updateData(){
     this.updateUid()
+    console.warn('LoadFirebase')
    if(this.userid == ''){
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
@@ -45,7 +48,8 @@ export class FirebasedataService {
     this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').snapshotChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').valueChanges()
     this.userlist$ = this.firestore.collection('userlist').doc(this.userid).valueChanges()
-   }
+    
+  }
 
   
    addTaskToDB(task:any){
@@ -57,9 +61,9 @@ export class FirebasedataService {
    } 
    
    
-  updateTaskFromDb(task:any){
+  updateTaskFromDb(task:any,taskid:string){
     try{
-      this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc('docid').delete();
+      this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc(taskid).delete();
       this.addTaskToDB(task);
     }catch(e){
       console.log('Update Failed! Error:')

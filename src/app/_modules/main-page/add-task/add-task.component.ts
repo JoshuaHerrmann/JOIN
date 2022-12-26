@@ -16,6 +16,7 @@ interface category {
 export class AddTaskComponent implements OnInit {
   constructor(public firebase:FirebasedataService, ) {
     let contactList = []
+    firebase.updateData()
     firebase.usercontacts$.subscribe(data=>{
       data.forEach(contact=>{
         contactList.push({'firstname':contact['firstname'],'lastname':contact['lastname'],'uid':contact['uid']})

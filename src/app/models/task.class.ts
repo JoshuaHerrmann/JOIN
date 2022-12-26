@@ -14,7 +14,7 @@ export class Task {
             this.finishDate = obj ? obj.finishDate : new Date().getTime();
             this.category = obj ? obj.category : '';
             this.priority = obj ? obj.priority : '';
-            this.state = 'todo'; // by default todo, when created in board state can change
+            this.state = obj ? obj.state : 'todo'; // by default todo, when created in board state can change
             this.description = obj ? obj.description : '';
             this.subtasks = obj ? obj.subtasks : [];
             this.assignedTo = obj ? obj.assignedTo : [];

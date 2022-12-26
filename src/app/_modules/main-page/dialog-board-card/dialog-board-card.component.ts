@@ -29,7 +29,8 @@ export class DialogBoardCardComponent implements OnInit {
     this.currentPriority$.subscribe(value=>{
       this.selectedPriority = value;
     })
-    this.task = new Task(this.data)
+    this.task = new Task(this.data['task'])
+    this.testtask()
   }
 
   
@@ -53,29 +54,40 @@ export class DialogBoardCardComponent implements OnInit {
 
   editMode(){
     this.editing = true ? this.editing === false : this.editing = false;
+    this.selectedPreEdit()
     console.log(this.task)
   }
 
+  selectedPreEdit(){
+    this.priority$.next(this.task.priority)
+    this.date = new Date(this.task.finishDate)
+  }
 
   priorityValue(value:string){
-    //this.task.priority = value;
+    this.task.priority = value;
     this.priority$.next(value)
   }
 
 
   selecteContacts(contacts:any){
-    //this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
+    this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
   }
 
-  addTaskToDB(){
+
+  updateTaskDB(){
     if(this.task.priority === ''){
       alert('Please add a priority! (Urgent, Medium, Low)');
       return
     }
-    //this.allSubTasks.forEach(subtask => {
-    //  subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
     this.task.finishDate = this.date.getTime()
-    this.firebase.addTaskToDB(this.task.toJson())
+    this.firebase.updateTaskFromDb(this.task.toJson(),this.data.taskid)
     this.dialogRef.close()
+  }
+
+
+  ////////////
+  testtask(){
+    console.log(this.task.state)
+    
   }
 }

@@ -5,19 +5,18 @@
         </div>
         <button mat-dialog-close><img src="assets/img/icons/button_x.png" alt=""></button>
     </div>
-
     <div mat-dialog-content>
         <h1 mat-dialog-title [class.displayNone]="editing === true">{{ data['task']['title'] }}</h1>
         <div [class.displayNone]="editing === false" class="editTitle">
             <p>Change title:</p>
-            <input type="text" value="{{ data['task']['title'] }}">
+            <input type="text" value="{{ data['task']['title'] }}" [(ngModel)]="task.title">
         </div>
         <div class="description">
             <p [class.displayNone]="editing === true">{{ data['task']['description'] }}</p>
         </div>
         <div class="editDescription" [class.displayNone]="editing === false">
             <p>Change Description:</p>
-            <input type="text" value="{{ data['task']['description'] }}">
+            <input type="text" value="{{ data['task']['description'] }}" [(ngModel)]="task.description">
         </div>
         <div class="row margin">
             <b>Due date :</b>
@@ -51,5 +50,6 @@
             </mat-select>
         </div>
     </div>
+    <div class="confirmEdit" [class.displayNone]="editing === false"><button (click)="updateTaskDB()">X</button></div>
     <div class="editbtn"><button (click)="editMode()"><img src="assets/img/icons/edit_button.png" alt=""></button></div>
 </div>

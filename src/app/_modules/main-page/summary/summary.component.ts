@@ -15,6 +15,7 @@ export class SummaryComponent implements OnInit {
   userPersonalData:any;
 
   constructor(public firebase: FirebasedataService, private auth: AuthenticationService) { 
+    firebase.updateData()
     this.getUserData()
     this.getUserPersonalData()
   }
