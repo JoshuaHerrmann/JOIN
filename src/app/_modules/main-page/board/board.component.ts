@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
+import { Task } from 'src/app/models/task.class';
 import { DialogAddTaskComponent } from '../dialog-add-task/dialog-add-task.component';
 
 @Component({
@@ -10,19 +11,27 @@ import { DialogAddTaskComponent } from '../dialog-add-task/dialog-add-task.compo
 })
 export class BoardComponent implements OnInit {
   allUsersTasks: Array<any> = [];
+  allUsersTasksId:Array<any> = [];
   Tasks_todo: Array<any> = [];
   Tasks_progress: Array<any> = [];
   Tasks_feedback: Array<any> = [];
   Tasks_done: Array<any> = [];
   searchField:string;
+
   constructor(public dialog: MatDialog, public firebase: FirebasedataService) {
-    firebase.userdata$.subscribe((data)=>{
-      this.allUsersTasks = data;
+    firebase.userdata$.subscribe((dataDB)=>{
+      dataDB.forEach(data => {
+        let rawTask =  data.payload.doc.data();
+        let taskId= data.payload.doc.id;
+        this.allUsersTasks.push({
+          'task':rawTask,
+          'taskid':taskId
+        })
+      })
       this.filterTaskState()
-      //console.log('allUserTasks in board',this.allUsersTasks)
-      //onsole.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
+      console.log('allUserTasks in board',this.allUsersTasks)
+      console.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
     })
-    
    }
 
   ngOnInit(): void {
@@ -35,10 +44,10 @@ export class BoardComponent implements OnInit {
   filterTaskState(){
     this.resetArrays()
     this.allUsersTasks.forEach(task => {
-      task.state === 'todo'? this.Tasks_todo.push(task):
-      task.state === 'progress'? this.Tasks_progress.push(task):
-      task.state === 'feedback'? this.Tasks_feedback.push(task):
-      task.state === 'done'? this.Tasks_done.push(task): null;  
+      task['task'].state === 'todo'? this.Tasks_todo.push(task):
+      task['task'].state === 'progress'? this.Tasks_progress.push(task):
+      task['task'].state === 'feedback'? this.Tasks_feedback.push(task):
+      task['task'].state === 'done'? this.Tasks_done.push(task): null;  
     });
   }
   filterTaskStateSearch(mappedArray){

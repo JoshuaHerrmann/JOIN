@@ -9,10 +9,11 @@ import { States } from 'src/app/models/states.class';
   styleUrls: ['./summary.component.scss']
 })
 export class SummaryComponent implements OnInit {
-  userData: any;
+  userData:Array<any>=[];
   states= new States();
   upcomingDate: string;
-  userPersonalData:any;;
+  userPersonalData:any;
+
   constructor(public firebase: FirebasedataService, private auth: AuthenticationService) { 
     this.getUserData()
     this.getUserPersonalData()
@@ -23,8 +24,15 @@ export class SummaryComponent implements OnInit {
 
 
   getUserData(){
-    this.firebase.userdata$.subscribe((data)=>{
-      this.userData = data
+      this.firebase.userdata$.subscribe((dataDB)=>{
+        dataDB.forEach(data => {
+          let rawTask =  data.payload.doc.data();
+          let taskId= data.payload.doc.id;
+          this.userData.push({
+            'task':rawTask,
+            'taskid':taskId
+          })
+        })
       this.filterData()
       //console.log(this.userData) // remove when finished
     })
@@ -67,11 +75,11 @@ export class SummaryComponent implements OnInit {
 
   filterForAmount(){
     this.userData.forEach( task=> {
-      task.state === 'todo'? this.states['todo']++ :
-      task.state === 'progress'? this.states['progress']++ :
-      task.state === 'feedback'? this.states['feedback']++ :
-      task.state === 'done'? this.states['done']++ : null;
-      task.priority === 'urgent'? this.states['urgent']++:null;
+      task['task'].state === 'todo'? this.states['todo']++ :
+      task['task'].state === 'progress'? this.states['progress']++ :
+      task['task'].state === 'feedback'? this.states['feedback']++ :
+      task['task'].state === 'done'? this.states['done']++ : null;
+      task['task'].priority === 'urgent'? this.states['urgent']++:null;
       this.states.allTasks = this.states.todo + this.states.progress + this.states.feedback + this.states.done;
     });
   }

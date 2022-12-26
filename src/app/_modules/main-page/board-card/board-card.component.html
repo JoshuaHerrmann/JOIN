@@ -1,17 +1,17 @@
 <div class="main border " (click)="openDialog('0ms', '0ms')">
-    <div class="category {{ taskdata['category'] }}">
-        <p>{{ taskdata['category'] }}</p>
+    <div class="category {{ taskdata['task']['category'] }}">
+        <p>{{ taskdata['task']['category'] }}</p>
     </div>
     <div class="info">
-        <H2>{{ taskdata['title'] }}</H2>
-        <p>{{ taskdata['description'] }}</p>
+        <H2>{{ taskdata['task']['title'] }}</H2>
+        <p>{{ taskdata['task']['description'] }}</p>
     </div>
     <div class="userList">
-        <div class="users" *ngFor="let user of taskdata['assignedTo']">
+        <div class="users" *ngFor="let user of taskdata['task']['assignedTo']">
             <p>{{ user['name'] }}</p>
         </div>
         <div class="priority">
-            <img src="assets/img/icons/Prio {{ taskdata['priority'] }}.png" alt="">
+            <img src="assets/img/icons/Prio {{ taskdata['task']['priority'] }}.png" alt="">
         </div>
     </div>
 </div>

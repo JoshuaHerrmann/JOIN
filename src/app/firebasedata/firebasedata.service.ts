@@ -9,10 +9,11 @@ import { AuthenticationService } from '../authentication/authentication.service'
 })
 export class FirebasedataService {
   userdata$: Observable<any>;
+  userdataId$: Observable<any>;
   usercontacts$: Observable<any>;
   userlist$: Observable<any>;
   userid: string; 
-
+  
 
   // observable für detail contacts
   private userData = new BehaviorSubject<any>({})
@@ -41,12 +42,12 @@ export class FirebasedataService {
     this.userlist$ = this.firestore.collection('userlist').doc('noid').valueChanges()
     return
    }
-    this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').valueChanges()
+    this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').snapshotChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').valueChanges()
     this.userlist$ = this.firestore.collection('userlist').doc(this.userid).valueChanges()
    }
 
-
+  
    addTaskToDB(task:any){
     try{this.firestore.collection('userdata').doc(this.userid).collection('tasks').add(task).then(()=>{
       console.log('Succesfully added Task to DB!')

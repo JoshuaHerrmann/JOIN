@@ -10,7 +10,7 @@ import { DialogBoardCardComponent } from '../dialog-board-card/dialog-board-card
 
 
 export class BoardCardComponent implements OnInit {
-  @Input() taskdata = [];
+  @Input() taskdata:any;
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {

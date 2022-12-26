@@ -1,23 +1,23 @@
 <div class="main">
     <div class="header">
         <div class="category">
-            <p>{{ data['category'] }}</p>
+            <p>{{ data['task']['category'] }}</p>
         </div>
         <button mat-dialog-close><img src="assets/img/icons/button_x.png" alt=""></button>
     </div>
 
     <div mat-dialog-content>
-        <h1 mat-dialog-title [class.displayNone]="editing === true">{{ data['title'] }}</h1>
+        <h1 mat-dialog-title [class.displayNone]="editing === true">{{ data['task']['title'] }}</h1>
         <div [class.displayNone]="editing === false" class="editTitle">
             <p>Change title:</p>
-            <input type="text" value="{{ data['title'] }}">
+            <input type="text" value="{{ data['task']['title'] }}">
         </div>
         <div class="description">
-            <p [class.displayNone]="editing === true">{{ data['description'] }}</p>
+            <p [class.displayNone]="editing === true">{{ data['task']['description'] }}</p>
         </div>
         <div class="editDescription" [class.displayNone]="editing === false">
             <p>Change Description:</p>
-            <input type="text" value="{{ data['description'] }}">
+            <input type="text" value="{{ data['task']['description'] }}">
         </div>
         <div class="row margin">
             <b>Due date :</b>
@@ -37,7 +37,7 @@
         </div>
         <div class="row margin">
             <b>Priority :</b>
-            <div class="priority{{ data['priority'] }}" [class.displayNone]="editing === true">{{ data['priority'] }} <img src="assets/img/icons/Prio {{ data['priority'] }}.png" alt=""></div>
+            <div class="priority{{ data['task']['priority'] }}" [class.displayNone]="editing === true">{{ data['task']['priority'] }} <img src="assets/img/icons/Prio {{ data['task']['priority'] }}.png" alt=""></div>
             <div class="priority" [class.displayNone]="editing === false">
                 <button (click)="priorityValue('urgent')" id="urgent" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')" id="medium" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
                 <button (click)="priorityValue('low')" id="low" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
@@ -45,7 +45,7 @@
         </div>
         <div class=" margin">
             <b>Assigned To :</b>
-            <div class="assigned" [class.displayNone]="editing === true">{{ data['assignedTo'] }}</div>
+            <div class="assigned" [class.displayNone]="editing === true">{{ data['task']['assignedTo'] }}</div>
             <mat-select [formControl]="contacts" multiple (selectionChange)="selecteContacts($event.value)" [(ngModel)]="contactListValue" [class.displayNone]="editing === false">
                 <mat-option *ngFor="let contact of contactsList" [value]="contact">{{contact['firstname'] }} {{contact['lastname']}}</mat-option>
             </mat-select>
