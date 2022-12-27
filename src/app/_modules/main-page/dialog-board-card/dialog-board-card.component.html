@@ -20,7 +20,7 @@
         </div>
         <div class="row margin">
             <b>Due date :</b>
-            <p [class.displayNone]="editing === true">date</p>
+            <p [class.displayNone]="editing === true">{{ calenderDate }}</p>
             <mat-form-field appearance="fill" class="example-form-field" [class.displayNone]="editing === false">
                 <mat-label>Choose a date</mat-label>
                 <input matInput [matDatepicker]="datepicker" [(ngModel)]="date">
@@ -44,7 +44,7 @@
         </div>
         <div class=" margin">
             <b>Assigned To :</b>
-            <div class="assigned" [class.displayNone]="editing === true">{{ data['task']['assignedTo'] }}</div>
+            <div class="assigned" *ngFor=" let contact of assignedContacts" [class.displayNone]="editing === true">{{ contact }}</div>
             <mat-select [formControl]="contacts" multiple (selectionChange)="selecteContacts($event.value)" [(ngModel)]="contactListValue" [class.displayNone]="editing === false">
                 <mat-option *ngFor="let contact of contactsList" [value]="contact">{{contact['firstname'] }} {{contact['lastname']}}</mat-option>
             </mat-select>

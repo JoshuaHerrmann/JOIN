@@ -29,8 +29,7 @@ export class DialogBoardCardComponent implements OnInit {
     this.currentPriority$.subscribe(value=>{
       this.selectedPriority = value;
     })
-    this.task = new Task(this.data['task'])
-    this.testtask()
+   this.assigneData()
   }
 
   
@@ -42,15 +41,23 @@ export class DialogBoardCardComponent implements OnInit {
   priority: string = 'none';
 
   date: Date;
+  calenderDate: string;
   contacts = new FormControl('');
   contactsList: string[] = [];
   contactListValue:any;
+  assignedContacts: Array<any> = []
   task:Task;
 
   
 
   //
-
+  assigneData(){
+    this.task = new Task(this.data['task'])
+    this.calenderDate = this.formatDate(new Date(this.task.finishDate))
+    this.task.assignedTo.forEach(contact => {
+      this.assignedContacts.push(contact.firstname +' ' + contact.lastname + ',')
+    })
+  }
 
   editMode(){
     this.editing = true ? this.editing === false : this.editing = false;
@@ -84,6 +91,19 @@ export class DialogBoardCardComponent implements OnInit {
     this.dialogRef.close()
   }
 
+  //helpfunctions for date
+  padTo2Digits(num) {
+    return num.toString().padStart(2, '0');
+  }
+
+
+  formatDate(date) {
+    return [
+      this.padTo2Digits(date.getDate()),
+      this.padTo2Digits(date.getMonth() + 1),
+      date.getFullYear(),
+    ].join('/');
+  }
 
   ////////////
   testtask(){
