@@ -8,23 +8,28 @@ import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 })
 export class ContactSingleComponent implements OnInit {
   @Input() data:any;
+  rawContact:any;
   randomColor:any;
+  shorthand:string;
   constructor(public firebase:FirebasedataService) {
 
    }
   
   ngOnInit(): void {
+    this.rawContact = this.data['contact']
     this.getRandomColor()
+    this.shorthand = this.getShorthand()
   }
 
   getShorthand(){
-   let first = this.data['firstname'].split("", 1)
-   let last = this.data['lastname'].split("", 1)
+   let first = this.rawContact['firstname'].split("", 1)
+   let last = this.rawContact['lastname'].split("", 1)
    return last + first
   }
 
   updateUserData(){
-    this.firebase.nextUserData(this.data)
+    console.log(this.rawContact)
+    this.firebase.nextUserData(this.rawContact)
   }
 
 

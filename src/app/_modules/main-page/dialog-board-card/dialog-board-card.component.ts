@@ -87,7 +87,7 @@ export class DialogBoardCardComponent implements OnInit {
       return
     }
     this.task.finishDate = this.date.getTime()
-    this.firebase.updateTaskFromDb(this.task.toJson(),this.data.taskid)
+    this.firebase.updateTaskFromDB(this.task.toJson(),this.data.taskid)
     this.dialogRef.close()
   }
 

@@ -15,13 +15,15 @@ interface category {
 })
 export class AddTaskComponent implements OnInit {
   constructor(public firebase:FirebasedataService, ) {
-    let contactList = []
     firebase.updateData()
-    firebase.usercontacts$.subscribe(data=>{
-      data.forEach(contact=>{
-        contactList.push({'firstname':contact['firstname'],'lastname':contact['lastname'],'uid':contact['uid']})
+    firebase.usercontacts$.subscribe((dataDB)=>{
+      dataDB.forEach(data=>{
+        this.userList.push({
+          'contact':data.payload.doc.data(),
+          'contactId':data.payload.doc.id
+        })
       })
-      this.contactsList = contactList
+      this.updateContactList()
     })
    }
 
@@ -31,8 +33,8 @@ export class AddTaskComponent implements OnInit {
     })
   }
   contacts = new FormControl('');
-
-  contactsList: string[] = [];
+  userList: Array<any> = [];
+  contactsList: any[] = [];
   categoryList: category[] = [
     {value: 'Desing', viewValue: 'Design'},
     {value: 'Media', viewValue: 'Media'},
@@ -75,6 +77,15 @@ export class AddTaskComponent implements OnInit {
     this.allSubTasks.push({'task': this.subtask, 'checked': true})
     this.subtask = '';
     this.emptySubtask = false;
+  }
+
+
+  updateContactList(){
+    let contactList = [];
+    this.userList.forEach(contact=>{
+    contactList.push({'firstname':contact['contact']['firstname'],'lastname':contact['contact']['lastname'],'uid':contact['contact']['uid']})
+    })
+    this.contactsList = contactList
   }
 
 

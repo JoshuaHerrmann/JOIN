@@ -27,11 +27,9 @@ export class SummaryComponent implements OnInit {
   getUserData(){
       this.firebase.userdata$.subscribe((dataDB)=>{
         dataDB.forEach(data => {
-          let rawTask =  data.payload.doc.data();
-          let taskId= data.payload.doc.id;
           this.userData.push({
-            'task':rawTask,
-            'taskid':taskId
+            'task':data.payload.doc.data(),
+          'taskid':data.payload.doc.id
           })
         })
       this.filterData()
@@ -65,7 +63,7 @@ export class SummaryComponent implements OnInit {
   filterForDate(){
     let dates = [];
     this.userData.forEach(task=>{
-      dates.push(task.finishDate)
+      dates.push(task['task'].finishDate)
     })
     dates.sort((a,b)=>{
       return a - b

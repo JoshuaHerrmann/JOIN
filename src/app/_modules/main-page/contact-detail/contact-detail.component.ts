@@ -11,19 +11,25 @@ import { DialogEditContactComponent } from '../dialog-edit-contact/dialog-edit-c
 })
 export class ContactDetailComponent implements OnInit {
   @Input() data;
-  constructor(public dialog: MatDialog) { }
+  rawContact:any;
+  constructor(public dialog: MatDialog, public firebase: FirebasedataService) { }
 
   ngOnInit(): void {
+    console.log('update contact',this.data)
+    this.firebase.currentUserData$.subscribe(data=>{
+      this.rawContact = data;
+    })
   }
   getShorthand(){
-    let firstnameLetter = this.data['firstname'].slice("",1)
-    let lastnameLetter = this.data['lastname'].slice("",1)
+    let firstnameLetter = this.rawContact['firstname'].slice("",1)
+    let lastnameLetter = this.rawContact['lastname'].slice("",1)
     return lastnameLetter + firstnameLetter
   }
 
   openDialogEditContact(): void {
     this.dialog.open(DialogEditContactComponent, {
       width: '250px',
+      data: this.data
     });
   }
   openDialogAddTaskWithContact(): void {

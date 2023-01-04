@@ -17,14 +17,7 @@ interface Item {
 })
 export class MainPageComponent implements OnInit {
   helpPage: boolean = false;
-  constructor(firestore: FirebasedataService){
-    firestore.userdata$.subscribe((data)=>{
-      //console.log('DB_USERDATA',data)
-    });
-    firestore.usercontacts$.subscribe((data)=>{
-     // console.log('DB_USERLIST',data)
-    })
-
+  constructor(){
   }
  
   ngOnInit(): void {

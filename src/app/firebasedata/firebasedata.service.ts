@@ -37,7 +37,7 @@ export class FirebasedataService {
 
    updateData(){
     this.updateUid()
-    console.warn('LoadFirebase')
+    //console.warn('LoadFirebase')
    if(this.userid == ''){
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
@@ -46,7 +46,7 @@ export class FirebasedataService {
     return
    }
     this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').snapshotChanges()
-    this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').valueChanges()
+    this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').snapshotChanges()
     this.userlist$ = this.firestore.collection('userlist').doc(this.userid).valueChanges()
     
   }
@@ -61,7 +61,7 @@ export class FirebasedataService {
    } 
    
    
-  updateTaskFromDb(task:any,taskid:string){
+  updateTaskFromDB(task:any,taskid:string){
     try{
       this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc(taskid).delete();
       this.addTaskToDB(task);
@@ -77,6 +77,16 @@ export class FirebasedataService {
     }).catch((e)=>{
       console.warn('Error', e)
     })
+   }
+
+   updateContactFromDB(contact:any, contactId:any){
+    try{
+      this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc(contactId).delete();
+      this.addContactToDB(contact);
+    }catch(e){
+      console.log('Update Failed! Error:')
+      console.error(e)
+    }
    }
    // observable
   nextUserData(data){

@@ -22,10 +22,16 @@ export class ContactsComponent implements OnInit {
 
   constructor(public dialog: MatDialog, public firebase:FirebasedataService) {
     firebase.updateData()
-    firebase.usercontacts$.subscribe((data)=>{
-      this.userList = data
-      //console.log(this.userList)
+    firebase.usercontacts$.subscribe((dataDB)=>{
+      this.userList = []
+      dataDB.forEach(data =>{
+        this.userList.push({
+          'contact':data.payload.doc.data(),
+          'contactId':data.payload.doc.id
+        })
+      })
       this.filterUserlist()
+      console.log(this.userList)
     })
     firebase.currentUserData$.subscribe(data=>{
       this.userDetail = data;
@@ -49,7 +55,7 @@ export class ContactsComponent implements OnInit {
    this.filteredUserList = [];
     let set = new Set();
   this.userList.forEach(contact =>{
-    set.add(contact['lastname'].slice("",1));
+    set.add(contact['contact']['lastname'].slice("",1));
    })
    set.forEach(entry=>{
     this.filteredUserList.push({letter: entry, contacts:[]})
@@ -57,7 +63,7 @@ export class ContactsComponent implements OnInit {
    //console.warn(this.filteredUserList)
    this.userList.forEach((contact)=>{
     this.filteredUserList.forEach((letter, indexLetter) => {
-      if(contact['lastname'].slice("",1) === letter['letter']){
+      if(contact['contact']['lastname'].slice("",1) === letter['letter']){
         this.filteredUserList[indexLetter]['contacts'].push(contact)
       }
     });

@@ -1,9 +1,9 @@
 <div class="main" (click)="updateUserData()">
     <div class="profil randomColor" id="profil" [ngStyle]="{'background-color': randomColor}">
-        {{ getShorthand() }}
+        {{ shorthand }}
     </div>
     <div class="infos">
-        <h3> {{ data['lastname'] }} {{ data['firstname'] }}</h3>
-        <a href="#">{{ data['email'] }}</a>
+        <h3> {{ rawContact['lastname'] }} {{ rawContact['firstname'] }}</h3>
+        <a href="#">{{ rawContact['email'] }}</a>
     </div>
 </div>
