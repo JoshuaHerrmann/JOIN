@@ -24,13 +24,16 @@ export class AuthenticationService {
           this.user = user
           console.log('Logged in', user);
           localStorage.setItem('currentUser', 'true')
-          if(localStorage.getItem('JOIN_uid') == ''){
+          if(localStorage.getItem('JOIN_uid') == '' || localStorage.getItem('JOIN_uid') == 'noid'){
             localStorage.setItem('JOIN_uid', user['uid'])
           }
           this.firebaserservice.updateUid()
+          this.firebaserservice.updateData()
+          this.router.navigateByUrl('/main')
         }else{
           console.log('Logged out')
           localStorage.setItem('currentUser', 'false')
+          this.router.navigateByUrl('/login')
         }
       })
       
@@ -46,6 +49,7 @@ export class AuthenticationService {
       console.log('Logged in', data);
       localStorage.setItem('currentUser', 'true')
       localStorage.setItem('JOIN_uid', data['user']['uid'])
+      this.firebaserservice.updateUid()
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
       this.failedLogin = false;
@@ -79,8 +83,10 @@ export class AuthenticationService {
       this.firestore.collection('usercontacts').doc(data['user']['uid']).collection('contacts').add(this.contact.returnToJson())
       this.firestore.collection('userlist').doc(data['user']['uid']).set(userdata)
       this.router.navigateByUrl('/main');
+      this.failedLogin = false;
     })
     .catch((e)=>{
+      this.failedLogin = true;
       console.log('error creating new account', e);
     });
    }
@@ -94,8 +100,10 @@ export class AuthenticationService {
       this.firebaserservice.updateUid()
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
+      this.failedLogin = false;
       }).catch(e=>{
-        console.log('Error', e)
+        this.failedLogin = true;
+        console.log('Error Log in', e);
     })
    }
 

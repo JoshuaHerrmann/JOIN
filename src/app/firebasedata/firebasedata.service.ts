@@ -25,9 +25,7 @@ export class FirebasedataService {
   constructor(public firestore: AngularFirestore) {
     //console.log(localStorage.getItem('JOIN_uid'))
     localStorage.setItem('JOIN_uid', 'noid')
-    
-   // this.updateData()
-    
+    //this.updateData()
    }
 
 
@@ -40,7 +38,7 @@ export class FirebasedataService {
 
    updateData(){
     console.log('update')
-   if(this.userid == 'noid' || ''){
+   if(this.userid == 'noid' || this.userid == '' || this.userid == undefined){
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc('noid').valueChanges()

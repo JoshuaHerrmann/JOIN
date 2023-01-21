@@ -22,7 +22,6 @@ export class ContactsComponent implements OnInit {
 
 
   constructor(public dialog: MatDialog, public firebase:FirebasedataService) {
-    firebase.updateData()
     firebase.usercontacts$.subscribe((dataDB)=>{
       this.userList = []
       dataDB.forEach(data =>{

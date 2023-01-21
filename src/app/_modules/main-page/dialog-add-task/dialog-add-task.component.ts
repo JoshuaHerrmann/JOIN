@@ -19,7 +19,6 @@ export class DialogAddTaskComponent implements OnInit {
     constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef : MatDialogRef<DialogAddTaskComponent>) {
       this.task.state = data;
       let contactList = []
-      firebase.updateData()
       firebase.usercontacts$.subscribe((dataDB)=>{
         dataDB.forEach(data=>{
           contactList.push({'firstname':data['contact']['firstname'],'lastname':data['contact']['lastname'],'uid':data['contact']['uid']})

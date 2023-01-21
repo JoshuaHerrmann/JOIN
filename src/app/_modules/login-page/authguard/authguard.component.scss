@@ -1,0 +1,12 @@
+.main {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width:480px) {
+    .main {
+        height: 200px;
+    }
+}

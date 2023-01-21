@@ -66,6 +66,10 @@
 
 @media (max-width:480px) {
     .main {
+        .content {
+            min-height: 200px !important;
+            min-width: 200px !important;
+        }
         .logo {
             top: 30px;
             left: 30px

@@ -10,6 +10,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { DialogResetPasswordComponent } from './dialog-reset-password/dialog-reset-password.component';
 import { ResetsendComponent } from './resetsend/resetsend.component';
+import { AuthguardComponent } from './authguard/authguard.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -20,12 +22,14 @@ import { ResetsendComponent } from './resetsend/resetsend.component';
     LoginComponent,
     SignUpComponent,
     DialogResetPasswordComponent,
-    ResetsendComponent
+    ResetsendComponent,
+    AuthguardComponent
   ],
   imports: [
     CommonModule,
     LoginPageRoutingModule,
-    FormsModule
+    FormsModule,
+    MatProgressSpinnerModule,
   ],
   exports: [
     LoginPageComponent
