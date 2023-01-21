@@ -35,9 +35,11 @@ export class ContactsComponent implements OnInit {
     })
     firebase.currentUserData$.subscribe(data=>{
       this.userDetail = data;
-      Object.keys(data).length === 0 ? this.detail = false : this.detail = true;
+      //Object.keys(data).length === 0 ? this.detail = false : this.detail = true;
     })
-    
+    firebase.currentUserView$.subscribe(bool=>{
+      this.detail = bool
+    })
    }
 
   ngOnInit(): void {

@@ -18,8 +18,8 @@ export class FirebasedataService {
   // observable für detail contacts
   private userData = new BehaviorSubject<any>({})
   currentUserData$ = this.userData.asObservable()
-  
-  
+  private detailView = new BehaviorSubject<boolean>(false)
+  currentUserView$ = this.detailView.asObservable()
 
 
   constructor(public firestore: AngularFirestore) {
@@ -92,4 +92,8 @@ export class FirebasedataService {
     this.userData.next(data)
   }
   
+
+  updateDetailView(bool){
+    this.detailView.next(bool)
+  }
 }

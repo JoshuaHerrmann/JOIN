@@ -2,6 +2,7 @@ import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Contact } from 'src/app/models/contact.class';
+
 @Component({
   selector: 'app-dialog-edit-contact',
   templateUrl: './dialog-edit-contact.component.html',
@@ -22,5 +23,6 @@ export class DialogEditContactComponent implements OnInit {
   updateContactDB(){
     this.firebase.updateContactFromDB(this.currentContact.returnToJson(), this.data['contactId'])
     this.dialog.closeAll()
+    this.firebase.updateDetailView(false)
   }
 }
