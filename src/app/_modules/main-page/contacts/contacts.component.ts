@@ -16,6 +16,7 @@ export class ContactsComponent implements OnInit {
 
   detail: boolean = false;
   filteredUserList: Array<object> = [];
+  setArray:Array<any> = [];
   userList: Array<any> = [];
   userDetail:any;
 
@@ -56,8 +57,9 @@ export class ContactsComponent implements OnInit {
     let set = new Set();
   this.userList.forEach(contact =>{
     set.add(contact['contact']['lastname'].slice("",1));
+    this.setArray = Array.from(set).sort()
    })
-   set.forEach(entry=>{
+   this.setArray.forEach(entry=>{
     this.filteredUserList.push({letter: entry, contacts:[]})
    })
    //console.warn(this.filteredUserList)

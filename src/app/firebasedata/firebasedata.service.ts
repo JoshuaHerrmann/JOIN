@@ -25,20 +25,22 @@ export class FirebasedataService {
   constructor(public firestore: AngularFirestore) {
     //console.log(localStorage.getItem('JOIN_uid'))
     localStorage.setItem('JOIN_uid', 'noid')
-    this.updateData()
+    
+   // this.updateData()
     
    }
 
 
    updateUid(){
-    this.userid = localStorage.getItem('JOIN_uid')
+    console.log('HETETETE', this.userid)
+    this.userid = localStorage.getItem('JOIN_uid');
+    console.log('DANACH', this.userid)
    }
 
 
    updateData(){
-    this.updateUid()
-    //console.warn('LoadFirebase')
-   if(this.userid == ''){
+    console.log('update')
+   if(this.userid == 'noid' || ''){
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc('noid').valueChanges()
@@ -48,7 +50,6 @@ export class FirebasedataService {
     this.userdata$ = this.firestore.collection('userdata').doc(this.userid).collection('tasks').snapshotChanges()
     this.usercontacts$ = this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').snapshotChanges()
     this.userlist$ = this.firestore.collection('userlist').doc(this.userid).valueChanges()
-    
   }
 
   

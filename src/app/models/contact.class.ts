@@ -16,10 +16,15 @@ export class Contact{
         public returnToJson(){
             return{
                 uid : this.uid != '' ? this.uid : 'noid',
-                firstname: this.firstname != '' ? this.firstname : 'Firstname',
-                lastname: this.lastname != '' ? this.lastname : 'Lastname',
+                firstname: this.firstname != '' ? this.firstLetterUp(this.firstname) : 'Firstname',
+                lastname: this.lastname != '' ? this.firstLetterUp(this.lastname) : 'Lastname',
                 email: this.email != '' ? this.email : 'Invalid Email',
                 phone: this.phone !=  null ? this.phone : 1919191919,
             }
+        }
+
+        private firstLetterUp(name){
+                let firstLetterCapital = name.charAt(0).toLocaleUpperCase() + name.slice(1)
+                return firstLetterCapital 
         }
 }

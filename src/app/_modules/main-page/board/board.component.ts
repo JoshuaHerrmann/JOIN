@@ -19,7 +19,8 @@ export class BoardComponent implements OnInit {
   searchField:string;
 
   constructor(public dialog: MatDialog, public firebase: FirebasedataService) {
-    if(this.allUsersTasks = []) firebase.updateData()
+    console.log(this.allUsersTasks.length)
+   firebase.updateData()
     firebase.userdata$.subscribe((dataDB)=>{
       this.allUsersTasks = [];
       dataDB.forEach(data => {
@@ -36,7 +37,7 @@ export class BoardComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+     
     document.getElementById('searchField').addEventListener('keyup', (e)=>{
       this.searchTask()
     })

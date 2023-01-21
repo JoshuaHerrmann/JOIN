@@ -17,7 +17,7 @@ export class ContactDetailComponent implements OnInit {
   ngOnInit(): void {
     console.log('update contact',this.data)
     this.firebase.currentUserData$.subscribe(data=>{
-      this.rawContact = data;
+      this.rawContact = data['contact'];
     })
   }
   getShorthand(){

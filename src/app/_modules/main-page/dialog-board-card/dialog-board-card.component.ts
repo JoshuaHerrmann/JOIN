@@ -25,6 +25,8 @@ export class DialogBoardCardComponent implements OnInit {
       this.contactsList = contactList
     })
     }
+
+    
   ngOnInit(): void {
     this.currentPriority$.subscribe(value=>{
       this.selectedPriority = value;

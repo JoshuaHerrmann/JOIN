@@ -27,6 +27,7 @@ export class AuthenticationService {
           if(localStorage.getItem('JOIN_uid') == ''){
             localStorage.setItem('JOIN_uid', user['uid'])
           }
+          this.firebaserservice.updateUid()
         }else{
           console.log('Logged out')
           localStorage.setItem('currentUser', 'false')
@@ -90,6 +91,7 @@ export class AuthenticationService {
       console.log('Logged in as guest');
       localStorage.setItem('currentUser', 'true')
       localStorage.setItem('JOIN_uid', data['user']['uid'])
+      this.firebaserservice.updateUid()
       this.firebaserservice.updateData()
       this.router.navigateByUrl('/main');
       }).catch(e=>{

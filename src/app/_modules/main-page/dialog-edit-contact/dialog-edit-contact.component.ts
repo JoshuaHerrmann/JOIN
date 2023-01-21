@@ -21,5 +21,6 @@ export class DialogEditContactComponent implements OnInit {
 
   updateContactDB(){
     this.firebase.updateContactFromDB(this.currentContact.returnToJson(), this.data['contactId'])
+    this.dialog.closeAll()
   }
 }

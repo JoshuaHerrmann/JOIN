@@ -15,17 +15,21 @@ export class SummaryComponent implements OnInit {
   userPersonalData:any;
 
   constructor(public firebase: FirebasedataService, private auth: AuthenticationService) { 
-    firebase.updateData()
+    console.log('const')
+    this.firebase.updateData()
     this.getUserData()
     this.getUserPersonalData()
+    
   }
 
   ngOnInit(): void {
+    
   }
 
 
   getUserData(){
       this.firebase.userdata$.subscribe((dataDB)=>{
+        console.log('sub')
         dataDB.forEach(data => {
           this.userData.push({
             'task':data.payload.doc.data(),
@@ -33,7 +37,8 @@ export class SummaryComponent implements OnInit {
           })
         })
       this.filterData()
-      //console.log(this.userData) // remove when finished
+      console.log(this.userData) // remove when finished
+      this.userData ? this.firebase.updateData() : null;
     })
   }
 
