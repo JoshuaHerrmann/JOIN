@@ -18,7 +18,6 @@ export class ContactSingleComponent implements OnInit {
   ngOnInit(): void {
     this.rawContact = this.data['contact']
     this.getRandomColor()
-    this.shorthand = this.getShorthand()
   }
 
   getShorthand(){

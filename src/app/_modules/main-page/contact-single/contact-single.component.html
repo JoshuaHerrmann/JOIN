@@ -1,6 +1,6 @@
 <div class="main border" (click)="updateUserData()">
     <div class="profil randomColor" id="profil" [ngStyle]="{'background-color': randomColor}">
-        {{ shorthand }}
+        {{ getShorthand() }}
     </div>
     <div class="infos">
         <h3> {{ rawContact['lastname'] }} <br> {{ rawContact['firstname'] }}</h3>

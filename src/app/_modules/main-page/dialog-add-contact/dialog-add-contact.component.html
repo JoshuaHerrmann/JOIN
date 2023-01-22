@@ -5,14 +5,14 @@
         <p>Tasks are better with a team!</p>
     </div>
     <div class="content">
-        <div class="profilPic">
-            <img src="assets/img/icons/userprofilpic.png" alt="">
+        <div>
+            <img class="profilPic" src="assets/img/icons/userprofilpic.png" alt="">
         </div>
         <div class="inputs">
             <div class="input"><input type="text" placeholder="Firstname" [(ngModel)]="contact.firstname"><img src="assets/img/icons/iconuser.png" alt=""></div>
             <div class="input"><input type="text" placeholder="Lastname" [(ngModel)]="contact.lastname"><img src="assets/img/icons/iconuser.png" alt=""></div>
             <div class="input"><input type="text" placeholder="Email" [(ngModel)]="contact.email"><img src="assets/img/icons/iconemail.png" alt=""></div>
-            <div class="input"><input type="number" placeholder="Phone" [(ngModel)]="contact.phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
+            <div class="input"><input type="tel" placeholder="Phone" [(ngModel)]="contact.phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
             <button class="cancel" matDialogClose=""><p>Cancel</p> <img src="" alt=""></button>

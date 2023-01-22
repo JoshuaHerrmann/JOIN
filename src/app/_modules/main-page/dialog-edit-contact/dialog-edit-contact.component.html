@@ -9,10 +9,10 @@
             <div class="profil">{{ getShorthand() }}</div>
         </div>
         <div class="inputs">
-            <div class="input"><input type="text" placeholder="Firstname" class="border" [(ngModel)]="currentContact['firstname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
-            <div class="input"><input type="text" placeholder="Lastname" class="border" [(ngModel)]="currentContact['lastname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
-            <div class="input"><input type="text" placeholder="Email" class="border" [(ngModel)]="currentContact['email']"><img src="assets/img/icons/iconemail.png" alt=""></div>
-            <div class="input"><input type="tel" placeholder="Phone" class="border" [(ngModel)]="currentContact['phone']"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Firstname" [(ngModel)]="currentContact['firstname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Lastname" [(ngModel)]="currentContact['lastname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Email" [(ngModel)]="currentContact['email']"><img src="assets/img/icons/iconemail.png" alt=""></div>
+            <div class="input"><input type="tel" placeholder="Phone" [(ngModel)]="currentContact['phone']"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
             <button class="delete CP">Delete</button>

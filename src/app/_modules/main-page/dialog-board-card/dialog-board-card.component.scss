@@ -1,41 +1,42 @@
 .main {
     background-color: var(--bgWhite);
-    height: calc(700px - 48px);
+    min-height: calc(700px - 48px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
     width: calc(100% - 48px);
+    max-width: calc(100% - 48px);
     position: relative;
     padding: 24px;
     .header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         width: 100%;
         .category {
-            background-color: orange;
-            color: var(--bgWhite);
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 10px;
-            padding-bottom: 5px;
+            padding: 10px 6px;
+            width: fit-content;
+            height: fit-content;
             border-radius: 10px;
-            font-size: 24px;
+            margin-bottom: 20px;
             p {
                 margin: 0;
+                padding-left: 20px;
+                padding-right: 20px;
+                color: var(--bgWhite);
+                font-size: 24px;
             }
         }
         button {
-            background-color: transparent;
+            margin: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            color: var(--bgWhite);
+            font-size: 16px;
             border: none;
-            outline: none;
-            cursor: pointer;
+            background-color: transparent;
         }
     }
     .mat-dialog-content {
@@ -44,11 +45,75 @@
         height: 100%;
         padding-top: 10px;
         padding-bottom: 10px;
-        h1 {
-            font-size: 56px;
-            margin-bottom: 40px;
-            font-weight: bold;
+        .title {
+            h1 {
+                max-width: 100%;
+                font-size: 40px;
+                line-height: 44px;
+                margin: 0;
+                font-weight: bold;
+                max-height: 100px;
+                overflow-y: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
         }
+        .description {
+            margin-top: 20px;
+            line-height: 26px;
+            max-height: calc(5 * 26px);
+            &::-webkit-scrollbar {
+                display: none;
+            }
+        }
+        .priorityPart {
+            .priority {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                    padding: 6px;
+                    width: fit-content;
+                    height: fit-content;
+                    border-radius: 10px;
+                }
+            }
+        }
+        .assignedContacts {
+            margin-bottom: 60px !important;
+            .assigned {
+                padding: 10px 5px;
+                display: flex;
+                flex-direction: column;
+                max-height: calc(130px + 20px);
+                overflow-y: auto;
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+                .singleContact {
+                    display: flex;
+                    align-items: center;
+                    width: fit-content;
+                    min-height: 40px;
+                    max-height: 40px;
+                    margin: 4px 0;
+                    .profil {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: var(--bgWhite);
+                        width: 40px;
+                        height: 40px;
+                        font-size: 18px;
+                        border-radius: 100%;
+                        background-color: #{rgba(random(255),random(255),random(255))};
+                        margin-right: 30px;
+                    }
+                }
+            }
+        }
+        .editPriority {}
         p {
             margin: 0;
         }
@@ -61,20 +126,26 @@
             }
         }
         .margin {
-            margin-top: 25px;
-            margin-bottom: 25px;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
     }
     .editbtn {
         position: absolute;
-        right: 15px;
-        bottom: 15px;
+        right: 10px;
+        bottom: 10px;
         button {
             border: none;
             background-color: transparent;
             cursor: pointer;
         }
     }
+}
+
+.h2Header {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
 }
 
 .displayNone {

@@ -44,7 +44,7 @@
                 <input type="text" placeholder="Add new Subtask" [(ngModel)]="subtask">
                 <button (click)="addSubTask()"><mat-icon>add</mat-icon></button>
             </div>
-            <div class="taskList" id="taskList">
+            <div class="taskList" id="taskList" [ngClass]="{'borderScroll':allSubTasks.length >= 3}">
                 <div class="singleTask" *ngFor="let subtask of allSubTasks, let i = index">
                     <input type="checkbox" [(ngModel)]="allSubTasks[i]['checked']">
                     <p>{{ subtask.task }}</p> <button (click)="deleteSubtask(i)">x</button>

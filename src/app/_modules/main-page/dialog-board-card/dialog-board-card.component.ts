@@ -66,8 +66,10 @@ export class DialogBoardCardComponent implements OnInit {
     this.task = new Task(this.data['task'])
     this.calenderDate = this.formatDate(new Date(this.task.finishDate))
     if(this.task.assignedTo.length >= 0){
-      this.task.assignedTo.forEach(contact => {
-        this.assignedContacts.push(contact['contact']['firstname'] +' ' + contact['contact']['lastname'] + ',')
+      this.task.assignedTo.forEach((contact, index) => {
+        this.assignedContacts.push({
+          'shortHand': this.getShorthand(index),
+          'fullname':contact['contact']['firstname'] +' ' + contact['contact']['lastname']})
       })
     }
   }
@@ -125,6 +127,12 @@ export class DialogBoardCardComponent implements OnInit {
     ].join('/');
   }
 
+
+  getShorthand(index){
+    let first = this.task.assignedTo[index]['contact']['firstname'].split("", 1)
+    let last = this.task.assignedTo[index]['contact']['lastname'].split("", 1)
+    return last + first
+   }
   ////////////
   testtask(){
     console.log(this.task.state)
