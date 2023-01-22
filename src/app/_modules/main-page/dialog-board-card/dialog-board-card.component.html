@@ -45,8 +45,8 @@
         <div class=" margin">
             <b>Assigned To :</b>
             <div class="assigned" *ngFor=" let contact of assignedContacts" [class.displayNone]="editing === true">{{ contact }}</div>
-            <mat-select [formControl]="contacts" multiple (selectionChange)="selecteContacts($event.value)" [(ngModel)]="contactListValue" [class.displayNone]="editing === false">
-                <mat-option *ngFor="let contact of contactsList" [value]="contact">{{contact['firstname'] }} {{contact['lastname']}}</mat-option>
+            <mat-select [formControl]="contacts" multiple (selectionChange)="selecteContacts($event.value)" [class.displayNone]="editing === false">
+                <mat-option *ngFor="let contact of contactList" [value]="contact['contactId']">{{contact['contact']['firstname'] }} {{contact['contact']['lastname']}}</mat-option>
             </mat-select>
         </div>
     </div>

@@ -22,5 +22,6 @@ export class BoardCardComponent implements OnInit {
       exitAnimationDuration,
       data: this.taskdata
     })
+    console.log(this.taskdata)
   }
 }

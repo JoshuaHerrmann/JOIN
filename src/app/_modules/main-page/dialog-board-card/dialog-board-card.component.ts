@@ -17,17 +17,26 @@ export class DialogBoardCardComponent implements OnInit {
   
 
   constructor(public dialog: MatDialog,public dialogRef: MatDialogRef<MainPageComponent>, @Inject(MAT_DIALOG_DATA) public data:any, public firebase:FirebasedataService) { 
-    let contactList = []
-    firebase.usercontacts$.subscribe(data=>{
-      data.forEach(contact=>{
-        contactList.push({'firstname':contact['firstname'],'lastname':contact['lastname'],'uid':contact['uid']})
-      })
-      this.contactsList = contactList
+    let assignedContactsFromTask = [];
+    data['task']['assignedTo'].forEach(contact=>{
+      assignedContactsFromTask.push(contact['contactId'])
     })
-    }
+    this.preSelectedContacts = assignedContactsFromTask
+    this.contacts = new FormControl(this.preSelectedContacts)
+    console.log('AHDOAD', data)
+  }
 
     
   ngOnInit(): void {
+    this.firebase.usercontacts$.subscribe(dataDB=>{
+      this.contactList = []
+      dataDB.forEach(data=>{
+        this.contactList.push({
+          'contact':data.payload.doc.data(),
+          'contactId':data.payload.doc.id
+          })
+      })
+    })
     this.currentPriority$.subscribe(value=>{
       this.selectedPriority = value;
     })
@@ -42,11 +51,12 @@ export class DialogBoardCardComponent implements OnInit {
   selectedPriority:string;
   priority: string = 'none';
 
+  preSelectedContacts:any;
+  contactList:any;
   date: Date;
   calenderDate: string;
   contacts = new FormControl('');
   contactsList: string[] = [];
-  contactListValue:any;
   assignedContacts: Array<any> = []
   task:Task;
 
@@ -57,7 +67,7 @@ export class DialogBoardCardComponent implements OnInit {
     this.task = new Task(this.data['task'])
     this.calenderDate = this.formatDate(new Date(this.task.finishDate))
     this.task.assignedTo.forEach(contact => {
-      this.assignedContacts.push(contact.firstname +' ' + contact.lastname + ',')
+      this.assignedContacts.push(contact['contact']['firstname'] +' ' + contact['contact']['lastname'] + ',')
     })
   }
 

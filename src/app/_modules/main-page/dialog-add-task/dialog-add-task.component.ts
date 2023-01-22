@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
+import { Contact } from 'src/app/models/contact.class';
 import { Task } from 'src/app/models/task.class';
 
 interface category {
@@ -15,26 +16,36 @@ interface category {
   styleUrls: ['./dialog-add-task.component.scss']
 })
 export class DialogAddTaskComponent implements OnInit {
-
-    constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public data: any, public dialogRef : MatDialogRef<DialogAddTaskComponent>) {
-      this.task.state = data;
-      let contactList = []
-      firebase.usercontacts$.subscribe((dataDB)=>{
-        dataDB.forEach(data=>{
-          contactList.push({'firstname':data['contact']['firstname'],'lastname':data['contact']['lastname'],'uid':data['contact']['uid']})
-        })
-        this.contactsList = contactList
-      })
+    constructor(public firebase:FirebasedataService, @Inject(MAT_DIALOG_DATA) public inputData: any, public dialogRef : MatDialogRef<DialogAddTaskComponent>) {
+      if(typeof this.inputData == 'string'){
+        this.task.state = this.inputData;
+      }else{
+        console.log(this.inputData)
+        this.preSelectedContact = this.inputData['contactId']
+        this.contacts = new FormControl([this.preSelectedContact]) // has to be an array to pass into formcontrol, cuz the mat-selection is on multiple
+        this.task.assignedTo = [this.inputData['contact']]
+      }
+      
      }
   
     ngOnInit(): void {
+      this.firebase.usercontacts$.subscribe((dataDB)=>{
+        this.contactList = []
+        dataDB.forEach(data=>{
+          this.contactList.push({
+            'contact': data.payload.doc.data(),
+            'contactId': data.payload.doc.id
+          })
+        })
+        console.log('Userlist', this.contactList)
+      })
       this.currentPriority$.subscribe(value=>{
         this.selectedPriority = value;
       })
     }
-    contacts = new FormControl('');
+    contacts = new FormControl();
   
-    contactsList: string[] = [];
+    contactList: Array<any> = [];
     categoryList: category[] = [
       {value: 'Desing', viewValue: 'Design'},
       {value: 'Media', viewValue: 'Media'},
@@ -57,7 +68,7 @@ export class DialogAddTaskComponent implements OnInit {
     emptySubtask:boolean;
    //
    assignedContacts$:Array<any>= [];
-  
+   preSelectedContact:any;
    addTaskToDB(){
     if(this.task.priority === ''){
       alert('Please add a priority! (Urgent, Medium, Low)');
@@ -91,7 +102,15 @@ export class DialogAddTaskComponent implements OnInit {
   
 
     selecteContacts(contacts:any){
-      this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
+      let assignements = []
+      contacts.forEach(contact=>{
+        this.contactList.forEach(contactInList=>{
+          if(contactInList['contactId'] == contact){
+            assignements.push(contactInList)
+          }
+        })
+      })
+      this.task.assignedTo = assignements; 
     }
   
 

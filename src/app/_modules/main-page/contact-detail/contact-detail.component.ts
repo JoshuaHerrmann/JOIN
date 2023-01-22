@@ -35,6 +35,7 @@ export class ContactDetailComponent implements OnInit {
   openDialogAddTaskWithContact(): void {
     this.dialog.open(DialogAddTaskComponent, {
       width: '250px',
+      data: this.data
     });
   }
 }
