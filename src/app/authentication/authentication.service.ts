@@ -45,6 +45,7 @@ export class AuthenticationService {
    );
 
    loginWithEmailAndPassword(email:string, password:string){
+    this.failedLogin = false;
     this.auth.signInWithEmailAndPassword(email, password).then((data)=>{
       console.log('Logged in', data);
       localStorage.setItem('currentUser', 'true')
@@ -65,6 +66,7 @@ export class AuthenticationService {
       console.log('Logged out');
       localStorage.setItem('JOIN_uid', '')
       this.firebaserservice.nextUserData({})
+      this.firebaserservice.updateDetailView(false)
       this.router.navigateByUrl('/logout');
       this.failedLogin = false;
     })

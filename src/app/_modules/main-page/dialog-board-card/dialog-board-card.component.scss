@@ -1,12 +1,13 @@
 .main {
     background-color: var(--bgWhite);
-    height: 700px;
+    height: calc(700px - 48px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: start;
-    width: 500px;
+    width: calc(100% - 48px);
     position: relative;
+    padding: 24px;
     .header {
         display: flex;
         justify-content: space-between;
@@ -66,8 +67,8 @@
     }
     .editbtn {
         position: absolute;
-        right: 0px;
-        bottom: 0px;
+        right: 15px;
+        bottom: 15px;
         button {
             border: none;
             background-color: transparent;

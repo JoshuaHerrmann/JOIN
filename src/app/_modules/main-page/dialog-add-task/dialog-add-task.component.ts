@@ -69,7 +69,9 @@ export class DialogAddTaskComponent implements OnInit {
    //
    assignedContacts$:Array<any>= [];
    preSelectedContact:any;
-   addTaskToDB(){
+
+
+    addTaskToDB(){
     if(this.task.priority === ''){
       alert('Please add a priority! (Urgent, Medium, Low)');
       return
@@ -79,7 +81,7 @@ export class DialogAddTaskComponent implements OnInit {
     this.task.finishDate = this.date.getTime()
     this.firebase.addTaskToDB(this.task.toJson())
     this.dialogRef.close()
-  }
+    }
   
     addSubTask(){
       if(this.subtask === ''){ 

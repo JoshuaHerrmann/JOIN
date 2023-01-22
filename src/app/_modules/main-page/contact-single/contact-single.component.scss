@@ -10,6 +10,9 @@
     margin: 10px;
     min-height: 85px;
     min-width: calc(245px - 80px);
+    &:hover {
+        cursor: pointer;
+    }
     .profil {
         display: flex;
         justify-content: center;
@@ -27,6 +30,10 @@
         justify-content: flex-start;
         max-width: calc(100% - 80px);
         overflow-wrap: break-word;
+        a {
+            color: var(--bgMain);
+            text-decoration: none;
+        }
     }
 }
 

@@ -25,4 +25,14 @@ export class DialogEditContactComponent implements OnInit {
     this.dialog.closeAll()
     this.firebase.updateDetailView(false)
   }
+
+  closeDialog(){
+    this.dialog.closeAll()
+  }
+
+  getShorthand(){
+    let firstnameLetter = this.data['contact']['firstname'].slice("",1)
+    let lastnameLetter = this.data['contact']['lastname'].slice("",1)
+    return lastnameLetter + firstnameLetter
+  }
 }

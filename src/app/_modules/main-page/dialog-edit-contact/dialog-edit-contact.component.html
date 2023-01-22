@@ -1,22 +1,22 @@
 <div class="main">
     <div class="header">
-        <img src="" alt="">
-        <h2>Add contact</h2>
-        <p>Tasks are better with a team!</p>
+        <img src="assets/img/logo/Logo_white.png" alt="XX" class="joinLogo">
+        <h1>Edit Contact</h1>
+        <img src="assets/img/icons/button_x_white.png" alt="X" class="closeImg CP" (click)="closeDialog()">
     </div>
     <div class="content">
-        <div class="profilPic">
-            <img src="assets/img/icons/userprofilpic.png" alt="">
+        <div>
+            <div class="profil">{{ getShorthand() }}</div>
         </div>
         <div class="inputs">
-            <div class="input"><input type="text" placeholder="Firstname" [(ngModel)]="currentContact['firstname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
-            <div class="input"><input type="text" placeholder="Lastname" [(ngModel)]="currentContact['lastname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
-            <div class="input"><input type="text" placeholder="Email" [(ngModel)]="currentContact['email']"><img src="assets/img/icons/iconemail.png" alt=""></div>
-            <div class="input"><input type="number" placeholder="Phone" [(ngModel)]="currentContact['phone']"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Firstname" class="border" [(ngModel)]="currentContact['firstname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Lastname" class="border" [(ngModel)]="currentContact['lastname']"><img src="assets/img/icons/iconuser.png" alt=""></div>
+            <div class="input"><input type="text" placeholder="Email" class="border" [(ngModel)]="currentContact['email']"><img src="assets/img/icons/iconemail.png" alt=""></div>
+            <div class="input"><input type="tel" placeholder="Phone" class="border" [(ngModel)]="currentContact['phone']"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
-            <button class="cancel" matDialogClose=""><p>Cancel</p> <img src="" alt=""></button>
-            <button class="create" (click)="updateContactDB()"><p>Update contact</p><img src="" alt=""></button>
+            <button class="delete CP">Delete</button>
+            <button class="save CP" (click)="updateContactDB()">Save<img src="" alt=""></button>
         </div>
     </div>
     <div class="backBtn">

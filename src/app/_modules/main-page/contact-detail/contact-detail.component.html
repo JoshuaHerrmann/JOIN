@@ -3,14 +3,14 @@
         <div class="profil">{{ getShorthand() }}</div>
         <div class="name">
             <h2>{{ rawContact['firstname'] }} {{ rawContact['lastname'] }}</h2>
-            <div class="addTask" (click)="openDialogAddTaskWithContact()">
+            <div class="addTask CP" (click)="openDialogAddTaskWithContact()">
                 <mat-icon>add</mat-icon>Add Task</div>
         </div>
     </div>
     <div class="infos">
         <div class="contactInfo">
             <h2>Contact Information</h2>
-            <div class="edit" (click)="openDialogEditContact()">
+            <div class="edit CP" (click)="openDialogEditContact()">
                 <mat-icon>edit</mat-icon> Edit Contact
             </div>
         </div>

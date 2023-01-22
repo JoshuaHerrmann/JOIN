@@ -23,7 +23,6 @@ export class DialogBoardCardComponent implements OnInit {
     })
     this.preSelectedContacts = assignedContactsFromTask
     this.contacts = new FormControl(this.preSelectedContacts)
-    console.log('AHDOAD', data)
   }
 
     
@@ -66,9 +65,11 @@ export class DialogBoardCardComponent implements OnInit {
   assigneData(){
     this.task = new Task(this.data['task'])
     this.calenderDate = this.formatDate(new Date(this.task.finishDate))
-    this.task.assignedTo.forEach(contact => {
-      this.assignedContacts.push(contact['contact']['firstname'] +' ' + contact['contact']['lastname'] + ',')
-    })
+    if(this.task.assignedTo.length >= 0){
+      this.task.assignedTo.forEach(contact => {
+        this.assignedContacts.push(contact['contact']['firstname'] +' ' + contact['contact']['lastname'] + ',')
+      })
+    }
   }
 
   editMode(){
@@ -101,8 +102,15 @@ export class DialogBoardCardComponent implements OnInit {
     this.task.finishDate = this.date.getTime()
     this.firebase.updateTaskFromDB(this.task.toJson(),this.data.taskid)
     this.dialogRef.close()
+    //userfeedback updated task
   }
 
+
+  deleteTaskDB(){
+    this.firebase.deleteTaskFromDB(this.data.taskid)
+    this.dialogRef.close()
+    //user feedback deleted task
+  }
   //helpfunctions for date
   padTo2Digits(num) {
     return num.toString().padStart(2, '0');

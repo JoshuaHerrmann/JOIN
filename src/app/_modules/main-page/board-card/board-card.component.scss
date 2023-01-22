@@ -8,7 +8,7 @@
         cursor: pointer;
     }
     .category {
-        padding: 10px;
+        padding: 6px;
         width: fit-content;
         height: fit-content;
         border-radius: 10px;
@@ -18,12 +18,12 @@
             padding-left: 20px;
             padding-right: 20px;
             color: var(--bgWhite);
-            font-size: 20px;
+            font-size: 16px;
         }
     }
     .userList {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-end;
         align-items: center;
         .priority {
             mat-icon {

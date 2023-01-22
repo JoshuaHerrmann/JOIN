@@ -25,7 +25,7 @@
         }
     }
     .loginFail {
-        color: red;
+        // color: red;
         font-size: 14px;
         height: 32px;
     }
@@ -79,6 +79,37 @@
         img {
             padding-right: 30px;
         }
+    }
+}
+
+.loginFailAni {
+    color: red;
+    display: flex !important;
+    animation: 0.8s shake;
+}
+
+.displayNon {
+    display: none;
+}
+
+@keyframes shake {
+    0% {
+        transform: skewX(-15deg);
+    }
+    5% {
+        transform: skewX(15deg);
+    }
+    10% {
+        transform: skewX(-15deg);
+    }
+    15% {
+        transform: skewX(15deg);
+    }
+    20% {
+        transform: skewX(0deg);
+    }
+    100% {
+        transform: skewX(0deg);
     }
 }
 
