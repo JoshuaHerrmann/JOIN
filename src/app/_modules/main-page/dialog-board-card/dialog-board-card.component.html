@@ -10,16 +10,22 @@
             <h1 mat-dialog-title [class.displayNone]="editing === true">{{ data['task']['title'] }}</h1>
 
             <div [class.displayNone]="editing === false" class="editTitle">
-                <p>Change title:</p>
-                <input type="text" value="{{ data['task']['title'] }}" [(ngModel)]="task.title">
+                <h2 class="h2Header">Change title:</h2>
+                <div class="editInputDiv">
+                    <input class="editInput" type="text" value="{{ data['task']['title'] }}" [(ngModel)]="task.title">
+                </div>
+
             </div>
         </div>
         <div class="description">
             <p [class.displayNone]="editing === true">{{ data['task']['description'] }}</p>
 
             <div class="editDescription" [class.displayNone]="editing === false">
-                <p>Change Description:</p>
-                <input type="text" value="{{ data['task']['description'] }}" [(ngModel)]="task.description">
+                <h2 class="h2Header">Change Description:</h2>
+                <div class="editInputDiv">
+                    <input type="text" class="editInput" value="{{ data['task']['description'] }}" [(ngModel)]="task.description">
+                </div>
+
             </div>
         </div>
         <div class="row margin date">
@@ -28,7 +34,6 @@
             <mat-form-field appearance="fill" class="example-form-field" [class.displayNone]="editing === false">
                 <mat-label>Choose a date</mat-label>
                 <input matInput [matDatepicker]="datepicker" [(ngModel)]="date">
-                <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
                 <mat-datepicker #datepicker>
                     <mat-datepicker-actions>
@@ -43,14 +48,14 @@
             <div class="priority " [class.displayNone]="editing === true">
                 <p class="{{ data['task']['priority'] }}">{{ data['task']['priority'] }}</p> <img src="assets/img/icons/Prio {{ data['task']['priority'] }}.png" alt=""></div>
             <div class="editPriority" [class.displayNone]="editing === false">
-                <button (click)="priorityValue('urgent')" id="urgent" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')" id="medium" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
-                <button (click)="priorityValue('low')" id="low" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
+                <button (click)="priorityValue('urgent')" id="urgent" [class.selected]="selectedPriority=='urgent'">Urgent </button><button (click)="priorityValue('medium')" id="medium" [class.selected]="selectedPriority=='medium'">Medium </button>
+                <button (click)="priorityValue('low')" id="low" [class.selected]="selectedPriority=='low'">Low </button>
             </div>
         </div>
         <div class=" margin assignedContacts">
             <h2 class="h2Header margin">Assigned To :</h2>
-            <div class="assigned " [ngClass]="{'borderScroll':assignedContacts.length >= 4}">
-                <div class="singleContact" *ngFor=" let contact of assignedContacts" [class.displayNone]="editing === true">
+            <div class="assigned " [ngClass]="{'borderScroll':assignedContacts.length >= 4}" [class.displayNone]="editing === true">
+                <div class="singleContact" *ngFor=" let contact of assignedContacts">
                     <div class="profil">{{ contact['shortHand'] }}</div> {{ contact['fullname']}}
                 </div>
             </div>
@@ -59,7 +64,8 @@
                 <mat-option *ngFor="let contact of contactList" [value]="contact['contactId']">{{contact['contact']['firstname'] }} {{contact['contact']['lastname']}}</mat-option>
             </mat-select>
         </div>
+        <div class="confirmEdit" [class.displayNone]="editing === false"><button (click)="deleteTaskDB()">Delete Task</button><button class="btnUpdate" (click)="updateTaskDB()">Update</button></div>
+
     </div>
-    <div class="confirmEdit" [class.displayNone]="editing === false"><button (click)="updateTaskDB()">Update</button><button (click)="deleteTaskDB()">Delete Task</button></div>
     <div class="editbtn"><button (click)="editMode()"><img src="assets/img/icons/edit_button.png" alt=""></button></div>
 </div>

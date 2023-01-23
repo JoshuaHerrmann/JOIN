@@ -2,27 +2,27 @@
     <div class="headInfo">
         <div class="profil">{{ getShorthand() }}</div>
         <div class="name">
-            <h2>{{ rawContact['firstname'] }} {{ rawContact['lastname'] }}</h2>
+            <h1>{{ rawContact['firstname'] }} {{ rawContact['lastname'] }}</h1>
             <div class="addTask CP" (click)="openDialogAddTaskWithContact()">
                 <mat-icon>add</mat-icon>Add Task</div>
         </div>
     </div>
     <div class="infos">
         <div class="contactInfo">
-            <h2>Contact Information</h2>
+            <h1>Contact Information</h1>
             <div class="edit CP" (click)="openDialogEditContact()">
                 <mat-icon>edit</mat-icon> Edit Contact
             </div>
         </div>
         <div class="email">
-            <h4>Email</h4>
+            <h2>Email</h2>
             <a href="#">
                 <p>{{ rawContact['email'] }}</p>
             </a>
         </div>
         <div class="mobil">
-            <h4>Mobil</h4>
-            <p>{{ rawContact['phone'] }}</p>
+            <h2>Mobil</h2>
+            <p>+{{ rawContact['phone'] }}</p>
         </div>
     </div>
 </div>

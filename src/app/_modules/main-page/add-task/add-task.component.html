@@ -53,7 +53,10 @@
             </div>
         </div>
     </div>
-    <div class="buttons">
-        <button (click)="clearAll()">Clear <mat-icon>close</mat-icon></button><button id="task" (click)="addTaskToDB()">Create Task <mat-icon>check</mat-icon></button>
+    <div class="rightPart">
+        <div class="failedTask" *ngIf="notCompleted == true">FEHLER</div>
+        <div class="buttons">
+            <button (click)="checkForEmptyFields()">Clear <mat-icon>close</mat-icon></button><button id="task" (click)="addTaskToDB()">Create Task <mat-icon>check</mat-icon></button>
+        </div>
     </div>
 </div>

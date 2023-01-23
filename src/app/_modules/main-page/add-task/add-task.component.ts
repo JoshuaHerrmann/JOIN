@@ -46,7 +46,7 @@ export class AddTaskComponent implements OnInit {
   currentPriority$ = this.priority$.asObservable()
   selectedPriority:string;
   
-
+  notCompleted:boolean = false;
   priority: string = 'none';
   subtask: string = '';
   date: Date;
@@ -56,17 +56,20 @@ export class AddTaskComponent implements OnInit {
   categoryListValue:any;
   emptySubtask:boolean;
  //
- assignedContacts$:Array<any>= [];
-
+  assignedContacts$:Array<any>= [];
+ 
   addTaskToDB(){
-    if(this.task.priority === ''){
-      alert('Please add a priority! (Urgent, Medium, Low)');
-      return
-    }
+    this.checkForEmptyFields();
     this.allSubTasks.forEach(subtask => {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
     this.task.finishDate = this.date.getTime()
     this.firebase.addTaskToDB(this.task.toJson())
+  }
+
+  checkForEmptyFields(){
+    if(this.task.title === '' || this.task.category === '' || this.task.priority === '' || this.task.description === ''){
+       this.notCompleted = true
+    }
   }
 
   addSubTask(){

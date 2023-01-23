@@ -20,7 +20,7 @@ export class FirebasedataService {
   currentUserData$ = this.userData.asObservable()
   private detailView = new BehaviorSubject<boolean>(false)
   currentUserView$ = this.detailView.asObservable()
-
+  
 
   constructor(public firestore: AngularFirestore) {
     //console.log(localStorage.getItem('JOIN_uid'))

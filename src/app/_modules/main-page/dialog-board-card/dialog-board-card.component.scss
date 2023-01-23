@@ -67,7 +67,24 @@
                 display: none;
             }
         }
+        .title,
+        .description {
+            .editInputDiv {
+                border-bottom: 1px solid var(--bgGrey);
+                margin-top: 10px;
+                .editInput {
+                    margin-left: 10px;
+                    margin-bottom: 10px;
+                    border: none;
+                    outline: none;
+                    font-size: 24px;
+                }
+            }
+        }
         .priorityPart {
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
             .priority {
                 display: flex;
                 justify-content: center;
@@ -79,9 +96,27 @@
                     border-radius: 10px;
                 }
             }
+            .editPriority {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                //width: calc(100% - 120px);
+                button {
+                    align-items: center;
+                    color: var(--font);
+                    width: fit-content;
+                    font-size: 20px;
+                    display: flex;
+                    padding: 10px;
+                    border-radius: 5px;
+                    border: 1px solid var(--bgGrey);
+                    background-color: var(--bgWhite);
+                    cursor: pointer;
+                }
+            }
         }
         .assignedContacts {
-            margin-bottom: 60px !important;
+            //margin-bottom: 60px !important;
             .assigned {
                 padding: 10px 5px;
                 display: flex;
@@ -113,7 +148,27 @@
                 }
             }
         }
-        .editPriority {}
+        .confirmEdit {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 80%;
+            button {
+                color: var(--font);
+                width: fit-content;
+                font-size: 20px;
+                display: flex;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid var(--bgGrey);
+                background-color: var(--bgWhite);
+                cursor: pointer;
+            }
+            .btnUpdate {
+                background-color: var(--bgMain) !important;
+                color: var(--bgWhite);
+            }
+        }
         p {
             margin: 0;
         }
@@ -146,10 +201,11 @@
     font-size: 26px;
     font-weight: bold;
     margin: 0;
+    min-width: fit-content;
 }
 
 .displayNone {
-    display: none;
+    display: none !important;
 }
 
 .selected {
