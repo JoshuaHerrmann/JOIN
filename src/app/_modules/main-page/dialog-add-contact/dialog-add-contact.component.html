@@ -15,8 +15,8 @@
             <div class="input"><input type="tel" placeholder="Phone" [(ngModel)]="contact.phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
-            <button class="cancel" matDialogClose=""><p>Cancel</p> <img src="" alt=""></button>
-            <button class="create" (click)="firebase.addContactToDB(contact.returnToJson())"><p>Create contact </p><img src="" alt=""></button>
+            <button class="cancel" mat-dialog-close><p>Cancel</p> <img src="" alt=""></button>
+            <button class="create" mat-dialog-close (click)="firebase.addContactToDB(contact.returnToJson())"><p>Create contact </p><img src="" alt=""></button>
         </div>
     </div>
     <div class="backBtn">
