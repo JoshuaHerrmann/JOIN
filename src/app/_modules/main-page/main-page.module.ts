@@ -32,7 +32,7 @@ import { DialogAddContactComponent } from './dialog-add-contact/dialog-add-conta
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
 import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
 import { LogoutButtonModule } from '../logout-button/logout-button.module';
-
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 
 
@@ -68,6 +68,7 @@ import { LogoutButtonModule } from '../logout-button/logout-button.module';
     MatInputModule,
     FormsModule,
     LogoutButtonModule,
+    DragDropModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()), 
   
