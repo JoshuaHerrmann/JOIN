@@ -14,6 +14,7 @@ import { FirebasedataService } from 'src/app/firebasedata/firebasedata.service';
 
 export class DialogBoardCardComponent implements OnInit {
 
+
   
 
   constructor(public dialog: MatDialog,public dialogRef: MatDialogRef<MainPageComponent>, @Inject(MAT_DIALOG_DATA) public data:any, public firebase:FirebasedataService) { 
@@ -60,7 +61,7 @@ export class DialogBoardCardComponent implements OnInit {
   task:Task;
 
   
-
+ 
   //
   assigneData(){
     this.task = new Task(this.data['task'])

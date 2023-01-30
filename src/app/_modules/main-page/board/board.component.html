@@ -13,7 +13,7 @@
             <div class=" columns">
                 <div class="addTask">
                     <p class="columnTitle">To do</p>
-                    <button (click)="openDialog('0ms', '0ms', 'todo')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    <button (click)="openDialog('todo')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
                 </div>
                 <div class="column">
                     <app-board-card *ngFor="let task of Tasks_todo" [taskdata]="task"></app-board-card>
@@ -22,7 +22,7 @@
             <div class=" columns">
                 <div class="addTask">
                     <p>In progress</p>
-                    <button (click)="openDialog('0ms', '0ms', 'progress')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    <button (click)="openDialog('progress')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
                 </div>
                 <div class="column">
                     <app-board-card *ngFor="let task of Tasks_progress" [taskdata]="task"></app-board-card>
@@ -31,7 +31,7 @@
             <div class=" columns">
                 <div class="addTask">
                     <p>Await feedback</p>
-                    <button (click)="openDialog('0ms', '0ms', 'feedback')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    <button (click)="openDialog('feedback')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
                 </div>
                 <div class="column">
                     <app-board-card *ngFor="let task of Tasks_feedback" [taskdata]="task"></app-board-card>
@@ -40,7 +40,7 @@
             <div class=" columns">
                 <div class="addTask">
                     <p>Done</p>
-                    <button (click)="openDialog('0ms', '0ms', 'done')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    <button (click)="openDialog('done')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
                 </div>
                 <div class="column">
                     <app-board-card *ngFor="let task of Tasks_done" [taskdata]="task"></app-board-card>

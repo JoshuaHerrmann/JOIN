@@ -27,14 +27,26 @@
             padding-right: 30px;
         }
     }
-    .signUp {
-        background-color: var(--bgMain);
-        border: none;
-        border-radius: 10px;
-        color: var(--bgWhite);
-        font-size: 24px;
-        padding: 10px;
-        cursor: pointer;
+    .commit {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100px;
+        .error {
+            color: red;
+            animation: 0.6s shake;
+        }
+        .signUp {
+            background-color: var(--bgMain);
+            border: none;
+            border-radius: 10px;
+            color: var(--bgWhite);
+            font-size: 24px;
+            padding: 10px;
+            cursor: pointer;
+            width: fit-content;
+        }
     }
     .back {
         position: absolute;

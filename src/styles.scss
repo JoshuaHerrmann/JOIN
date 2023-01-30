@@ -105,21 +105,15 @@ textarea {
 }
 
 @keyframes shake {
-    0% {
-        transform: skewX(-15deg);
-    }
-    5% {
-        transform: skewX(15deg);
-    }
+    0%,
     10% {
         transform: skewX(-15deg);
     }
+    5%,
     15% {
         transform: skewX(15deg);
     }
-    20% {
-        transform: skewX(0deg);
-    }
+    20%,
     100% {
         transform: skewX(0deg);
     }

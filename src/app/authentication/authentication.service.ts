@@ -41,7 +41,7 @@ export class AuthenticationService {
 
 
    contact = new Contact(
-    {email : 'testmail@test.de', firstname: 'Guest', lastname: 'Guest', phone: 919191919191919, uid: 'ot2eEvfgnnM6cTsIUoWwRuLIPPk2'}
+   // {email : 'testmail@test.de', firstname: 'Guest', lastname: 'Guest', phone: 919191919191919, uid: 'ot2eEvfgnnM6cTsIUoWwRuLIPPk2'}
    );
 
    loginWithEmailAndPassword(email:string, password:string){

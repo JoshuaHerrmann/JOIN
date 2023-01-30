@@ -5,6 +5,10 @@
     <div class="input"><input type="number" placeholder="Phone" [(ngModel)]="contact.phone"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
     <div class="input"><input type="text" placeholder="Email" [(ngModel)]="contact.email"><img src="assets/img/icons/iconemail.png" alt=""></div>
     <div class="input"><input type="text" placeholder="Password" [(ngModel)]="password"><img src="assets/img/icons/iconpassword.png" alt=""></div>
-    <button class="signUp" (click)="auth.signUpWithEmailAndPassword(contact.email, password, contact.returnToJson())">Sign up</button>
+    <div class="commit">
+        <p class="error" *ngIf="notfilled">Please fill out all missing fields!</p>
+        <p class="error" *ngIf="auth.failedLogin">Something went wrong. Please try again and check all fields.</p>
+        <button class="signUp" (click)="signUpAuth()">Sign up</button>
+    </div>
     <div class="back" routerLink="/login"><img src="assets/img/icons/arrow-left-line.png" alt=""></div>
 </div>
