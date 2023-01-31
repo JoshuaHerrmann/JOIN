@@ -19,6 +19,12 @@
     }
 }
 
+.userFeedbacks {
+    position: absolute;
+    bottom: 20px;
+    left: calc(50% - 200px);
+}
+
 app-header {
     z-index: 2;
 }

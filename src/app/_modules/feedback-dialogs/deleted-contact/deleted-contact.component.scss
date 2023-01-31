@@ -1,0 +1,40 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    width: 400px;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    p {
+        margin: 0;
+    }
+    animation: feedBackPopUp 2s ease-out;
+}
+
+.disappear {
+    animation: disappear 2s ease forwards;
+}
+
+.appear {
+    animation: feedBackPopUp 2s ease-out;
+}
+
+@keyframes feedBackPopUp {
+    0% {
+        transform: translateY(80px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

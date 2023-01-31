@@ -20,13 +20,15 @@ export class FirebasedataService {
   currentUserData$ = this.userData.asObservable()
   private detailView = new BehaviorSubject<boolean>(false)
   currentUserView$ = this.detailView.asObservable()
-  
+  private userFeedBack = new BehaviorSubject<string>('')
+  currentUserFeedBack$ = this.userFeedBack.asObservable()
 
   constructor(public firestore: AngularFirestore) {
     //console.log(localStorage.getItem('JOIN_uid'))
     localStorage.setItem('JOIN_uid', 'noid')
     //this.updateData()
-   }
+    
+  }
 
 
    updateUid(){
@@ -51,9 +53,10 @@ export class FirebasedataService {
   }
 
   
-   addTaskToDB(task:any){
+   addTaskToDB(task:any, alert:boolean = true){
     try{this.firestore.collection('userdata').doc(this.userid).collection('tasks').add(task).then(()=>{
       console.log('Succesfully added Task to DB!')
+      if(alert)this.updateUserFeedBack('createdTask')
      })}catch(e){
       console.log(e)
      }
@@ -63,7 +66,8 @@ export class FirebasedataService {
   updateTaskFromDB(task:any,taskid:string){
     try{
       this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc(taskid).delete();
-      this.addTaskToDB(task);
+      this.addTaskToDB(task,false);
+      this.updateUserFeedBack('updatedTask')
     }catch(e){
       console.log('Update Failed! Error:')
       console.error(e)
@@ -74,15 +78,17 @@ export class FirebasedataService {
    deleteTaskFromDB(taskid:string){
     try{
       this.firestore.collection('userdata').doc(this.userid).collection('tasks').doc(taskid).delete()
+      this.updateUserFeedBack('deletedTask')
     }catch(e){
       console.log('Update Failed! Error:')
       console.error(e)
     }
    }
 //contacts
-   addContactToDB(contact:any){
+   addContactToDB(contact:any, alert:boolean = true){
     this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc().set(contact).then(()=>{
       console.log('Succesfully created new Contact to DB!')
+      if(alert)this.updateUserFeedBack('createdContact')
     }).catch((e)=>{
       console.warn('Error', e)
     })
@@ -91,7 +97,8 @@ export class FirebasedataService {
    updateContactFromDB(contact:any, contactId:any){
     try{
       this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc(contactId).delete();
-      this.addContactToDB(contact);
+      this.addContactToDB(contact, false);
+      this.updateUserFeedBack('updatedContact')
     }catch(e){
       console.log('Update Failed! Error:')
       console.error(e)
@@ -105,5 +112,10 @@ export class FirebasedataService {
 
   updateDetailView(bool){
     this.detailView.next(bool)
+  }
+
+
+  updateUserFeedBack(info:string){
+    this.userFeedBack.next(info)
   }
 }

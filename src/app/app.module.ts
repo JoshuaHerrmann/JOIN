@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { LogoutButtonModule } from './_modules/logout-button/logout-button.module';
+
 @NgModule({
   declarations: [
     AppComponent,

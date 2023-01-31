@@ -33,6 +33,7 @@ import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.compon
 import { DialogEditContactComponent } from './dialog-edit-contact/dialog-edit-contact.component';
 import { LogoutButtonModule } from '../logout-button/logout-button.module';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { FeedbackDialogsModule } from '../feedback-dialogs/feedback-dialogs.module';
 
 
 
@@ -69,6 +70,7 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     FormsModule,
     LogoutButtonModule,
     DragDropModule,
+    FeedbackDialogsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()), 
   
