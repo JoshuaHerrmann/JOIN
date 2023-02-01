@@ -38,7 +38,7 @@
 .borderScroll {
     border-radius: 20px;
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(253, 68, 68);
+    border-bottom: 1px solid var(--bgMain);
 }
 
 html,
@@ -63,6 +63,10 @@ textarea {
     box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1) !important;
     width: 500px !important;
     min-height: 700px !important;
+}
+
+.mat-form-field-flex {
+    background-color: transparent !important;
 }
 
 .cdk-overlay-pane {

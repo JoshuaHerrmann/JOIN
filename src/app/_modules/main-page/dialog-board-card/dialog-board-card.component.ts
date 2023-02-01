@@ -78,7 +78,6 @@ export class DialogBoardCardComponent implements OnInit {
   editMode(){
     this.editing = true ? this.editing === false : this.editing = false;
     this.selectedPreEdit()
-    console.log(this.task)
   }
 
   selectedPreEdit(){
@@ -92,10 +91,18 @@ export class DialogBoardCardComponent implements OnInit {
   }
 
 
+  
   selecteContacts(contacts:any){
-    this.task.assignedTo = contacts; // ggf object erstellen je nach dem welche daten ich brauche
+    let assignements = []
+    contacts.forEach(contact=>{
+      this.contactList.forEach(contactInList=>{
+        if(contactInList['contactId'] == contact){
+          assignements.push(contactInList)
+        }
+      })
+    })
+    this.task.assignedTo = assignements; 
   }
-
 
   updateTaskDB(){
     if(this.task.priority === ''){
@@ -134,9 +141,5 @@ export class DialogBoardCardComponent implements OnInit {
     let last = this.task.assignedTo[index]['contact']['lastname'].split("", 1)
     return last + first
    }
-  ////////////
-  testtask(){
-    console.log(this.task.state)
-    
-  }
+
 }

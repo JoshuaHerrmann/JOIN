@@ -59,18 +59,25 @@ export class AddTaskComponent implements OnInit {
   assignedContacts$:Array<any>= [];
  
   addTaskToDB(){
-    this.checkForEmptyFields();
+    if(this.checkForEmptyFields()){
     this.allSubTasks.forEach(subtask => {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
     this.task.finishDate = this.date.getTime()
     this.firebase.addTaskToDB(this.task.toJson())
-  }
-
-  checkForEmptyFields(){
-    if(this.task.title === '' || this.task.category === '' || this.task.priority === '' || this.task.description === ''){
-       this.notCompleted = true
+    this.notCompleted = false;
     }
   }
+
+
+  checkForEmptyFields(){
+    if(this.task.title === '' || this.task.category === '' || this.task.priority === ''){
+       this.notCompleted = true
+       return false
+    }else{
+      return true
+    }
+  }
+ 
 
   addSubTask(){
     if(this.subtask === ''){ 
@@ -116,6 +123,4 @@ export class AddTaskComponent implements OnInit {
     this.contactListValue = undefined;
     this.categoryList = undefined;
   }
-// DEBUGG FUNCTION
-  logsub(){console.log(this.date)}
 }

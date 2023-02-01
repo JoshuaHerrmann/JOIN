@@ -24,22 +24,16 @@ export class FirebasedataService {
   currentUserFeedBack$ = this.userFeedBack.asObservable()
 
   constructor(public firestore: AngularFirestore) {
-    //console.log(localStorage.getItem('JOIN_uid'))
     localStorage.setItem('JOIN_uid', 'noid')
-    //this.updateData()
-    
   }
 
 
    updateUid(){
-    console.log('HETETETE', this.userid)
     this.userid = localStorage.getItem('JOIN_uid');
-    console.log('DANACH', this.userid)
    }
 
 
    updateData(){
-    console.log('update')
    if(this.userid == 'noid' || this.userid == '' || this.userid == undefined){
     console.log('No userdata available')
     this.userdata$ = this.firestore.collection('userdata').doc('noid').collection('tasks').valueChanges()
@@ -99,6 +93,17 @@ export class FirebasedataService {
       this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc(contactId).delete();
       this.addContactToDB(contact, false);
       this.updateUserFeedBack('updatedContact')
+    }catch(e){
+      console.log('Update Failed! Error:')
+      console.error(e)
+    }
+   }
+
+
+   deleteContactFromDB(contactId:string){
+    try{
+      this.firestore.collection('usercontacts').doc(this.userid).collection('contacts').doc(contactId).delete()
+      this.updateUserFeedBack('deletedContact')
     }catch(e){
       console.log('Update Failed! Error:')
       console.error(e)

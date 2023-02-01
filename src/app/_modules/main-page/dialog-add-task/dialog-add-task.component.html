@@ -1,6 +1,6 @@
 <div class="main">
     <div class="inputs">
-        <div class="title">
+        <div class="title" [ngClass]="{'failedTaskBorder':notCompleted}">
             <input type="text" name="" id="title" [(ngModel)]="task.title" placeholder="Enter a title">
         </div>
         <mat-form-field appearance="fill">
@@ -21,17 +21,20 @@
                 </mat-datepicker-actions>
             </mat-datepicker>
         </mat-form-field>
-        <mat-form-field appearance="fill">
-            <mat-label>Selecte Category</mat-label>
-            <mat-select (selectionChange)="selecteCategory($event.value)">
-                <mat-option *ngFor="let category of categoryList" [value]="category">
-                    {{category.viewValue}}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
+        <div class="categoryDiv" [ngClass]="{'failedTaskBorder':notCompleted}">
+            <mat-form-field appearance="fill">
+                <mat-label>Selecte Category</mat-label>
+                <mat-select (selectionChange)="selecteCategory($event.value)">
+                    <mat-option *ngFor="let category of categoryList" [value]="category">
+                        {{category.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
         <div class="priority">
-            <button (click)="priorityValue('urgent')" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button (click)="priorityValue('medium')" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
-            <button (click)="priorityValue('low')" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
+            <button [ngClass]="{'failedTaskBorder':notCompleted}" (click)="priorityValue('urgent')" [class.selected]="selectedPriority=='urgent'">Urgent <img src="assets/img/icons/Prio urgent.png" alt=""></button><button [ngClass]="{'failedTaskBorder':notCompleted}"
+                (click)="priorityValue('medium')" [class.selected]="selectedPriority=='medium'">Medium <img src="assets/img/icons/Prio medium.png" alt=""></button>
+            <button [ngClass]="{'failedTaskBorder':notCompleted}" (click)="priorityValue('low')" [class.selected]="selectedPriority=='low'">Low <img src="assets/img/icons/Prio low.png" alt=""></button>
         </div>
         <div class="description">
             <h4>Description</h4>
@@ -47,7 +50,7 @@
             <div class="taskList" id="taskList" [ngClass]="{'borderScroll':allSubTasks.length >= 3}">
                 <div class="singleTask" *ngFor="let subtask of allSubTasks, let i = index">
                     <input type="checkbox" [(ngModel)]="allSubTasks[i]['checked']">
-                    <p>{{ subtask.task }}</p> <button (click)="deleteSubtask(i)">x</button>
+                    <p>{{ subtask.task }}</p> <button (click)="deleteSubtask(i)"><mat-icon>close</mat-icon></button>
                 </div>
             </div>
         </div>

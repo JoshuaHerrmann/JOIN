@@ -31,7 +31,6 @@ export class ContactsComponent implements OnInit {
         })
       })
       this.filterUserlist()
-      console.log(this.userList)
     })
     firebase.currentUserData$.subscribe(data=>{
       this.userDetail = data;

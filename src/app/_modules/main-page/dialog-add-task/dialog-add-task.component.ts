@@ -20,7 +20,6 @@ export class DialogAddTaskComponent implements OnInit {
       if(typeof this.inputData == 'string'){
         this.task.state = this.inputData;
       }else{
-        console.log(this.inputData)
         this.preSelectedContact = this.inputData['contactId']
         this.contacts = new FormControl([this.preSelectedContact]) // has to be an array to pass into formcontrol, cuz the mat-selection is on multiple
         this.task.assignedTo = [this.inputData['contact']]
@@ -37,7 +36,6 @@ export class DialogAddTaskComponent implements OnInit {
             'contactId': data.payload.doc.id
           })
         })
-        console.log('Userlist', this.contactList)
       })
       this.currentPriority$.subscribe(value=>{
         this.selectedPriority = value;
@@ -58,6 +56,7 @@ export class DialogAddTaskComponent implements OnInit {
     selectedPriority:string;
 
     //
+    notCompleted:boolean = false;
     priority: string = 'none'
     subtask: string = ''
     date: Date;
@@ -72,17 +71,23 @@ export class DialogAddTaskComponent implements OnInit {
 
 
     addTaskToDB(){
-    if(this.task.priority === ''){
-      alert('Please add a priority! (Urgent, Medium, Low)');
-      return
+      if(this.checkForEmptyFields()){
+      this.allSubTasks.forEach(subtask => {
+        subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
+      this.task.finishDate = this.date.getTime()
+      this.firebase.addTaskToDB(this.task.toJson())
+      this.notCompleted = false;
+      this.dialogRef.close()
+      } 
     }
-    this.allSubTasks.forEach(subtask => {
-      subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
-    this.task.finishDate = this.date.getTime()
-    this.firebase.addTaskToDB(this.task.toJson())
-    this.dialogRef.close()
+    checkForEmptyFields(){
+      if(this.task.title === '' || this.task.category === '' || this.task.priority === ''){
+         this.notCompleted = true
+         return false
+      }else{
+        return true
+      }
     }
-  
     addSubTask(){
       if(this.subtask === ''){ 
         alert('Please enter a text to your Subtask!');
@@ -129,7 +134,6 @@ export class DialogAddTaskComponent implements OnInit {
       this.contactListValue = undefined;
       this.categoryList = undefined;
     }
-  // DEBUGG FUNCTION
-    logsub(){console.log(this.task)}
+
   }
 

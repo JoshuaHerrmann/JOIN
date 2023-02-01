@@ -27,7 +27,6 @@ export class ContactSingleComponent implements OnInit {
   }
 
   updateUserData(){
-    console.log(this.data)
     this.firebase.nextUserData(this.data)
     this.firebase.updateDetailView(true)
   }

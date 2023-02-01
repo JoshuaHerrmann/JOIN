@@ -67,6 +67,7 @@ export class AuthenticationService {
       localStorage.setItem('JOIN_uid', '')
       this.firebaserservice.nextUserData({})
       this.firebaserservice.updateDetailView(false)
+      this.firebaserservice.updateUserFeedBack('')
       this.router.navigateByUrl('/logout');
       this.failedLogin = false;
     })
@@ -110,7 +111,6 @@ export class AuthenticationService {
    }
 
    resetPasswortWithMail(email:string){
-    //console.log('HIER DIE MAIl',email)
     if(email !== undefined ){
       this.auth.sendPasswordResetEmail(email).then(()=>{
         this.router.navigateByUrl('/reset-send/')

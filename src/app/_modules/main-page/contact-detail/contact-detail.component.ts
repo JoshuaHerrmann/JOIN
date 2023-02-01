@@ -15,7 +15,6 @@ export class ContactDetailComponent implements OnInit {
   constructor(public dialog: MatDialog, public firebase: FirebasedataService) { }
 
   ngOnInit(): void {
-    console.log('update contact',this.data)
     this.firebase.currentUserData$.subscribe(data=>{
       this.rawContact = data['contact'];
     })

@@ -26,9 +26,7 @@ export class SummaryComponent implements OnInit {
 
 
   getUserData(){
-    
       this.firebase.userdata$.subscribe((dataDB)=>{
-        console.log('sub')
         this.userData = [];
         dataDB.forEach(data => {
           this.userData.push({
@@ -37,7 +35,6 @@ export class SummaryComponent implements OnInit {
           })
         })
       this.filterData()
-      console.log(this.userData) // remove when finished
     })
   }
 

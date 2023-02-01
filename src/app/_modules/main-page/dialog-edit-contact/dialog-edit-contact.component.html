@@ -15,11 +15,11 @@
             <div class="input"><input type="tel" placeholder="Phone" [(ngModel)]="currentContact['phone']"><img src="assets/img/icons/Vectorphone.png" alt=""></div>
         </div>
         <div class="buttons">
-            <button class="delete CP">Delete</button>
-            <button class="save CP" (click)="updateContactDB()">Save<img src="" alt=""></button>
+            <button class="delete CP" (click)="firebase.deleteContactFromDB(this.data['contactId'])" matDialogClose>Delete</button>
+            <button class="save CP " (click)="updateContactDB() ">Save</button>
         </div>
     </div>
-    <div class="backBtn">
+    <div class="backBtn ">
 
     </div>
 </div>

@@ -30,8 +30,6 @@ export class BoardComponent implements OnInit {
         })
       })
       this.filterTaskState()
-      //console.log('allUserTasks in board',this.allUsersTasks)
-      //console.table([this.Tasks_todo, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done])
     })
    }
 
@@ -54,15 +52,14 @@ export class BoardComponent implements OnInit {
   filterTaskStateSearch(mappedArray){
     this.resetArrays()
     mappedArray.forEach(task => {
-      if(task){
-        task.state === 'todo'? this.Tasks_todo.push(task):
-        task.state === 'progress'? this.Tasks_progress.push(task):
-        task.state === 'feedback'? this.Tasks_feedback.push(task):
-        task.state === 'done'? this.Tasks_done.push(task): null;  
+      if(task != 'undefined'){
+        task['task'].state === 'todo'? this.Tasks_todo.push(task):
+        task['task'].state === 'progress'? this.Tasks_progress.push(task):
+        task['task'].state === 'feedback'? this.Tasks_feedback.push(task):
+        task['task'].state === 'done'? this.Tasks_done.push(task): null;  
       }else{
         return
       }
-      
     });
   }
   resetArrays(){
@@ -99,17 +96,15 @@ export class BoardComponent implements OnInit {
   searchTask(){
     let map =
     this.allUsersTasks.map(task =>{
-      if(task['title'].toLocaleUpperCase().startsWith(this.searchField.toLocaleUpperCase())){
+      if(task['task']['title'].toLocaleUpperCase().startsWith(this.searchField.toLocaleUpperCase())){
         return task
       }else{
-        return null
+        return 'undefined'
       }
     })
     this.filterTaskStateSearch(map)
   }
 
 
-  logfunc(){
-    console.log('filtertasks in board',this.Tasks_done, this.Tasks_feedback,this.Tasks_progress,this.Tasks_done)
-  }
+ 
 }
