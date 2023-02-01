@@ -127,6 +127,7 @@ export class DialogAddTaskComponent implements OnInit {
 
 
     clearAll(){
+      this.notCompleted = false;
       this.task = new Task();
       this.priority$.next('none');
       this.allSubTasks = [];

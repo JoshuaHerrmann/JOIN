@@ -123,11 +123,11 @@
             display: none;
         }
         .greeting {
-            margin-top: 20px;
+            margin-top: 10px;
             text-align: center;
             height: fit-content;
             h2 {
-                font-size: 38px;
+                font-size: 30px;
                 margin-bottom: 0;
             }
         }
@@ -136,20 +136,46 @@
             .task {
                 flex-direction: row;
                 align-items: center;
-                .taskTop {
-                    align-items: center;
-                    h3 {
-                        margin: 0;
-                    }
-                }
             }
             .taskBig {
-                flex-direction: column;
                 width: 85%;
-                .urgent {
-                    border: none;
-                    #urgent {
-                        margin-bottom: 5px;
+                height: 180px;
+                justify-content: inherit;
+                .urgentPart {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0;
+                    padding-right: 5px;
+                    height: 100%;
+                    justify-content: space-evenly;
+                    .taskTop {
+                        align-items: center;
+                        height: 70px;
+                        h3 {
+                            margin: 0;
+                            margin-left: 5px;
+                        }
+                        p {
+                            margin: 0;
+                        }
+                        #urgent {
+                            width: 65px;
+                            height: 65px;
+                            margin: 0;
+                        }
+                    }
+                }
+                .date {
+                    padding: 0;
+                    padding-left: 5px;
+                    height: 100%;
+                    justify-content: space-evenly;
+                    h1 {
+                        display: flex;
+                        align-items: center;
+                        height: 70px;
+                        font-size: 30px;
+                        margin: 0;
                     }
                 }
             }
@@ -157,7 +183,12 @@
         .task {
             width: calc(45% - 40px);
             padding: 5px 20px;
-            min-height: fit-content !important;
+            min-height: fit-content;
+            justify-content: space-around;
+            p {
+                margin: 0;
+                line-height: normal;
+            }
         }
         .bottomPart {
             flex-direction: row;

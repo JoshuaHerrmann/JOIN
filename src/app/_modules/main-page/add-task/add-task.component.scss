@@ -46,9 +46,8 @@
             flex-direction: column;
             width: 100%;
             textarea {
-                border-bottom-left-radius: 5px;
-                border-bottom-right-radius: 5px;
-                border-top-right-radius: 5px;
+                border-radius: 0 5px 5px 5px;
+                padding: 5px;
                 &:focus {
                     outline-color: var(--borderGrey);
                 }
@@ -208,15 +207,41 @@ button {
         align-items: center;
         .inputs {
             width: 90%;
+            height: calc(100% - 50px);
+            justify-content: space-between;
+            .priority {
+                button {
+                    font-size: 16px;
+                }
+            }
+            .description {
+                h4 {
+                    margin-bottom: 5px;
+                }
+                textarea {
+                    height: 100px;
+                }
+            }
             .subtasks {
                 display: none;
             }
         }
-        .buttons {
-            margin-top: 20px;
-            width: 90%;
-            button {
-                width: fit-content !important;
+        .rightPart {
+            height: 75px;
+            width: 100%;
+            min-height: 0;
+            margin: 10px 0;
+            align-items: center;
+            .failedTask {
+                margin-bottom: 10px;
+            }
+            .buttons {
+                margin: 0;
+                width: 90%;
+                button {
+                    width: fit-content;
+                    padding: 8px 10px;
+                }
             }
         }
         mat-form-field {
