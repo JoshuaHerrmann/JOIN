@@ -2,15 +2,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: red;
-    width: 400px;
+    background-color: var(--bgMain);
+    width: 300px;
     padding: 15px;
     position: absolute;
     bottom: 0;
+    border-radius: 10px;
     p {
         margin: 0;
+        color: var(--bgWhite);
     }
-    animation: feedBackPopUp 2s ease-out;
 }
 
 .disappear {
@@ -25,7 +26,7 @@
     0% {
         transform: translateY(80px);
     }
-    50% {
+    100% {
         transform: translateY(0);
     }
 }
