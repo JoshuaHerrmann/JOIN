@@ -117,7 +117,7 @@
 
 @media (max-width:480px) {
     .main {
-        height: calc(100vh - 161px);
+        height: calc(100vh - 150px);
         overflow-y: scroll;
         &::-webkit-scrollbar {
             display: none;
@@ -181,7 +181,7 @@
             }
         }
         .task {
-            width: calc(45% - 40px);
+            width: calc(45% - 60px);
             padding: 5px 20px;
             min-height: fit-content;
             justify-content: space-around;
