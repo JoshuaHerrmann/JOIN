@@ -1,12 +1,14 @@
 .main {
     display: flex;
     flex-direction: column;
+    max-height: calc(100vh - 80px);
     .greeting {
         display: flex;
         justify-content: center;
-        margin-top: 80px;
+        margin-top: clamp(10px, 3vw, 40px);
         h2 {
-            font-size: 48px;
+            font-size: clamp(28px, 4vw, 48px);
+            text-align: center;
         }
         mark {
             background-color: transparent;
@@ -15,6 +17,7 @@
     }
     .topPart {
         display: flex;
+        //flex-wrap: wrap;
         flex-direction: row;
         justify-content: center;
         align-items: center;
@@ -24,25 +27,32 @@
             width: 75%;
             color: var(--bgWhite);
             flex-direction: row;
-            justify-content: space-evenly;
+            justify-content: space-between;
             align-items: center;
             .urgentPart {
-                padding-left: 40px;
-                padding-right: 40px;
+                width: calc(50% - min(2%, 40px));
+                padding-left: min(2%, 40px);
+                padding-right: min(2%, 40px);
                 border-right: 2px solid var(--bgWhite);
                 #urgent {
-                    margin-bottom: 40px;
+                    margin-bottom: min(5%, 40px);
                     border: 2px solid var(--bgWhite);
                     border-radius: 100%;
+                    width: clamp(20px, 6vw, 80px);
+                    height: auto;
                 }
             }
             .date {
+                width: calc(50% - min(2%, 40px));
                 flex-direction: column;
-                padding-left: 40px;
-                padding-right: 40px;
+                justify-content: space-evenly;
+                padding-left: min(2%, 40px);
+                padding-right: min(2%, 40px);
                 h1 {
-                    font-size: 48px;
-                    margin-bottom: 20px;
+                    font-size: clamp(16px, 3vw, 44px);
+                    height: clamp(16px, 3vw, 44px);
+                    line-height: clamp(16px, 3vw, 44px);
+                    // margin-bottom: 20px;
                 }
             }
             p {
@@ -53,15 +63,16 @@
     .bottomPart {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
     }
     .task {
-        width: 25%;
-        margin: 10px;
+        width: clamp(100px, calc(25% - 100px), calc(25% - 100px));
+        margin: min(3%, 10px);
         padding: 20px;
-        padding-left: 40px;
-        padding-right: 40px;
+        padding-left: min(3%, 40px);
+        padding-right: min(3%, 40px);
         min-height: 200px;
         display: flex;
         flex-direction: column;
@@ -74,11 +85,16 @@
             align-items: center;
             justify-content: space-evenly;
             h3 {
-                font-size: 28px;
+                font-size: clamp(16px, 3vw, 44px);
+                height: clamp(16px, 3vw, 44px);
+                line-height: clamp(16px, 3vw, 44px);
+            }
+            img {
+                width: clamp(18px, 6vw, 76px);
             }
         }
         p {
-            font-size: 24px;
+            font-size: clamp(12px, 3vw, 24px);
             color: var(--bgMain);
             text-align: center;
         }
@@ -103,14 +119,19 @@
 
 @media (max-width:1300px) {
     .main {
-        .greeting {
-            margin-top: 20px;
-        }
         .task {
             min-height: fit-content !important;
             h3 {
                 margin: 0;
             }
+        }
+    }
+}
+
+@media (max-width:770px) {
+    .main {
+        .topPart {
+            flex-wrap: wrap;
         }
     }
 }
@@ -180,19 +201,17 @@
                 }
             }
         }
-        .task {
-            width: calc(45% - 60px);
-            padding: 5px 20px;
-            min-height: fit-content;
-            justify-content: space-around;
-            p {
-                margin: 0;
-                line-height: normal;
-            }
-        }
         .bottomPart {
-            flex-direction: row;
-            flex-wrap: wrap;
+            .task {
+                width: calc(45% - 60px);
+                padding: 5px 20px;
+                min-height: fit-content;
+                justify-content: space-around;
+                p {
+                    margin: 0;
+                    line-height: normal;
+                }
+            }
         }
     }
     .lightblue {

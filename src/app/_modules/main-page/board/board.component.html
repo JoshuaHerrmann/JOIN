@@ -10,42 +10,47 @@
     </div>
     <div class="board">
         <div class="taskColumns">
-            <div class=" columns">
-                <div class="addTask">
-                    <p class="columnTitle">To do</p>
-                    <button (click)="openDialog('todo')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+            <div class="doubleColumn">
+                <div class=" columns">
+                    <div class="addTask">
+                        <p class="columnTitle">To do</p>
+                        <button (click)="openDialog('todo')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    </div>
+                    <div class="column" cdkDropList #todoList="cdkDropList" id="todo" [cdkDropListData]="Tasks_todo" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
+                        <app-board-card *ngFor="let task of Tasks_todo" [taskdata]="task" cdkDrag></app-board-card>
+                    </div>
                 </div>
-                <div class="column" cdkDropList #todoList="cdkDropList" id="todo" [cdkDropListData]="Tasks_todo" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
-                    <app-board-card *ngFor="let task of Tasks_todo" [taskdata]="task" cdkDrag></app-board-card>
-                </div>
-            </div>
-            <div class=" columns">
-                <div class="addTask">
-                    <p>In progress</p>
-                    <button (click)="openDialog('progress')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
-                </div>
-                <div class="column" cdkDropList #progressList="cdkDropList" id="progress" [cdkDropListData]="Tasks_progress" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
-                    <app-board-card *ngFor="let task of Tasks_progress" [taskdata]="task" cdkDrag></app-board-card>
-                </div>
-            </div>
-            <div class=" columns">
-                <div class="addTask">
-                    <p>Await feedback</p>
-                    <button (click)="openDialog('feedback')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
-                </div>
-                <div class="column" cdkDropList #feedbackList="cdkDropList" id="feedback" [cdkDropListData]="Tasks_feedback" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
-                    <app-board-card *ngFor="let task of Tasks_feedback" [taskdata]="task" cdkDrag></app-board-card>
+                <div class=" columns">
+                    <div class="addTask">
+                        <p>In progress</p>
+                        <button (click)="openDialog('progress')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    </div>
+                    <div class="column" cdkDropList #progressList="cdkDropList" id="progress" [cdkDropListData]="Tasks_progress" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
+                        <app-board-card *ngFor="let task of Tasks_progress" [taskdata]="task" cdkDrag></app-board-card>
+                    </div>
                 </div>
             </div>
-            <div class=" columns">
-                <div class="addTask">
-                    <p>Done</p>
-                    <button (click)="openDialog('done')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+            <div class="doubleColumn">
+                <div class=" columns">
+                    <div class="addTask">
+                        <p>Await feedback</p>
+                        <button (click)="openDialog('feedback')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    </div>
+                    <div class="column" cdkDropList #feedbackList="cdkDropList" id="feedback" [cdkDropListData]="Tasks_feedback" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
+                        <app-board-card *ngFor="let task of Tasks_feedback" [taskdata]="task" cdkDrag></app-board-card>
+                    </div>
                 </div>
-                <div class="column" cdkDropList #doneList="cdkDropList" id="done" [cdkDropListData]="Tasks_done" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
-                    <app-board-card *ngFor="let task of Tasks_done" [taskdata]="task" cdkDrag></app-board-card>
+                <div class=" columns">
+                    <div class="addTask">
+                        <p>Done</p>
+                        <button (click)="openDialog('done')"><img src="assets/img/icons/plus button v1.png" alt=""></button>
+                    </div>
+                    <div class="column" cdkDropList #doneList="cdkDropList" id="done" [cdkDropListData]="Tasks_done" [cdkDropListConnectedTo]="[todoList, progressList, feedbackList, doneList]" (cdkDropListDropped)="drop($event)">
+                        <app-board-card *ngFor="let task of Tasks_done" [taskdata]="task" cdkDrag></app-board-card>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
