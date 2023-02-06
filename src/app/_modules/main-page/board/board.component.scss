@@ -1,6 +1,7 @@
 .main {
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 80px);
     .nav {
         margin-top: 20px;
         margin-bottom: 30px;
@@ -50,6 +51,10 @@
         flex-direction: column;
         min-height: 650px;
         height: fit-content;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         .taskColumns {
             display: flex;
             flex-wrap: wrap;
@@ -62,12 +67,12 @@
                 justify-content: space-evenly;
                 height: fit-content;
                 flex-wrap: wrap;
-                width: 40%;
-                min-width: fit-content;
+                width: 50%;
+                min-width: 335px;
             }
             .columns {
                 width: 40%;
-                min-width: 250px;
+                min-width: 325px;
                 height: fit-content;
                 margin-bottom: 10px;
                 display: flex;
@@ -122,7 +127,6 @@
                 }
             }
         }
-        .board {}
         .taskColumns {
             height: 350px;
         }

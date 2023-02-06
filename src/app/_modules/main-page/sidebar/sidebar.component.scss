@@ -7,33 +7,34 @@
         padding: 5px;
         box-shadow: 5px 0px 2px -3px rgba(0, 0, 0, 0.2);
         height: calc(100vh - 90px);
-        min-width: 180px;
+        min-width: 85px;
+        width: 170px;
         .nav {
             padding-top: 50px;
-            width: calc(100% - 15px);
+            width: calc(100%);
             display: flex;
             flex-direction: column;
-            a {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                cursor: pointer;
-                text-decoration: none;
-                color: var(--fontGrey);
-                mat-icon,
-                img {
-                    margin-right: 10px;
-                    color: var(--bgMain);
-                }
-            }
+            align-items: center;
             .link {
                 background-color: white;
                 padding: 5px;
                 margin-bottom: 5px;
                 margin-top: 5px;
                 width: calc(100% - 10px);
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--fontGrey);
                 img {
                     padding-left: 10px;
+                    color: var(--bgMain);
+                    margin-right: 10px;
+                }
+                mat-icon {
+                    color: var(--bgMain);
+                    margin-right: 10px;
                 }
                 p {
                     font-size: 16px;
@@ -42,6 +43,12 @@
                 }
             }
             .legalNotice {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                cursor: pointer;
+                text-decoration: none;
+                color: var(--fontGrey);
                 padding: 5px;
                 img {
                     margin-right: 0;
@@ -68,8 +75,43 @@
     
     @media(max-width:1300px) {
         .main {
+            width: 150px;
             .legaldiv {
                 padding-top: 40px;
+            }
+        }
+    }
+    
+    @media(max-width:900px) {
+        .main {
+            width: 75px;
+            .nav {
+                width: fit-content;
+                .link {
+                    justify-content: center;
+                    flex-direction: column;
+                    img {
+                        padding: 0;
+                        margin: 0;
+                    }
+                    p {
+                        padding: 0;
+                        text-align: center;
+                        font-size: 12px;
+                    }
+                }
+                .legalNotice {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    p {
+                        padding: 0;
+                        text-align: center;
+                        width: 80%;
+                        font-size: 12px;
+                    }
+                }
             }
         }
     }

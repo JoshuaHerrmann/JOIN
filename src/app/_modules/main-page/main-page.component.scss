@@ -1,6 +1,7 @@
 .main {
     display: flex;
     position: relative;
+    width: 100vw;
     app-sidebar {
         z-index: 1;
     }
@@ -33,7 +34,7 @@ app-header {
         height: calc(100vh - 80px);
         .content {
             padding: 0 20px;
-            min-width: calc(100vw - 230px);
+            min-width: calc(100vw - 200px);
             max-width: calc(100vw - 230px);
         }
         app-logout-button {
@@ -41,6 +42,15 @@ app-header {
             &:hover {
                 opacity: 1;
             }
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .main {
+        .content {
+            padding: 0;
+            min-width: calc(100vw - 95px);
         }
     }
 }

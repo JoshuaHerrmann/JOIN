@@ -1,7 +1,8 @@
 .main {
     height: 100%;
-    width: 100%;
+    width: calc(100% - 120px);
     padding-left: 60px;
+    padding-right: 60px;
     padding-top: 60px;
     .headInfo {
         display: flex;
@@ -15,21 +16,22 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-width: 80px;
-            min-height: 80px;
+            min-width: clamp(50px, 7vw, 80px);
+            min-height: clamp(50px, 7vw, 80px);
             margin-right: 80px;
             color: var(--bgWhite);
-            font-size: 32px;
+            font-size: clamp(16px, 2vw, 32px);
         }
         .name {
             h1 {
-                font-size: 54px;
+                font-size: clamp(28px, 4vw, 44px);
+                line-height: normal;
             }
             .addTask {
                 display: flex;
                 align-items: center;
                 color: var(--bgMain);
-                font-size: 26px;
+                font-size: clamp(16px, 4vw, 26px);
             }
         }
     }
@@ -65,6 +67,27 @@
         p {
             font-size: 20px;
             padding-left: 20px;
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .main {
+        padding-left: 20px;
+        padding-right: 20px;
+        width: calc(100% - 40px);
+        .headInfo {
+            flex-direction: column;
+            align-items: start;
+            .profil {
+                margin-right: 0;
+                min-width: clamp(50px, 8vw, 80px);
+                min-height: clamp(50px, 8vw, 80px);
+            }
+        }
+        .contactInfo {
+            flex-direction: column;
+            align-items: start !important;
         }
     }
 }

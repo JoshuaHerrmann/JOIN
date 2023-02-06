@@ -43,6 +43,22 @@
     }
 }
 
+@media (max-width:1300px) {
+    .main {
+        .tools {
+            width: 40%;
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .main {
+        .tools {
+            width: 70%;
+        }
+    }
+}
+
 @media (max-width:480px) {
     .main {
         padding-left: 20px;

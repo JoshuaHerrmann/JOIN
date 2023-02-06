@@ -1,8 +1,11 @@
 .main {
     width: 100%;
     display: flex;
+    min-height: 500px;
+    height: 100%;
     .contacts {
         width: calc(25% - 70px);
+        min-width: fit-content;
         overflow-y: scroll;
         overflow-x: hidden;
         height: calc(100vh - 130px);
@@ -29,10 +32,10 @@
         }
     }
     .rightSide {
-        width: 70%;
+        width: 75%;
         position: relative;
         .contact-detail {
-            width: 70%;
+            width: 100%;
             height: 85%;
         }
         button {
@@ -44,7 +47,7 @@
             display: flex;
             align-items: center;
             right: 0;
-            bottom: 50px;
+            bottom: 10%;
             position: absolute;
             cursor: pointer;
             font-size: 18px;
@@ -54,11 +57,42 @@
 
 @media (max-width:1300px) {
     .main {
-        height: 500px;
+        // height: 500px;
         .contacts {
-            padding-right: 30px;
+            padding-right: 20px;
             padding-top: 20px;
             height: calc(100% - 20px);
+            min-width: 270px;
+        }
+        .rightSide {
+            width: calc(100% - 291px);
+            button {
+                right: 50px;
+            }
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .main {
+        .contacts {
+            width: auto;
+            padding-right: 10px;
+            padding-left: 10px;
+            min-width: 95px;
+            .contactsByLetter {
+                .contactSingle {
+                    .letterLine {
+                        p {
+                            padding: 0;
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+        .rightSide {
+            width: calc(100% - 116px);
         }
     }
 }

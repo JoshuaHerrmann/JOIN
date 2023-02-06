@@ -3,13 +3,12 @@
     align-items: center;
     justify-content: start;
     padding: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
     // background-color: var(--bgGrey);
     border-radius: 10px;
     margin: 10px;
     min-height: 85px;
     min-width: calc(245px - 80px);
+    width: calc(100% - 40px);
     &:hover {
         cursor: pointer;
     }
@@ -33,6 +32,20 @@
         a {
             color: var(--bgMain);
             text-decoration: none;
+        }
+    }
+}
+
+@media (max-width:900px) {
+    .main {
+        width: 50px;
+        min-width: auto;
+        min-height: fit-content;
+        .profil {
+            margin: 0;
+        }
+        .infos {
+            display: none;
         }
     }
 }
