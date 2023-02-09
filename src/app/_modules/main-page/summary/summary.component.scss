@@ -120,7 +120,7 @@
 @media (max-width:1300px) {
     .main {
         .task {
-            min-height: fit-content !important;
+            min-height: 80px;
             h3 {
                 margin: 0;
             }
@@ -132,6 +132,11 @@
     .main {
         .topPart {
             flex-wrap: wrap;
+        }
+        .task {
+            p {
+                margin: 0;
+            }
         }
     }
 }

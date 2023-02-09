@@ -62,9 +62,10 @@ export class AddTaskComponent implements OnInit {
     if(this.checkForEmptyFields()){
     this.allSubTasks.forEach(subtask => {
       subtask.checked === true?this.task.subtasks.push(subtask.task):null;});
-    this.task.finishDate = this.date.getTime()
+    if(this.date != null) this.task.finishDate = this.date.getTime()
     this.firebase.addTaskToDB(this.task.toJson())
     this.notCompleted = false;
+    this.clearAll()
     }
   }
 
