@@ -85,16 +85,16 @@
             align-items: center;
             justify-content: space-evenly;
             h3 {
-                font-size: clamp(16px, 3vw, 44px);
-                height: clamp(16px, 3vw, 44px);
-                line-height: clamp(16px, 3vw, 44px);
+                font-size: clamp(16px, 4vw, 44px);
+                height: clamp(16px, 4vw, 44px);
+                line-height: clamp(16px, 4vw, 44px);
             }
             img {
-                width: clamp(18px, 6vw, 76px);
+                width: clamp(18px, 8vw, 76px);
             }
         }
         p {
-            font-size: clamp(12px, 3vw, 24px);
+            font-size: clamp(12px, 4vw, 24px);
             color: var(--bgMain);
             text-align: center;
         }
