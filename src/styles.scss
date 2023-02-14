@@ -73,6 +73,13 @@ textarea {
     width: auto !important;
 }
 
+@media (max-width:480px) {
+    .cdk-overlay-pane {
+        min-width: 90vw !important;
+    }
+}
+
+//
 .Design {
     background-color: var(--design);
 }

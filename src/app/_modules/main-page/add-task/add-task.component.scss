@@ -125,7 +125,6 @@
         flex-direction: column;
         justify-content: end;
         width: 50%;
-        padding-left: 5%;
         padding-right: 5%;
         min-height: 100%;
         .failedTask {
@@ -148,7 +147,7 @@
                 min-width: fit-content;
                 justify-content: center;
                 gap: 5px;
-                font-size: clamp(12px, 5vw, 18px);
+                font-size: clamp(12px, 3.5vw, 18px);
             }
             #task {
                 border: none;
@@ -193,7 +192,6 @@ button {
 @media (max-width:1300px) {
     .main {
         height: 500px;
-        .inputs {}
         .description {
             textarea {
                 height: 50px;
@@ -208,7 +206,7 @@ button {
 @media (max-width: 900px) {
     .main {
         .inputs {
-            width: 60%;
+            width: 65%;
             .priority {
                 button {
                     flex-direction: column-reverse;
@@ -218,7 +216,7 @@ button {
             }
         }
         .rightPart {
-            justify-content: center;
+            justify-content: flex-end;
             width: 20%;
             .buttons {
                 flex-direction: column;
@@ -226,6 +224,7 @@ button {
                 margin: 0;
                 button {
                     margin: 20px 0;
+                    width: 100%;
                     flex-direction: column-reverse;
                 }
             }
@@ -235,61 +234,6 @@ button {
                 font-size: 16px;
                 line-height: normal;
             }
-        }
-    }
-}
-
-@media (max-width:480px) {
-    .main {
-        height: calc(100vh - 161px);
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-        .inputs {
-            width: 90%;
-            height: calc(100% - 50px);
-            justify-content: space-between;
-            .priority {
-                button {
-                    font-size: 16px;
-                }
-            }
-            .description {
-                h4 {
-                    margin-bottom: 5px;
-                }
-                textarea {
-                    height: 100px;
-                }
-            }
-            .subtasks {
-                display: none;
-            }
-        }
-        .rightPart {
-            height: 75px;
-            width: 100%;
-            min-height: 0;
-            margin: 10px 0;
-            align-items: center;
-            .failedTask {
-                margin-bottom: 10px;
-                font-size: 16px;
-            }
-            .buttons {
-                margin: 0;
-                width: 90%;
-                button {
-                    width: fit-content;
-                    padding: 8px 10px;
-                }
-            }
-        }
-        mat-form-field {
-            margin: 10px 0;
-        }
-        .description {
-            margin: 10px 0;
         }
     }
 }

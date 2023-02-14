@@ -100,20 +100,14 @@
 
 @media (max-width:480px) {
     .main {
-        height: calc(100vh - 161px);
-        align-items: center;
-        justify-content: center;
-        .rightSide {
-            display: none;
-        }
         .contacts {
-            width: 90%;
-            padding: 0;
-            height: 100%;
-            overflow-y: scroll;
-            border: none;
-            &::-webkit-scrollbar {
-                display: none;
+            min-width: fit-content;
+        }
+        .rightSide {
+            width: calc(100% - 91px);
+            button {
+                right: 65px;
+                bottom: 20px;
             }
         }
     }

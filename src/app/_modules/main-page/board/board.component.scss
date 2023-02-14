@@ -35,7 +35,7 @@
                 background-color: var(--bgMain);
                 color: var(--bgWhite);
                 border: none;
-                font-size: min(3vw, 18px);
+                font-size: min(4vw, 18px);
                 padding: min(10%, 10px);
                 cursor: pointer;
                 width: clamp(80px, 120px, 150px);
@@ -130,45 +130,6 @@
         }
         .taskColumns {
             height: 350px;
-        }
-    }
-}
-
-@media (max-width:480px) {
-    .main {
-        .nav {
-            margin-bottom: 20px;
-            width: 90% !important;
-            .addTask {
-                button {
-                    font-size: 16px;
-                }
-            }
-        }
-        .board {
-            align-items: center;
-            height: fit-content;
-            flex-direction: column;
-            .taskColumns {
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start !important;
-                overflow-y: scroll;
-                height: 600px;
-                &::-webkit-scrollbar {
-                    display: none;
-                }
-                .columns {
-                    width: 90% !important;
-                    align-items: center;
-                    justify-content: flex-start;
-                    display: flex;
-                    flex-direction: column;
-                    .addTask {
-                        margin-top: 10px;
-                    }
-                }
-            }
         }
     }
 }

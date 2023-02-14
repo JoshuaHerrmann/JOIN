@@ -38,7 +38,7 @@
                     margin-bottom: min(5%, 40px);
                     border: 2px solid var(--bgWhite);
                     border-radius: 100%;
-                    width: clamp(20px, 6vw, 80px);
+                    width: clamp(20px, 12vw, 80px);
                     height: auto;
                 }
             }
@@ -85,16 +85,16 @@
             align-items: center;
             justify-content: space-evenly;
             h3 {
-                font-size: clamp(16px, 4vw, 44px);
-                height: clamp(16px, 4vw, 44px);
-                line-height: clamp(16px, 4vw, 44px);
+                font-size: clamp(16px, 5vw, 44px);
+                height: clamp(16px, 5vw, 44px);
+                line-height: clamp(16px, 5vw, 44px);
             }
             img {
-                width: clamp(18px, 8vw, 76px);
+                width: clamp(18px, 12vw, 76px);
             }
         }
         p {
-            font-size: clamp(12px, 4vw, 24px);
+            font-size: clamp(12px, 5vw, 24px);
             color: var(--bgMain);
             text-align: center;
         }
@@ -182,11 +182,6 @@
                             margin-left: 5px;
                         }
                         p {
-                            margin: 0;
-                        }
-                        #urgent {
-                            width: 65px;
-                            height: 65px;
                             margin: 0;
                         }
                     }
